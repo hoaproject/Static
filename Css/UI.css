@@ -96,6 +96,7 @@ nav {
     nav a.source { background: url('../Image/Icon_package.svg') 8px 6px no-repeat; }
     nav a.literature { background: url('../Image/Icon_literature.svg') 8px 6px no-repeat; }
     nav a.video { background: url('../Image/Icon_video.svg') 8px 6px no-repeat; }
+    nav a.blog { background: url('../Image/Icon_blog.svg') 8px 6px no-repeat; }
     nav a.community { background: url('../Image/Icon_community.svg') 8px 6px no-repeat; }
     nav a.about { background: url('../Image/Icon_about.svg') 8px 6px no-repeat; }
     nav a.contact { background: url('../Image/Icon_contact.svg') 8px 6px no-repeat; }
