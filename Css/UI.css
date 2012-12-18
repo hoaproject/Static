@@ -639,18 +639,18 @@ pre {
         position: absolute;
         left: 0;
         right: 0;
-        margin-top: .5em;
-        padding: .5em 0;
+        margin-top: .9em;
+        padding: .2em 0;
         pointer-events: none;
         line-height: 1.55em;
-        background: hsla(24, 20%, 50%, .1);
+        background: hsla(24, 20%, 50%, .15);
     }
 
     .line-highlight::before,
     .line-highlight[data-end]::after {
         content: attr(data-start);
         position: absolute;
-        top: .7em;
+        top: .35em;
         left: .5em;
         width: 2.7em;
         height: 1.8em;
@@ -665,7 +665,7 @@ pre {
     .line-highlight[data-end]::after {
         content: attr(data-end);
         top: auto;
-        bottom: .7em;
+        bottom: .35em;
     }
 
 [data-checkpoint].sticky {
