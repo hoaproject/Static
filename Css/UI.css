@@ -798,20 +798,17 @@ pre {
 }
 
 .schema {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: auto;
-    z-index: 41;
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
 
-.schema > div {
-    margin: 0 auto 0 50%;
-}
-
-.schema > div > svg {
-    margin-left: -50%;
+.schema > svg {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    max-height: 800px;
+    margin: 0 auto;
 }
 
 .download-box {
