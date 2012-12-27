@@ -366,16 +366,9 @@ Hoa.Graph = (Hoa.Graph || function ( __document__, __width__, __height__ ) {
     var svg = new Element('svg');
     svg.attr({
         version: '1.1',
-        width  :  __width__,
-        height : __height__
+        viewBox: '0 0 ' + __width__ + ' ' + __height__
     });
     __document__.appendChild(svg.node);
-
-    if(0 !== __width__ && 0 !== __height__) {
-
-        __document__.style.width  = __width__ + 'px';
-        __document__.style.height = __height__ + 'px';
-    }
 
     this.svg = svg;
 
