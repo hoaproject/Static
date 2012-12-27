@@ -32,6 +32,7 @@ body {
     color: #341d44;
     font: 1.1em/1.4em Text;
     text-align: justify;
+    hyphens: auto;
     -moz-hyphens: auto;
 
     overflow-x: hidden;
@@ -92,14 +93,14 @@ nav {
         text-shadow: 0 0 3px #c3fffd;
     }
 
-    nav a.home { background: url('../Image/Icon_home.svg') 8px 6px no-repeat; }
-    nav a.source { background: url('../Image/Icon_package.svg') 8px 6px no-repeat; }
+    nav a.home       { background: url('../Image/Icon_home.svg')       8px 6px no-repeat; }
+    nav a.source     { background: url('../Image/Icon_package.svg')    8px 6px no-repeat; }
     nav a.literature { background: url('../Image/Icon_literature.svg') 8px 6px no-repeat; }
-    nav a.video { background: url('../Image/Icon_video.svg') 8px 6px no-repeat; }
-    nav a.blog { background: url('../Image/Icon_blog.svg') 8px 6px no-repeat; }
-    nav a.community { background: url('../Image/Icon_community.svg') 8px 6px no-repeat; }
-    nav a.about { background: url('../Image/Icon_about.svg') 8px 6px no-repeat; }
-    nav a.contact { background: url('../Image/Icon_contact.svg') 8px 6px no-repeat; }
+    nav a.video      { background: url('../Image/Icon_video.svg')      8px 6px no-repeat; }
+    nav a.blog       { background: url('../Image/Icon_blog.svg')       8px 6px no-repeat; }
+    nav a.community  { background: url('../Image/Icon_community.svg')  8px 6px no-repeat; }
+    nav a.about      { background: url('../Image/Icon_about.svg')      8px 6px no-repeat; }
+    nav a.contact    { background: url('../Image/Icon_contact.svg')    8px 6px no-repeat; }
 
     #nav-top {
         position: absolute;
@@ -132,18 +133,66 @@ nav {
     nav:hover ~ .body {
         left: 200px;
         right: -145px;
+
         transition-delay: 1s;
         -o-transition-delay: 1s;
         -webkit-transition-delay: 1s;
     }
 
-    @media all and (min-width: 1400px) {
+div[aria-controls="menu"] {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: none;
+    z-index: 256;
+}
 
-        .body {
-            left: 200px;
-            right: 5px !important;
-        }
+@media all and (max-width: 800px) {
+
+    div[aria-controls="menu"] {
+        display: inline;
     }
+
+    .body {
+        left: 5px;
+        right: 5px;
+
+        transition: none;
+        -o-transition: none;
+        -webkit-transition: none;
+    }
+
+    nav:hover ~ .body {
+        left: 5px;
+        right: 5px;
+    }
+
+    nav[aria-selected="true"] ~ .body {
+        left: 200px;
+        right: -190px;
+    }
+
+    nav[aria-selected="true"] ~ .body > div[aria-controls="menu"] {
+        left: 205px;
+    }
+
+    #nav-top {
+        top: 5px;
+    }
+
+    #nav-bottom {
+        bottom: 5px;
+    }
+}
+
+@media all and (min-width: 1400px) {
+
+    .body {
+        left: 200px;
+        right: 5px !important;
+    }
+}
+
 
 article {
     margin: 1em 40px 5em;
@@ -168,12 +217,25 @@ header {
     text-align: center;
 }
 
+    header > img {
+        width: 100%;
+        max-width: 286px;
+    }
+
+@media all and (max-width: 500px) {
+
+    header > img {
+        max-width: 200px;
+    }
+}
+
 footer {
     position: absolute;
+    left: 1em;
+    right: 1em;
     bottom: 0;
     font-size: 70%;
     text-align: center;
-    width: 100%;
 }
 
 a {
@@ -230,7 +292,6 @@ title {
 h1 {
     font: 180%/1.8em Section;
     text-align: center;
-    padding: 0 0 0 
 }
 
 h2 {
@@ -240,22 +301,42 @@ h2 {
 h3 {
     font: 140%/1.5em Section;
     margin: .7em 0 1em 0;
-    padding: 0 0 0 1em;
+    padding-left: 1em;
 }
 
     h3:target {
-        padding: 0 0 0 2em;
+        padding-left: 2em;
     }
 
 h4 {
     font: 110%/1.5em Section;
     margin: .3em 0;
-    padding: 0 0 0 1em;
+    padding-left: 1em;
 }
 
     h4:target {
-        padding: 0 0 0 2em;
+        padding-left: 2em;
     }
+
+@media all and (max-width: 500px) {
+
+    h1, h2, h3, h4, h5, h6 {
+        transition: none;
+        -o-transition: none;
+        -webkit-transition: none;
+    }
+
+    h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
+        margin: 0;
+        padding: 0 .5em;
+        text-align: center;
+    }
+}
 
 p {
     margin: 1em 0;
@@ -347,6 +428,17 @@ ol {
         content: counter(ol);
     }
 
+@media all and (max-width: 500px) {
+
+    li {
+        margin-left: -1.3em;
+    }
+
+    li li {
+        margin-left: -.25em;
+    }
+}
+
 dl, dt, dd {
     margin: 0;
     padding: 0;
@@ -398,6 +490,26 @@ dt, dd {
         margin-bottom: 0;
     }
 
+@media all and (max-width: 800px) {
+
+    dl.dialog p:first-of-type {
+        margin-top: 110px !important;
+    }
+
+    dl.dialog p {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    dl.dialog > dt > div.avatar {
+        top: 30px;
+    }
+
+    dl.dialog > dd > div.avatar {
+        top: -100px;
+    }
+}
+
 q::before, q::after {
     content: '';
 }
@@ -420,6 +532,15 @@ blockquote {
         font-size: 1000%;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
     }
+
+@media all and (max-width: 800px) {
+
+    blockquote {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1em 2em;
+    }
+}
 
 figure {
     margin-left: auto;
@@ -764,6 +885,13 @@ pre {
         background: #795290;
     }
 
+@media all and (max-width: 800px) {
+
+    .download-box {
+        display: none;
+    }
+}
+
 ul.prev_next {
     margin: 2em 0;
     padding: 0;
@@ -788,13 +916,13 @@ ul.prev_next > li + li {
 .columns { }
 
     .columns[data-columns="2"] {
-        columns: 2
+        columns: 2;
         -moz-columns: 2;
         -webkit-columns: 2;
     }
 
     .columns[data-columns="3"] {
-        columns: 3
+        columns: 3;
         -moz-columns: 3;
         -webkit-columns: 3;
     }
@@ -806,10 +934,19 @@ ul.prev_next > li + li {
     }
 
     .columns[data-columns="5"] {
-        columns: 5
+        columns: 5;
         -moz-columns: 5;
         -webkit-columns: 5;
     }
+
+@media all and (max-width: 800px) {
+
+    .columns[data-columns] {
+        columns: 1;
+        -moz-columns: 1;
+        -webkit-columns: 1;
+    }
+}
 
 .hbox > * {
     display: block;
@@ -843,6 +980,14 @@ ul.prev_next > li + li {
         text-align: center;
         margin: 0;
     }
+
+@media all and (max-width: 800px) {
+
+    .column.fleft,
+    .column.fright {
+        width: 100%;
+    }
+}
 
 ::-moz-selection { background: #e4cbf4 }
 ::selection      { background: #e4cbf4 }
