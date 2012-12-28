@@ -798,12 +798,10 @@ pre {
 }
 
 .schema {
-    position: relative;
     margin: 0;
-    padding: 0;
 }
 
-.schema > svg {
+svg {
     display: block;
     width: 100%;
     max-width: 800px;
@@ -991,6 +989,9 @@ ul.prev_next > li + li {
 
 
 
+#activity {
+    max-width: 400px;
+}
 
 .axis {
     fill: #aa9c8d;
