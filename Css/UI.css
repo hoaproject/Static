@@ -32,6 +32,13 @@ html {
     font-size: 100%;
 }
 
+@media print {
+
+    html {
+        font-size: 10pt;
+    }
+}
+
 body {
     color: #341d44;
     font: 1.1em/1.4em Text;
@@ -116,6 +123,13 @@ nav {
         bottom: 20px;
     }
 
+@media print {
+
+    nav {
+        display: none;
+    }
+}
+
 .body {
     position: absolute;
     top: 0;
@@ -126,8 +140,8 @@ nav {
     margin: 5px 0;
     padding: 0;
     border-radius: 15px;
-    background: #fff url('../Image/Background_paper.png');
     box-shadow: 0 0 15px #000;
+    background: #fff url('../Image/Background_paper.png');
 
     transition: left .4s ease 0s, right .4s ease 0s;
     -o-transition: left .4s ease 0s, right .4s ease 0s;
@@ -142,6 +156,19 @@ nav {
         -o-transition-delay: 1s;
         -webkit-transition-delay: 1s;
     }
+
+@media print {
+
+    .body {
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: #fff;
+    }
+}
 
 div[aria-controls="menu"] {
     position: fixed;
@@ -197,6 +224,12 @@ div[aria-controls="menu"] {
     }
 }
 
+@media print {
+
+    div[aria-controls="menu"] {
+        display: none;
+    }
+}
 
 article {
     margin: 1em 40px 5em;
@@ -242,6 +275,13 @@ footer {
     text-align: center;
 }
 
+@media print {
+
+    footer {
+        position: static;
+    }
+}
+
 a {
     color: #795290;
     text-decoration: none;
@@ -270,6 +310,13 @@ a {
         text-shadow: none;
         background: none;
     }
+
+@media print {
+
+    a[href*="://"]::after {
+        content: ' [' attr(href) ']';
+    }
+}
 
 h1, h2, h3, h4, h5, h6 {
     color: #ab3e00;
@@ -353,6 +400,13 @@ em em {
 
 strong {
     color: #de8300;
+}
+
+@media print {
+
+    strong {
+        font-weight: normal; /* remove a bug */
+    }
 }
 
 code, pre {
@@ -668,13 +722,11 @@ video {
     [data-tabs] > ul[role="tablist"] > li > a[role="tab"]:active,
     [data-tabs] > ul[role="tablist"] > li > a[role="tab"]:hover {
         box-shadow: inset 0 0 2px #af9873;
-        -webkit-box-shadow: inset 0 0 2px #af9873;
     }
 
     [data-tabs] > ul[role="tablist"] > li > a[aria-selected="true"] {
         background: #f1e3c8;
         box-shadow: inset 0 0 15px #b69d78 !important;
-        -webkit-box-shadow: inset 0 0 15px #b69d78 !important;
     }
 
 [data-tabs].plain > div[role="tabpanel"] > * {
@@ -692,8 +744,8 @@ pre {
 
 pre {
     position: relative;
-    font-size: .95rem;
-    line-height: 1.25em;
+    font-size: .9rem;
+    line-height: 1.3em;
     padding: 1em 60px;
     overflow-y: auto;
     box-shadow: inset 0 0 5px #d4c6b0;
@@ -702,7 +754,7 @@ pre {
 
     pre > code {
         color: inherit;
-        font-size: .95rem;
+        font-size: .9rem;
     }
 
     code[class*="language-"] {
@@ -795,6 +847,14 @@ pre {
         content: attr(data-end);
         bottom: .3em;
     }
+
+@media print {
+
+    pre {
+        box-shadow: none;
+        background: #fff;
+    }
+}
 
 [data-checkpoint].sticky {
     position: relative;
