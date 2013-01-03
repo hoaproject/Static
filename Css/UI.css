@@ -172,8 +172,8 @@ nav {
 
 div[aria-controls="menu"] {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 13px;
     display: none;
     z-index: 256;
 }
