@@ -667,6 +667,7 @@ img {
         border: 1px #d29962 solid;
         border-radius: 12px;
         background: linear-gradient(180deg, #f9c4a1 10%, #d7b180);
+        background: -webkit-linear-gradient(180deg, #f9c4a1 10%, #d7b180);
     }
 
     span.image > img {
