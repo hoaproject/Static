@@ -830,6 +830,7 @@ pre {
     }
 
     .token.url,
+    .token.special_variable,
     .token.variable {
         color: #c68f26;
     }

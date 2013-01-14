@@ -34,3 +34,5 @@ Prism.languages.json = {
     'string':      /"(\\?.)*?"/g,
     'punctuation': /[\{\}:,]/g
 };
+
+Prism.languages.javascript.special_variable = /document|window|this/g
