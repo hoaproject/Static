@@ -772,8 +772,8 @@ pre {
 
 pre {
     position: relative;
-    font-size: .9rem;
-    line-height: 1.3em;
+    font-size: .95rem;
+    line-height: 1.25em;
     padding: 1em 60px;
     overflow-y: auto;
     box-shadow: inset 0 0 5px #d4c6b0;
@@ -782,7 +782,7 @@ pre {
 
     pre > code {
         color: inherit;
-        font-size: .9rem;
+        font-size: .95rem;
     }
 
     code[class*="language-"] {
@@ -848,7 +848,7 @@ pre {
         position: absolute;
         left: 0;
         right: 0;
-        margin-top: .75em;
+        margin-top: .8em;
         padding: .15em 0;
         pointer-events: none;
         box-shadow: inset 0 -1px rgba(255, 255, 255, .8),
