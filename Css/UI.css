@@ -1036,8 +1036,12 @@ ul.prev_next > li + li {
     }
 }
 
-.hbox > * {
+.vbox > * {
     display: block;
+}
+
+.hbox > * {
+    display: inline;
 }
 
 .tcenter {
