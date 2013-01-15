@@ -310,6 +310,8 @@ a {
     a.plain {
         color: none;
         text-shadow: none;
+        margin: 0;
+        padding: 0;
         background: none;
     }
 
@@ -617,6 +619,7 @@ figcaption {
 img {
     vertical-align: middle;
     border: 0;
+    border-radius: inherit;
 }
 
     div.avatar {
@@ -646,7 +649,8 @@ img {
     span.image {
         display: inline-block;
         position: relative;
-        margin: .5em;
+        margin: .8em;
+        padding: 0;
         border-radius: 8px;
         border: 1px trasparent solid;
     }
@@ -670,12 +674,23 @@ img {
         background: -webkit-linear-gradient(180deg, #f9c4a1 10%, #d7b180);
     }
 
-    span.image > img {
+    span.image > :first-child {
+        display: inline-block;
+        border: 1px transparent solid;
         border-radius: 8px;
     }
 
-    span.image:hover > img {
+    span.image:hover > :first-child {
+        border-color: #d29962;
         box-shadow: 0 1px 2px #a77e59;
+    }
+
+    span.image > :not(:first-child) {
+        opacity: 0;
+    }
+
+    span.image:hover > :not(:first-child) {
+        opacity: 1;
     }
 
 video {
@@ -1059,6 +1074,37 @@ ul.prev_next > li + li {
     img.fright {
         margin-bottom: 1em;
         margin-left: 1em;
+    }
+
+.notification {
+    position: absolute;
+    right: -1.1em;
+    bottom: -1.1em;
+    font-size: 1em;
+    height: 1.8em;
+    width: 1.8em;
+    line-height: 1.8em;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+}
+
+    .notification, .notification:hover,
+    .notification:active, .notification:focus {
+        color: #ab3e00;
+        text-shadow: 1px 1px #fff;
+        border: 4px #fff solid;
+        background: linear-gradient(180deg, #f9c4a1 10%, #d7b180);
+        background: -webkit-linear-gradient(180deg, #f9c4a1 10%, #d7b180);
+        box-shadow:       0 0 4px #a77e59,
+                    inset 0 0 3px #a77e59;
+
+        transition: box-shadow .4s ease;
+    }
+
+    .notification:hover, .notification:active, .notification:focus {
+        box-shadow:       0 0  4px #a77e59,
+                    inset 0 0 10px #a77e59;
     }
 
 .column.fleft,
