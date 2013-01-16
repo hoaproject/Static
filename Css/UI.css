@@ -110,6 +110,7 @@ nav {
     nav a.literature { background: url('../Image/Icon_literature.svg') 8px 6px no-repeat; }
     nav a.video      { background: url('../Image/Icon_video.svg')      8px 6px no-repeat; }
     nav a.blog       { background: url('../Image/Icon_blog.svg')       8px 6px no-repeat; }
+    nav a.event      { background: url('../Image/Icon_event.svg')      8px 6px no-repeat; }
     nav a.community  { background: url('../Image/Icon_community.svg')  8px 6px no-repeat; }
     nav a.about      { background: url('../Image/Icon_about.svg')      8px 6px no-repeat; }
     nav a.contact    { background: url('../Image/Icon_contact.svg')    8px 6px no-repeat; }
@@ -145,9 +146,12 @@ nav {
     background: #fff url('../Image/Background_paper.png');
     z-index: -1; /* reset stack */
 
-    transition: left .4s ease 0s, right .4s ease 0s;
-    -o-transition: left .4s ease 0s, right .4s ease 0s;
-    -webkit-transition: left .4s ease 0s, right .4s ease 0s;
+    transition: left .4s 0s, right .4s 0s;
+    transition-timing-function: cubic-bezier(.26, 1.59, .64, 1);
+    -o-transition: left .4s 0s, right .4s 0s;
+    -o-transition-timing-function: cubic-bezier(.26, 1.59, .64, 1);
+    -webkit-transition: left .4s 0s, right .4s 0s;
+    -webkit-transition-timing-function: cubic-bezier(.26, 1.59, .64, 1);
 }
 
     nav:hover ~ .body {
@@ -178,6 +182,13 @@ div[aria-controls="menu"] {
     left: 13px;
     display: none;
     z-index: 256;
+
+    transition: left .4s 0s, right .4s 0s;
+    transition-timing-function: cubic-bezier(.26, 1.59, .64, 1);
+    -o-transition: left .4s 0s, right .4s 0s;
+    -o-transition-timing-function: cubic-bezier(.26, 1.59, .64, 1);
+    -webkit-transition: left .4s 0s, right .4s 0s;
+    -webkit-transition-timing-function: cubic-bezier(.26, 1.59, .64, 1);
 }
 
 @media all and (max-width: 800px) {
@@ -189,10 +200,6 @@ div[aria-controls="menu"] {
     .body {
         left: 5px;
         right: 5px;
-
-        transition: none;
-        -o-transition: none;
-        -webkit-transition: none;
     }
 
     nav:hover ~ .body {
@@ -948,9 +955,9 @@ svg {
         background: -webkit-linear-gradient(top, #704c87, #472b59) !important;
         background: url("../Image/Download_foreground.png") repeat-x;
 
-        transition: margin-left .6s ease;
-        -o-transition: margin-left .6s ease .2s; /* delay of .2s to remove a bug */
-        -webkit-transition: margin-left .6s ease;
+        transition: margin-left .6s cubic-bezier(.3, 1.4, .5, 1);
+        -o-transition: margin-left cubic-bezier(.3, 1.4, .5, 1) .2s; /* delay of .2s to remove a bug */
+        -webkit-transition: margin-left .6s cubic-bezier(.3, 1.4, .5, 1);
     }
 
     .download-box h1:target,
@@ -1100,6 +1107,8 @@ ul.prev_next > li + li {
                     inset 0 0 3px #a77e59;
 
         transition: box-shadow .4s ease;
+        -o-transition: box-shadow .4s ease;
+        -webkit-transition: box-shadow .4s ease;
     }
 
     .notification:hover, .notification:active, .notification:focus {
