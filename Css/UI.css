@@ -801,6 +801,7 @@ div[role="progressbar"] {
     border: 1px #d29962 solid;
     border-radius: 23px;
     background: linear-gradient(180deg, #d7b180 5%, #f9c4a1);
+    background: -webkit-linear-gradient(180deg, #d7b180 5%, #f9c4a1);
     box-shadow:       0 1px  3px #bc9877,
                 inset 0 0   10px #bc9877;
 }
@@ -824,6 +825,13 @@ div[role="progressbar"] {
         border: 1px #c6a07e solid;
         border-radius: 20px;
         background-image: repeating-linear-gradient(
+            -45deg,
+            #fff4eb,
+            #fff4eb 12px,
+            #dcbea3 12px,
+            #dcbea3 24px
+        );
+        background-image: -webkit-repeating-linear-gradient(
             -45deg,
             #fff4eb,
             #fff4eb 12px,
@@ -999,7 +1007,6 @@ svg {
         width: 100%;
         border-radius: 20px;
         background: linear-gradient(top, #704c87, #472b59) !important;
-        background: -moz-linear-gradient(top, #704c87, #472b59) !important;
         background: -webkit-linear-gradient(top, #704c87, #472b59) !important;
         background: url("../Image/Download_foreground.png") repeat-x;
 
