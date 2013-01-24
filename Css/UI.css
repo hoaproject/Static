@@ -420,7 +420,7 @@ strong {
     }
 }
 
-code, pre {
+code, pre, kbd {
     font-family: Pre;
     font-size: .9em;
     color: #07a;
@@ -429,6 +429,17 @@ code, pre {
     code em {
         color: #6695c8;
     }
+
+kbd {
+    display: inline-block;
+    color: #666;
+    text-align: center;
+    padding: .15em .5em 0 .5em;
+    min-width: 1.2em;
+    border: 1px #aaa solid;
+    border-radius: 5px;
+    box-shadow: 0 1px rgba(0, 0, 0, .2);
+}
 
 li {
     position: relative;
