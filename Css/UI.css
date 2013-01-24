@@ -420,7 +420,7 @@ strong {
     }
 }
 
-code, pre, kbd {
+code, pre, kbd, samp {
     font-family: Pre;
     font-size: .9em;
     color: #07a;
