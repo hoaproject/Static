@@ -433,6 +433,7 @@ code, pre, kbd, samp {
 kbd {
     display: inline-block;
     color: #666;
+    font-size: .8em;
     text-align: center;
     padding: .15em .5em 0 .5em;
     min-width: 1.2em;
