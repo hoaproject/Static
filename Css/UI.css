@@ -56,7 +56,7 @@ nav {
     top: 0;
     left: 0;
     bottom: 0;
-    z-index: -1; /* reset stack */
+    z-index: 5;
 
     color: #fff;
     font-size: .9em;
@@ -144,7 +144,7 @@ nav {
     border-radius: 15px;
     box-shadow: 0 0 15px #000;
     background: #fff url('../Image/Background_paper.png');
-    z-index: -1; /* reset stack */
+    z-index: 6;
 
     transition: left .4s 0s, right .4s 0s;
     transition-timing-function: cubic-bezier(.26, 1.59, .64, 1);
