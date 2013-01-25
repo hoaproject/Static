@@ -1233,3 +1233,12 @@ ul.prev_next > li + li {
 .w20 {
     width: 20%;
 }
+
+
+
+
+
+.leaflet-container {
+    background: transparent !important;
+    outline: 0;
+}
