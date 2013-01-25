@@ -1,3 +1,6 @@
 [submodule "External/Prism"]
 	path = External/Prism
 	url = https://github.com/LeaVerou/prism.git
+[submodule "External/Leaflet"]
+	path = External/Leaflet
+	url = https://github.com/Leaflet/Leaflet
