@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+                     "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> 
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1" viewBox="0 0 280 450">
+  <title>Marker</title>
+  <desc>Marker for map</desc>
+
+  <style>
+    path, circle {
+        stroke: #de8300;
+        stroke-width: 15;
+    }
+
+    path {
+        fill: url('#gradient');
+        mask: url('#maskHole');
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="gradient" gradientUnits="userSpaceOnUse"
+                    x1="0" y1="0" x2="0" y2="450">
+      <stop offset="5%" stop-color="#debb89" />
+      <stop offset="95%" stop-color="#dea551" />
+    </linearGradient>
+
+    <circle id="hole" cx="140" cy="145" r="35" />
+
+    <mask id="maskHole" maskUnits="userSpaceOnUse"
+          x="0" y="0" width="280" height="450">
+      <rect x="0" y="0" width="100%" height="100%" fill="white" />
+      <use xlink:href="#hole" fill="black" />
+    </mask>
+  </defs>
+
+  <path d="
+        M 140 430
+        L  30 175
+        A   116   116 0 1 1 250 175
+        Z
+      "
+    />
+
+  <use xlink:href="#hole" fill="transparent" />
+</svg>
