@@ -32,6 +32,15 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * Layers:
+ *     • #cities      : http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/cultural/10m-populated-places-simple.zip
+ *     • #country-name: http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/cultural/10m-admin-0-country-points.zip
+ *     • #rivers      : http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/physical/10m-rivers-lake-centerlines.zip
+ *     • #lakes       : http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/physical/10m-lakes.zip
+ *     • #countries   : http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/cultural/10m-admin-0-countries.zip
+ */
+
 @text: "DejaVu Sans Book";
 @dark-orange: #764600;
 @orange: #de8300;
