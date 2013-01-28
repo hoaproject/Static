@@ -38,12 +38,11 @@
   </defs>
 
   <path d="
-        M 140 430
-        L  30 175
-        A   116   116 0 1 1 250 175
-        Z
-      "
-    />
+    M 140 430
+    L  30 175
+    A   116   116 0 1 1 250 175
+    Z
+    " />
 
   <use xlink:href="#hole" fill="transparent" />
 </svg>
