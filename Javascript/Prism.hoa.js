@@ -1,8 +1,8 @@
 Prism.languages.php = {
-    'php':         /&lt;\?php/g,
     'comment':     /\/\*(.|\n)*?\*\//g,
     'string':      /("|')(\\?.)*?\1/g,
     'icomment':    /\/\/[^\n]*/g,
+    'php':         /&lt;\?php/g,
     'variable':    /\$[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*/g,
     'keyword':     /\b(namespace|class|interface|trait|function|if|else|elseif|return|use|throw|try|catch)\b/g,
     'constant':    /\b(true|false|null)/ig,
