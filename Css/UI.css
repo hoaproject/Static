@@ -1243,6 +1243,29 @@ ul.prev_next > li + li {
 
 
 .leaflet-container {
+    font: inherit !important;
+    color: inherit !important;
     background: transparent !important;
     outline: 0;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 8px !important;
+    -webkit-border-radius: 8px !important;
+}
+
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:active,
+.leaflet-control-attribution a:focus,
+.leaflet-popup-content-wrapper a:hover,
+.leaflet-popup-content-wrapper a:active,
+.leaflet-popup-content-wrapper a:focus {
+    color: #efe6f5 !important;
+    background: #795290 !important;
+}
+
+.leaflet-control-zoom a:active,
+.leaflet-control-zoom a:focus {
+    color: inherit !important;
+    background: #fff !important;
 }
