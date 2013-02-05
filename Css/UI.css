@@ -1133,6 +1133,10 @@ ul.prev_next > li + li {
     display: inline;
 }
 
+.cboth {
+    clear: both;
+}
+
 .tcenter {
     text-align: center;
 }
