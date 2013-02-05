@@ -11,8 +11,8 @@
 
   <style>
     path, circle {
-        stroke: #de8300;
-        stroke-width: 15;
+        stroke: #be7000;
+        stroke-width: 20;
     }
 
     path {
@@ -24,8 +24,8 @@
   <defs>
     <linearGradient id="gradient" gradientUnits="userSpaceOnUse"
                     x1="0" y1="0" x2="0" y2="450">
-      <stop offset="5%" stop-color="#debb89" />
-      <stop offset="95%" stop-color="#dea551" />
+      <stop offset="5%" stop-color="#f7d5a6" />
+      <stop offset="95%" stop-color="#f7cc91" />
     </linearGradient>
 
     <circle id="hole" cx="140" cy="145" r="35" />
