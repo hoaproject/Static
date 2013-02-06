@@ -69,7 +69,6 @@ nav {
     }
 
     nav ul {
-        list-style: none;
         margin: 0;
         padding: 0;
         width: 100%;
@@ -1036,7 +1035,6 @@ svg {
         display: inline-block;
         margin: 0;
         padding: 0;
-        list-style: none;
     }
 
     .download-box ul li {
@@ -1073,7 +1071,6 @@ ul.prev_next {
     margin: 2em 0;
     padding: 0;
     overflow: hidden;
-    list-style: none;
 }
 
 ul.prev_next > li {
@@ -1185,6 +1182,27 @@ ul.prev_next > li + li {
     .notification:hover, .notification:active, .notification:focus {
         box-shadow:       0 0  4px #a77e59,
                     inset 0 0 10px #a77e59;
+    }
+
+ul.paginator {
+    margin-top: 4em;
+    padding: 0;
+    text-align: center;
+}
+
+ul.paginator li {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+    ul.paginator li {
+        margin: 0;
+        padding: 0 .2em;
+    }
+
+    ul.paginator li::before {
+        display: none;
     }
 
 .column.fleft,
