@@ -263,14 +263,13 @@ header {
 }
 
     header > img {
-        width: 100%;
-        max-width: 250px;
+        width: 250px;
     }
 
 @media all and (max-width: 500px) {
 
     header > img {
-        max-width: 180px;
+        width: 180px;
     }
 }
 
@@ -643,6 +642,7 @@ figcaption {
 }
 
 img {
+    max-width: 100%;
     vertical-align: middle;
     border: 0;
     border-radius: inherit;
