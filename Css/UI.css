@@ -332,6 +332,7 @@ h1, h2, h3, h4, h5, h6 {
     h4:target,
     h5:target,
     h6:target {
+        padding-top: 1em !important;
         padding-left: 2em;
     }
 
@@ -342,7 +343,7 @@ h1, h2, h3, h4, h5, h6 {
     h6:target::before {
         content: ' ';
         position: absolute;
-        top: -.3em;
+        top: .7em;
         left: -1em;
         width: 4em;
         height: 2em;
