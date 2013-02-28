@@ -323,8 +323,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #ab3e00;
     margin: 1.7em 0 0 0;
     padding: 0;
-
-    transition: padding-left .3s, background .3s;
 }
 
     h2:target,
@@ -333,7 +331,6 @@ h1, h2, h3, h4, h5, h6 {
     h5:target,
     h6:target {
         padding-top: 1em !important;
-        padding-left: 2em;
     }
 
     h2:target::before,
@@ -343,15 +340,13 @@ h1, h2, h3, h4, h5, h6 {
     h6:target::before {
         content: ' ';
         position: absolute;
-        top: .7em;
-        left: -1em;
+        top: 1.2em;
+        left: -1.4em;
         width: 4em;
-        height: 2em;
+        height: 1em;
         background: url('../Image/Left_arrow.svg') 0 50% no-repeat;
 
-        animation-duration: 1s;
-        animation-name: plop;
-        animation-iteration-count: 5;
+        animation: plop 1s 5;
     }
 
 title {
@@ -371,23 +366,13 @@ h2 {
 
 h3 {
     font: 1.40em/1.5em Section;
-    margin: .7em 0 1em 0;
-    padding-left: 1em;
+    margin: .7em 0 1em 1em;
 }
-
-    h3:target {
-        padding-left: 2em;
-    }
 
 h4 {
     font: 1.1em/1.5em Section;
-    margin: .3em 0;
-    padding-left: 1em;
+    margin: .3em 0; .3em 1em
 }
-
-    h4:target {
-        padding-left: 2em;
-    }
 
 @media all and (max-width: 500px) {
 
@@ -1222,8 +1207,8 @@ ul.paginator li {
     }
 
     50% {
-        transform: scale(1.2);
-        left: -2em;
+        transform: scale(1.4);
+        left: -1.5em;
     }
 
     to {
