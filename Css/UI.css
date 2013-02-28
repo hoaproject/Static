@@ -344,7 +344,7 @@ h1, h2, h3, h4, h5, h6 {
         left: -1.4em;
         width: 4em;
         height: 1em;
-        background: url('../Image/Left_arrow.svg') 0 50% no-repeat;
+        background: url('../Image/Right_arrow.svg') 0 50% no-repeat;
 
         animation: plop 1s 5;
     }
