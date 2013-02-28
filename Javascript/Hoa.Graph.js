@@ -243,7 +243,7 @@ Hoa.Graph = (Hoa.Graph || function ( __document__, __width__, __height__ ) {
 
             push: new function ( ) {
 
-                var lastPosition = - 1;
+                var lastPosition = -1;
 
                 return function ( element, ix, iy ) {
 
