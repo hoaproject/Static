@@ -119,13 +119,21 @@ Hoa.Graph = (Hoa.Graph || function ( __document__, __width__, __height__ ) {
                 return that;
             }
 
-            if('text' === type) {
+            if('text' === type || 'circle' === type) {
 
                 if(null !== dx)
                     x += dx + bbox.width / 2;
 
                 if(null !== dy)
                     y += dy + bbox.height / 2;
+            }
+
+            if('circle' === type) {
+
+                var r = bbox.width / 2;
+                that.attr({cx: x + r, cy: y + r});
+
+                return that;
             }
 
             that.attr({x: x, y: y});
@@ -180,7 +188,11 @@ Hoa.Graph = (Hoa.Graph || function ( __document__, __width__, __height__ ) {
         circle.attr({
             cx: cx,
             cy: cy,
-            r : r || 10
+            r : r || 10,
+            fill          : 'url(#boxFill)',
+            stroke        : '#fff',
+            'stroke-width': '2px',
+            filter        : 'url(#shadow)'
         });
         svg.append(circle);
 
