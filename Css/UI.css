@@ -1179,6 +1179,17 @@ ul.paginator li {
         display: none;
     }
 
+p.warning {
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    border: 2px #fff solid;
+    border-radius: 8px;
+    box-shadow: 0 0 4px #d05300;
+    text-shadow: 0 1px #d05300;
+    background: #fe8800 linear-gradient(180deg, #feac26, #fe8c27);
+}
+
 .column.fleft,
 .column.fright {
     width: 50%;
