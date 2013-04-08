@@ -7,14 +7,19 @@
   <title>Gallery</title>
 
   <article>
+    <!--
     <async id="aMain" scope="#aMain">
+    -->
       <yield id="yMain" />
+    <!--
     </async>
+    -->
   </article>
 
   <script src="hoa://Library/Xyl/Javascript/Hoa.js"></script>
   <script src="hoa://Application/Public/Javascript/Hammer.js"></script>
   <script>
+    /*
     var aMain = Hoa.$('#aMain');
     aMain.hoa.async.addEventListener(
       'popstate',
@@ -41,6 +46,7 @@
           data.uri = null;
       }
     );
+    */
     var nav = function ( evt ) {
 
       var a = null;
