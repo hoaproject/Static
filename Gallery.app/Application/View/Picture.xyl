@@ -4,7 +4,7 @@
   <yield id="yMain">
     <a rel="top"  href="@g:gallery=(?gallery)">↑</a>
     <a rel="prev" href="@p:gallery=(?gallery)&amp;picture=(?previous)">←</a>
-    <img src="hoa://Application/Public/Gallery/(?gallery)/(?current).jpg" />
+    <img src="@v:gallery=(?gallery)&amp;picture=(?current)" />
     <a rel="next" href="@p:gallery=(?gallery)&amp;picture=(?next)">→</a>
   </yield>
 </overlay>
