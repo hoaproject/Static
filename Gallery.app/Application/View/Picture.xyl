@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<overlay xmlns="http://hoa-project.net/xyl/xylophone">
+  <yield id="yMain">
+    <a rel="top"  href="@g:gallery=(?gallery)">↑</a>
+    <a rel="prev" href="@p:gallery=(?gallery)&amp;picture=(?previous)">←</a>
+    <img src="hoa://Application/Public/Gallery/(?gallery)/(?current).jpg" />
+    <a rel="next" href="@p:gallery=(?gallery)&amp;picture=(?next)">→</a>
+  </yield>
+</overlay>
