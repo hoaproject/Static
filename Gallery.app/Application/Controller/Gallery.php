@@ -97,7 +97,7 @@ class Gallery extends \Hoa\Dispatcher\Kit {
 
         $finder = new \Hoa\File\Finder();
         $finder->in('hoa://Application/Public/Gallery/' . $gallery)
-               ->name('#_big\.jpg$#');
+               ->name('#_small\.jpg$#');
 
         $previous = null;
         $current  = null;
@@ -105,7 +105,7 @@ class Gallery extends \Hoa\Dispatcher\Kit {
 
         foreach($finder as $file) {
 
-            $handle = strtolower($file->getBasename('_big.jpg'));
+            $handle = strtolower($file->getBasename('_small.jpg'));
 
             if(null !== $current) {
 
@@ -121,7 +121,7 @@ class Gallery extends \Hoa\Dispatcher\Kit {
 
         $this->data->gallery  = $gallery;
         $this->data->previous = $previous ?: $current;
-        $this->data->current  = $current . '_big';
+        $this->data->current  = $current;
         $this->data->next     = $next ?: $current;
         $this->view->addOverlay('hoa://Application/View/Picture.xyl');
         $this->render();
@@ -133,7 +133,7 @@ class Gallery extends \Hoa\Dispatcher\Kit {
 
         $picture = file_get_contents(
             'hoa://Application/Public/Gallery/' .
-            $gallery . '/' . $picture . '_big.jpg'
+            $gallery . '/' . $picture . '.jpg'
         );
 
         header('Content-Type: image/jpg');
