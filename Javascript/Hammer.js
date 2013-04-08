@@ -1,0 +1,1 @@
+../External/Hammer/dist/hammer.js
