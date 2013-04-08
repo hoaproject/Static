@@ -4,3 +4,6 @@
 [submodule "External/Leaflet"]
 	path = External/Leaflet
 	url = https://github.com/Leaflet/Leaflet
+[submodule "External/Hammer"]
+	path = External/Hammer
+	url = https://github.com/EightMedia/hammer.js.git
