@@ -7,3 +7,6 @@
 [submodule "External/Hammer"]
 	path = External/Hammer
 	url = https://github.com/EightMedia/hammer.js.git
+[submodule "External/Popcorn.js"]
+	path = External/Popcorn.js
+	url = https://github.com/mozilla/popcorn-js
