@@ -323,13 +323,14 @@ Hoa.ℙ(1) && Hoa.namespace([HTMLElement], {
     }
 });
 
-Hoa.Awecode = Hoa.Awecode || function ( videoSelector, vimeoId, editorsSelector ) {
+Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId, editorsSelector ) {
 
     var that        = this;
     var video       = null;
     var editors     = {};
     var tabs        = Hoa.Tabs.get(editorsSelector);
-    var slider      = Hoa.$('#s').hoa;
+    console.log(awecodeSelector + ' [role="slider"]');
+    var slider      = Hoa.$(awecodeSelector + ' [role="slider"]').hoa;
     var currentTime = -1;
     var patchEffect = new function ( ) {
 
@@ -477,7 +478,7 @@ Hoa.Awecode = Hoa.Awecode || function ( videoSelector, vimeoId, editorsSelector 
         }
     });
 
-    var handle = Popcorn.HTMLVimeoVideoElement(videoSelector);
+    var handle = Popcorn.HTMLVimeoVideoElement(awecodeSelector + ' .video');
     handle.src = 'http://player.vimeo.com/video/' + vimeoId;
     video      = Popcorn(handle);
     video.awecode({setup: true});
