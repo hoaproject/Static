@@ -1,5 +1,5 @@
 Prism.languages.php = {
-    'comment':     /\/\*(.|\n)*?\*\//g,
+    'comment':     /\/\*(.|\n)*?(?:\*\/|$)/g,
     'string':      /("|')(\\?.)*?\1/g,
     'icomment':    /\/\/[^\n]*/g,
     'php':         /&lt;\?php/g,
