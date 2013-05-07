@@ -3,7 +3,12 @@ if(undefined === Hoa)
 
 Hoa.Patch = Hoa.Patch || function ( original, oninsert, ondelete, onend ) {
 
-    var text = original.split("\n");
+    var text = null;
+
+    this.resetText = function ( newText ) {
+
+        text = newText.split("\n");
+    };
 
     this.apply = function ( diff, editor ) {
 
@@ -58,6 +63,8 @@ Hoa.Patch = Hoa.Patch || function ( original, oninsert, ondelete, onend ) {
 
         return text.join('\n');
     };
+
+    this.resetText(original);
 };
 
 Hoa.ℙ(1) && Hoa.namespace([HTMLDivElement], {
@@ -230,8 +237,6 @@ Hoa.ℙ(1) && Hoa.namespace([HTMLDivElement], {
     }
 });
 
-
-
 Hoa.ℙ(1) && Hoa.namespace([HTMLElement], {
 
     guard: function ( element ) {
@@ -240,6 +245,9 @@ Hoa.ℙ(1) && Hoa.namespace([HTMLElement], {
                && null  !== element.className.match(/language\-/);
     },
     body : function ( element ) {
+
+        var lineHeight  = parseFloat(window.getComputedStyle(element).lineHeight);
+        var markedLines = [];
 
         return {
 
@@ -318,6 +326,40 @@ Hoa.ℙ(1) && Hoa.namespace([HTMLElement], {
                     Prism.highlightElement(element);
 
                 return this;
+            },
+
+            markLines: function ( lines, marker, classes ) {
+
+                this.unmarkAllLines();
+                var _lines = lines.replace(/\s+/g, '').split(',');
+
+                _lines.forEach(function ( line ) {
+
+                    var _line = Hoa.DOM.div(
+                        ' ',
+                        {
+                            'data-start' : line,
+                            'class'      : 'line-marker ' + (classes || ''),
+                            'data-marker': marker || ''
+                        }
+                    );
+
+                    _line.style.top = (line - 1) * lineHeight + 'px';
+                    element.parentNode.appendChild(_line);
+
+                    markedLines.push(_line);
+                });
+            },
+
+            unmarkAllLines: function ( ) {
+
+                markedLines.forEach(function ( line ) {
+
+                    element.parentNode.removeChild(line);
+                });
+                markedLines = [];
+
+                return;
             }
         };
     }
@@ -334,25 +376,79 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
     var seeked      = false;
     var patchEffect = new function ( ) {
 
+        var q = new Hoa.Concurrent.Scheduler();
+
         return {
 
             insert: function ( number, line, editor ) {
 
-                editor.insertLine(number + 1, line)
-                       .highlight();
+                ++number;
+
+                q.schedule(function ( ) {
+
+X                    editor.markLines(number + '', '➜', 'line-insert');
+                })
+                .wait(200)
+                .schedule(function ( ) {
+
+                    this.wait();
+                    var i    = 1;
+                    var that = this;
+                    editor.insertLine(number, line.substr(0, i++));
+
+                    Hoa.Concurrent.every(
+                        40,
+                        function ( ) {
+
+                            editor.setLine(number, line.substring(0, i))
+                                  .highlight();
+
+                            if(i++ >= line.length) {
+
+                                this.stop();
+                                that.terminate();
+                            }
+                        }
+                    );
+                })
+                .wait(400)
+                .schedule(function ( ) {
+
+                    editor.unmarkAllLines();
+                })
 
                 return;
             },
 
             delete: function ( number, line, editor ) {
 
-                editor.removeLine(number + 1)
-                      .highlight();
+                ++number;
+
+                q.schedule(function ( ) {
+
+                    editor.markLines(number + '', '✖', 'line-remove')
+                })
+                .wait(200)
+                .schedule(function ( ) {
+
+                    editor.removeLine(number)
+                          .highlight();
+                })
+                .wait(400)
+                .schedule(function ( ) {
+
+                    editor.unmarkAllLines();
+                });
 
                 return;
             },
 
-            end: Hoa.nop
+            end: function ( ) {
+
+                q.spawn();
+
+                return;
+            }
         };
     };
 
@@ -387,6 +483,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
             if(!options.setup)
                 return;
 
+            /*
             this.on('play', function ( ) {
 
                 console.log('play');
@@ -396,6 +493,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
 
                 console.log('pause');
             });
+            */
 
             this.on('durationchange', function ( ) {
 
@@ -432,8 +530,6 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
 
             tabs.select(bucket.index);
 
-            console.log('seeked ' + seeked);
-
             if(true === seeked) {
 
                 seeked = false;
@@ -453,13 +549,16 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
                     });
 
                     ed.editor.setLines(lines).highlight();
+                    ed.patch.resetText(lines);
                 });
             }
             else {
 
-                //bucket.patch.apply(options.diff, editor);
-                editor.setLines(options.computed)
-                      .highlight();
+                if(false === slider.isSeeking())
+                    bucket.patch.apply(options.diff, editor);
+                else
+                    editor.setLines(options.computed)
+                          .highlight();
             }
         }
     });
