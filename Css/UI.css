@@ -965,7 +965,8 @@ pre {
         text-decoration: blink;
     }
 
-    .line-highlight {
+    .line-highlight,
+    .line-marker {
         position: absolute;
         background: rgba(255, 0, 0, .5);
         position: absolute;
@@ -979,12 +980,14 @@ pre {
         background: hsla(24, 20%, 50%, .15);
     }
 
-    [data-tabs].plain .line-highlight {
+    [data-tabs].plain .line-highlight,
+    [data-tabs].plain .line-marker {
         margin: 2em 0 0;
     }
 
     .line-highlight::before,
-    .line-highlight[data-end]::after {
+    .line-highlight[data-end]::after,
+    .line-marker::before {
         content: attr(data-start);
         position: absolute;
         left: .5em;
@@ -1001,6 +1004,12 @@ pre {
     .line-highlight[data-end]::after {
         content: attr(data-end);
         bottom: .3em;
+    }
+
+    .line-marker[data-marker]::after {
+        content: attr(data-marker);
+        position: absolute;
+        left: 3em;
     }
 
 @media print {
@@ -1382,3 +1391,11 @@ body.light header {
 
         transition-delay: 0s;
     }
+
+#awecode .line-marker.line-insert {
+    color: green;
+}
+
+#awecode .line-marker.line-remove {
+    color: red;
+}
