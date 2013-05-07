@@ -323,15 +323,15 @@ Hoa.ℙ(1) && Hoa.namespace([HTMLElement], {
     }
 });
 
-Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId, editorsSelector ) {
+Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
 
     var that        = this;
     var video       = null;
     var editors     = {};
-    var tabs        = Hoa.Tabs.get(editorsSelector);
-    console.log(awecodeSelector + ' [role="slider"]');
+    var tabs        = Hoa.Tabs.get(awecodeSelector + ' [data-tabs="true"]');
     var slider      = Hoa.$(awecodeSelector + ' [role="slider"]').hoa;
     var currentTime = -1;
+    var seeked      = false;
     var patchEffect = new function ( ) {
 
         return {
@@ -370,6 +370,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId, editorsSelecto
     slider.format();
     slider.onseek(function ( value ) {
 
+        seeked = true;
         var c = Math.floor(value);
 
         if(c === currentTime)
@@ -427,54 +428,39 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId, editorsSelecto
 
             var bucket  = editors[options.editor];
             var editor  = bucket.editor;
-            //var history = bucket.history;
-            //var key     = options.key;
+            var key     = options.key;
 
             tabs.select(bucket.index);
-            editor.setLines(options.computed)
-                  .highlight();
 
-            /*
-            if(undefined !== history[key]) {
+            console.log('seeked ' + seeked);
 
-                console.log('history for ' + key);
+            if(true === seeked) {
 
-                editor.setLines(history[key])
-                      .highlight();
+                seeked = false;
 
                 editors.hoa.forEach(function ( edId ) {
 
-                    var ed = editors[edId];
+                    var ed        = editors[edId];
+                    var keyframes = ed.keyframes;
+                    var lines     = '';
 
-                    if(bucket.index === ed.index)
+                    keyframes.forEach(function ( frame ) {
+
+                        if(frame.key <= key)
+                            lines = frame.computed;
+
                         return;
-
-                    var ke = 0;
-                    var h  = ed.history;
-                    h.forEach(function ( _, k ) {
-
-                        if(k > key) {
-
-                            delete h[k];
-
-                            return;
-                        }
-
-                        ke = k;
                     });
 
-                    ed.editor.setLines(h[ke])
-                             .highlight();
+                    ed.editor.setLines(lines).highlight();
                 });
             }
             else {
 
-                console.log('NO history for ' + key);
-
-                history[key] = bucket.patch.apply(options.diff, editor)
-                                           .toString();
+                //bucket.patch.apply(options.diff, editor);
+                editor.setLines(options.computed)
+                      .highlight();
             }
-            */
         }
     });
 
