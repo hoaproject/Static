@@ -852,6 +852,7 @@ div[role="progressbar"] {
 }
 
 [role="slider"] > [role="button"] {
+    cursor: pointer;
     position: absolute;
     top: 0;
     left: 0;
@@ -1306,12 +1307,17 @@ p.warning {
     width: 20%;
 }
 
-.unselectable * {
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+.unselectable {
+    cursor: default;
 }
+
+    .unselectable,
+    .unselectable * {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
 
 
 
@@ -1354,7 +1360,7 @@ body.light header {
     height: 450px;
     margin: 0 auto;
     border-radius: 10px;
-    border: 4px #fff solid;
+    border: 8px #fff solid;
     box-shadow: 0 0 5px #d4c6b0;
 }
 
@@ -1363,12 +1369,10 @@ body.light header {
     }
 
 #awecode [role="slider"] {
+    max-width: 640px;
     margin-top: -2em;
     margin-bottom: 4em;
-    /*
     opacity: 0;
-    */
-    opacity: 1;
 
     transition: opacity .3s ease-out 1.5s;
 }
