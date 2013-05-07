@@ -1,0 +1,530 @@
+if(undefined === Hoa)
+    var Hoa = {};
+
+Hoa.Patch = Hoa.Patch || function ( original, oninsert, ondelete, onend ) {
+
+    var text = original.split("\n");
+
+    this.apply = function ( diff, editor ) {
+
+        if(undefined == diff)
+            return;
+
+        var out    = [];
+        var mtchs  = null;
+        var handle = null;
+
+        diff.split('\n').forEach(function ( element, index ) {
+
+            switch(element.charAt(0)) {
+
+                case '@':
+                    handle = /^@@ -(\d+),(\d+)/.exec(element);
+
+                    if(null === mtchs)
+                        mtchs = {1: "1", 2: "0"};
+
+                    for(var i   = parseInt(mtchs[1]) + parseInt(mtchs[2]) - 1,
+                            max = handle[1] - 1;
+                        i < max;
+                        ++i)
+                        out.push(text[i]);
+
+                    mtchs = handle;
+                  break;
+
+                case '+':
+                    var el = element.substring(1);
+                    oninsert(out.push(el) - 1, el, editor);
+                  break;
+
+                case ' ':
+                    out.push(element.substring(1));
+                  break;
+
+                case '-':
+                    ondelete(out.length, element.substring(1), editor);
+                  break;
+            }
+        });
+
+        text = out;
+        onend(editor);
+
+        return this;
+    };
+
+    this.toString = function ( ) {
+
+        return text.join('\n');
+    };
+};
+
+Hoa.ℙ(1) && Hoa.namespace([HTMLDivElement], {
+
+    guard: function ( element ) {
+
+        return    true     === element.hasAttribute('role')
+               && 'slider' === element.getAttribute('role');
+    },
+
+    body : function ( element ) {
+
+        var button      = Hoa.$('[role="button"]', element);
+        var buttonWidth = button.getBoundingClientRect().width;
+        var tooltip     = Hoa.$('[role="tooltip"]', element);
+        var getWidth    = function ( ) {
+
+            return element.getBoundingClientRect().width;
+        };
+        var getHeight   = function ( ) {
+
+            return element.getBoundingClientRect().height;
+        };
+        var formatter   = null
+
+        var out = {
+
+            setValue: function ( value, abs ) {
+
+                var min   = this.getMinValue();
+                var max   = this.getMaxValue();
+                var width = getWidth();
+                value     = Math.max(min, Math.min(max, value));
+
+                var relative = ((value - min) * 100) / (max - min);
+                var left     = (relative * width) / 100 - buttonWidth / 2;
+                left         = Math.max(0, Math.min(width - buttonWidth, left));
+                relative     = left * 100 / width;
+
+                element.setAttribute('aria-valuenow', value);
+                button.style.left = relative + '%';
+                this.format(value);
+
+                return this;
+            },
+
+            setValueFromWidth: function ( value ) {
+
+                var min    = this.getMinValue();
+                var max    = this.getMaxValue();
+                var width  = getWidth();
+                value      = Math.max(0, Math.min(width, value));
+                var _value = (value * (max - min)) / width;
+                element.setAttribute('aria-valuenow', _value);
+
+                value = Math.max(
+                    0,
+                    Math.min(width - buttonWidth, value - buttonWidth / 2)
+                );
+                button.style.left = value + 'px';
+                this.format(_value);
+
+                return _value;
+            },
+
+            setMinValue: function ( value ) {
+
+                element.setAttribute('aria-valuemin', value);
+
+                return this;
+            },
+
+            setMaxValue: function ( value ) {
+
+                element.setAttribute('aria-valuemax', value);
+
+                return this;
+            },
+
+            getValue: function ( ) {
+
+                return element.getAttribute('aria-valuenow');
+            },
+
+            getMinValue: function ( ) {
+
+                return element.getAttribute('aria-valuemin');
+            },
+
+            getMaxValue: function ( ) {
+
+                return element.getAttribute('aria-valuemax');
+            },
+
+            setFormatter: function ( callback ) {
+
+                formatter = callback;
+
+                return this;
+            },
+
+            format: function ( value ) {
+
+                if(null === formatter)
+                    return this;
+
+                if(undefined === value)
+                    value = out.getValue();
+
+                tooltip.innerHTML = formatter(value);
+
+                return this;
+            },
+
+            isSeeking: function ( ) {
+
+                return seeking;
+            },
+
+            onseek: function ( callback ) {
+
+                _seek = callback;
+
+                return this;
+            }
+        };
+
+        var seeking = false;
+        var seek    = function ( evt ) {
+
+            _seek(out.setValueFromWidth(
+                evt.clientX - element.getBoundingClientRect().left
+            ));
+        };
+        var _seek   = Hoa.nop;
+        var onmove  = function ( evt ) {
+
+            seek(evt);
+
+            evt.preventDefault();
+            evt.stopPropagation();
+        };
+
+        element.addEventListener('mousedown', function ( evt ) {
+
+            seeking = true;
+            document.body.classList.toggle('unselectable');
+            button.setAttribute('aria-selected', 'true');
+            seek(evt);
+            document.body.addEventListener('mousemove', onmove);
+        }, false);
+
+        document.body.addEventListener('mouseup', function ( evt ) {
+
+            if(false === seeking)
+                return;
+
+            seeking = false;
+            document.body.removeEventListener('mousemove', onmove, false);
+            document.body.classList.toggle('unselectable');
+            button.setAttribute('aria-selected', 'false');
+
+            evt.preventDefault();
+        }, false);
+
+
+        out.setValue(out.getValue());
+
+        return out;
+    }
+});
+
+
+
+Hoa.ℙ(1) && Hoa.namespace([HTMLElement], {
+
+    guard: function ( element ) {
+
+        return   'CODE' === element.tagName
+               && null  !== element.className.match(/language\-/);
+    },
+    body : function ( element ) {
+
+        return {
+
+            lineNumber: function ( ) {
+
+                return (this.getLines().match(/\n/g) || []).length + 1;
+            },
+
+            setLine: function ( i, line ) {
+
+                var n = this.lineNumber();
+
+                if(i <= n) {
+
+                    element.textContent = this.getLines().replace(
+                        new RegExp(
+                            '^((?:[^\\n]*\\n){' + (i - 1) + '})' +
+                            '([^\\n]*|[^$]*)'
+                        ),
+                        '$1' + line
+                    )
+
+                    return this;
+                }
+
+                var handle = '';
+
+                for(; i > n; --i)
+                    handle += '\n';
+
+                element.textContent += handle + line;
+
+                return this;
+            },
+
+            getLine: function ( i ) {
+
+                return (this.getLines().match(new RegExp(
+                    '^(?:[^\\n]*\\n){' + (i - 1) + '}([^\\n]*|[^$]*)'
+                )) || [, ''])[1];
+            },
+
+            setLines: function ( lines ) {
+
+                element.textContent = lines;
+
+                return this;
+            },
+
+            getLines: function ( ) {
+
+                return element.textContent;
+            },
+
+            insertLine: function ( i, line ) {
+
+                return this.setLine(i, line + '\n' + this.getLine(i));
+            },
+
+            removeLine: function ( i ) {
+
+                element.textContent = this.getLines().replace(
+                    new RegExp(
+                        '^((?:[^\\n]*\\n){' + (i - 1) + '})' +
+                        '(?:[^\\n]*\\n|[^$]*)'
+                    ),
+                    '$1'
+                );
+
+                return this;
+            },
+
+            highlight: function ( ) {
+
+                if(undefined !== Prism)
+                    Prism.highlightElement(element);
+
+                return this;
+            }
+        };
+    }
+});
+
+Hoa.Awecode = Hoa.Awecode || function ( videoSelector, vimeoId, editorsSelector ) {
+
+    var that        = this;
+    var video       = null;
+    var editors     = {};
+    var tabs        = Hoa.Tabs.get(editorsSelector);
+    var slider      = Hoa.$('#s').hoa;
+    var currentTime = -1;
+    var patchEffect = new function ( ) {
+
+        return {
+
+            insert: function ( number, line, editor ) {
+
+                editor.insertLine(number + 1, line)
+                       .highlight();
+
+                return;
+            },
+
+            delete: function ( number, line, editor ) {
+
+                editor.removeLine(number + 1)
+                      .highlight();
+
+                return;
+            },
+
+            end: Hoa.nop
+        };
+    };
+
+    document.body.classList.toggle('light');
+    slider.setFormatter(function ( value ) {
+
+        var min = Math.floor(value / 60);
+        var sec = Math.floor(value % 60);
+
+        if(sec < 10)
+            sec = '0' + sec;
+
+        return min + ':' + sec;
+    });
+    slider.format();
+    slider.onseek(function ( value ) {
+
+        var c = Math.floor(value);
+
+        if(c === currentTime)
+            return;
+
+        currentTime = c;
+        video.currentTime(value);
+    });
+
+    Popcorn.plugin('awecode', {
+
+        _setup: function ( options ) {
+
+            if(!options.setup)
+                return;
+
+            this.on('play', function ( ) {
+
+                console.log('play');
+            });
+
+            this.on('pause', function ( ) {
+
+                console.log('pause');
+            });
+
+            this.on('durationchange', function ( ) {
+
+                slider.setMaxValue(video.media.duration);
+            });
+
+            this.on('timeupdate', function ( ) {
+
+                var c = Math.floor(video.media.currentTime);
+
+                if(c === currentTime)
+                    return;
+
+                currentTime = c;
+
+                if(false === slider.isSeeking())
+                    slider.setValue(c);
+            });
+
+            this.on('ended', function ( ) {
+
+                slider.setValue(slider.getMaxValue());
+            });
+        },
+
+        start: function ( target, options ) {
+
+            if(options.setup)
+                return;
+
+            var bucket  = editors[options.editor];
+            var editor  = bucket.editor;
+            //var history = bucket.history;
+            //var key     = options.key;
+
+            tabs.select(bucket.index);
+            editor.setLines(options.computed)
+                  .highlight();
+
+            /*
+            if(undefined !== history[key]) {
+
+                console.log('history for ' + key);
+
+                editor.setLines(history[key])
+                      .highlight();
+
+                editors.hoa.forEach(function ( edId ) {
+
+                    var ed = editors[edId];
+
+                    if(bucket.index === ed.index)
+                        return;
+
+                    var ke = 0;
+                    var h  = ed.history;
+                    h.forEach(function ( _, k ) {
+
+                        if(k > key) {
+
+                            delete h[k];
+
+                            return;
+                        }
+
+                        ke = k;
+                    });
+
+                    ed.editor.setLines(h[ke])
+                             .highlight();
+                });
+            }
+            else {
+
+                console.log('NO history for ' + key);
+
+                history[key] = bucket.patch.apply(options.diff, editor)
+                                           .toString();
+            }
+            */
+        }
+    });
+
+    var handle = Popcorn.HTMLVimeoVideoElement(videoSelector);
+    handle.src = 'http://player.vimeo.com/video/' + vimeoId;
+    video      = Popcorn(handle);
+    video.awecode({setup: true});
+
+    this.declare = function ( data ) {
+
+        var index = 0;
+        var key   = 1;
+
+        data.forEach(function ( frame ) {
+
+            var tabPanel = tabs.add(frame.id, frame.name);
+            var code     = Hoa.DOM.code('', {'class': 'language-php'});
+            tabPanel.appendChild(
+                Hoa.DOM.pre(
+                    [code],
+                    {'data-editor': 'true'}
+                )
+            );
+            editors[frame.id] = {
+                index  : index++,
+                editor : code.hoa,
+                patch  : new Hoa.Patch(
+                    '',
+                    patchEffect.insert,
+                    patchEffect.delete,
+                    patchEffect.end
+                )
+            };
+
+            var patch = new Hoa.Patch('', Hoa.nop, Hoa.nop, Hoa.nop);
+
+            editors[frame.id].keyframes = (function ( ) {
+
+                var keyframes = [];
+
+                frame.keyframes.forEach(function ( keyframe ) {
+
+                    keyframe.key      = key++;
+                    keyframe.editor   = frame.id;
+                    keyframe.computed = patch.apply(keyframe.diff, null).toString();
+                    keyframes.push(keyframe);
+                    video.awecode(keyframe);
+                });
+
+                return keyframes;
+            })();
+        });
+    };
+};

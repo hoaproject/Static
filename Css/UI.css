@@ -854,6 +854,10 @@ pre {
         font-size: .95rem;
     }
 
+    pre[data-editor] {
+        min-height: 30em;
+    }
+
     code[class*="language-"] {
         color: #000;
     }
@@ -924,6 +928,10 @@ pre {
         box-shadow: inset 0 -1px rgba(255, 255, 255, .8),
                     inset 0  1px rgba(0,   0,   0,   .1);
         background: hsla(24, 20%, 50%, .15);
+    }
+
+    [data-tabs].plain .line-highlight {
+        margin: 2em 0 0;
     }
 
     .line-highlight::before,
@@ -1250,6 +1258,13 @@ p.warning {
     width: 20%;
 }
 
+.unselectable * {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
 
 
 
@@ -1280,4 +1295,86 @@ p.warning {
 .leaflet-control-zoom a:focus {
     color: inherit !important;
     background: #fff !important;
+}
+
+body.light header {
+    display: none;
+}
+
+#awecode [role="slider"] {
+    margin-top: -2em;
+    margin-bottom: 4em;
+    opacity: 0;
+
+    transition: opacity .3s ease-out 1.5s;
+}
+
+    #awecode:hover [role="slider"] {
+        opacity: 1;
+
+        transition-delay: 0s;
+    }
+
+#awecode .video {
+    width: 800px;
+    height: 450px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 4px #fff solid;
+    box-shadow: 0 0 5px #d4c6b0;
+}
+
+    #awecode .video > * {
+        border-radius: 8px;
+    }
+
+[role="slider"] {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    height: 12px;
+
+    border-top: 1px #6e6742 solid;
+    border-bottom: 1px rgba(119, 114, 79, .4) solid;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(87, 83, 58, .5),
+        rgba(148, 146, 130, .5)
+    );
+    box-shadow: inset 0 3px 2px rgba(38, 38, 38, .2),
+                      0 1px 1px #d5d5d5;
+}
+
+[role="slider"] > [role="button"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    box-shadow: inset 0 6px 6px #eaeaea,
+                inset 0 3px 3px #fff;
+    border-radius: 50%;
+    border: 1px #38261a solid;
+    border-top: 1px #000 solid;
+    background: #a2a2a2;
+}
+
+[role="slider"] > [role="button"]:focus {
+    outline: none;
+}
+
+[role="slider"] > [role="button"][aria-selected=true] {
+}
+
+[role="slider"] > [role="tooltip"] {
+    position: absolute;
+    top: -2em;
+    left: 1em;
+    color: #fff;
+    text-shadow: 0 0 12px #6e6742,
+                 0 0  5px #a49a63,
+                 0 0  3px #000,
+                 0 0  1px #fff;
 }

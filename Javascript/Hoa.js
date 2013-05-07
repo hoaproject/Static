@@ -300,21 +300,21 @@ Hoa.ℙ(1) && (Hoa.DOM = Hoa.DOM || new function ( ) {
 
         var node = null;
 
-        if(undefined != ns)
+        if(undefined !== ns)
             node = document.createElementNS(name);
         else
             node = document.createElement(name);
 
-        if(undefined != attributes)
+        if(undefined !== attributes)
             attributes.hoa.forEach(function ( attribute ) {
 
                 node.setAttribute(attribute, attributes[attribute]);
             });
 
-        if(undefined == children)
+        if(undefined === children)
             return node;
 
-        if(typeof children == 'string')
+        if(typeof children === 'string')
             node.appendChild(that.text(children));
         else
             children.forEach(function ( child ) {
@@ -1244,10 +1244,9 @@ Hoa.Keyboard = Hoa.Keyboard || new function ( ) {
 
 Hoa.ℙ(1) && (Hoa.Tabs = Hoa.Tabs || new function ( ) {
 
-    var that          = this;
-    var tabs          = {};
-    var tabsLastIndex = 0;
-    var TabTemplate   = function ( tab ) {
+    var that        = this;
+    var tabs        = [];
+    var TabTemplate = function ( tab ) {
 
         var selected  = null;
         var tablist   = [];
@@ -1283,7 +1282,7 @@ Hoa.ℙ(1) && (Hoa.Tabs = Hoa.Tabs || new function ( ) {
         this.add = function ( id, name ) {
 
             var handle   = Hoa.$('[role="tablist"]', tab);
-            var i        = handle.childNodes.length;
+            var i        = Hoa.$$('li[role="presentation"]', handle).length;
             var id       = 'hoa_tabs_auto_' + i;
             var _tabitem = Hoa.DOM.a(
                 name,
@@ -1373,16 +1372,15 @@ Hoa.ℙ(1) && (Hoa.Tabs = Hoa.Tabs || new function ( ) {
 
     this.get = function ( id ) {
 
-        if(undefined !== tabs[id])
-            return tabs[id];
-
         var tab = id;
 
-        if('object' === typeof tab)
-            id = tab.getAttribute('id');
+        if('string' === typeof id)
+            tab = Hoa.$(id);
 
-        if(null === id)
-            id = tabs.length;
+        id = tab.getAttribute('id');
+
+        if(undefined !== tabs[id])
+            return tabs[id];
 
         return tabs[id] = new TabTemplate(tab);
     };
