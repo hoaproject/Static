@@ -1386,7 +1386,7 @@ body.light header {
     transition: opacity .3s ease-out 1.5s;
 }
 
-    #awecode:hover [role="slider"] {
+    #awecode .video:hover ~ [role="slider"] {
         opacity: 1;
 
         transition-delay: 0s;
