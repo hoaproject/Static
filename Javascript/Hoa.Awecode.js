@@ -386,7 +386,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
 
                 q.schedule(function ( ) {
 
-X                    editor.markLines(number + '', '➜', 'line-insert');
+                     editor.markLines(number + '', '➜', 'line-insert');
                 })
                 .wait(200)
                 .schedule(function ( ) {
