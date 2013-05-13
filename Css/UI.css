@@ -1364,7 +1364,7 @@ body.light header {
     display: none;
 }
 
-#awecode .video {
+#awecode .player .video {
     width: 800px;
     height: 450px;
     margin: 0 auto;
@@ -1373,11 +1373,11 @@ body.light header {
     box-shadow: 0 0 5px #d4c6b0;
 }
 
-    #awecode .video > * {
+    #awecode .player .video > * {
         border-radius: 8px;
     }
 
-#awecode [role="slider"] {
+#awecode .player [role="slider"] {
     max-width: 640px;
     margin-top: -2em;
     margin-bottom: 4em;
@@ -1386,7 +1386,7 @@ body.light header {
     transition: opacity .3s ease-out 1.5s;
 }
 
-    #awecode .video:hover ~ [role="slider"] {
+    #awecode .player:hover [role="slider"] {
         opacity: 1;
 
         transition-delay: 0s;
