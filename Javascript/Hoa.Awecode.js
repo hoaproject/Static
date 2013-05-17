@@ -568,10 +568,11 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
     video      = Popcorn(handle);
     video.awecode({setup: true});
 
-    this.declare = function ( data ) {
+    this.declare = function ( data, delay ) {
 
         var index = 0;
         var key   = 1;
+        delay     = delay || 11;
 
         data.forEach(function ( frame ) {
 
@@ -596,16 +597,23 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
 
             var patch = new Hoa.Patch('', Hoa.nop, Hoa.nop, Hoa.nop);
 
+            console.log(frame.id);
+
             editors[frame.id].keyframes = (function ( ) {
 
                 var keyframes = [];
 
                 frame.keyframes.forEach(function ( keyframe ) {
 
+                    keyframe.start   += delay;
+                    keyframe.end     += delay;
                     keyframe.key      = key++;
                     keyframe.editor   = frame.id;
                     keyframe.computed = patch.apply(keyframe.diff, null).toString();
                     keyframes.push(keyframe);
+
+                    console.dir(keyframe);
+
                     video.awecode(keyframe);
                 });
 
