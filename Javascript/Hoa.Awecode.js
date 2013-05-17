@@ -597,8 +597,6 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
 
             var patch = new Hoa.Patch('', Hoa.nop, Hoa.nop, Hoa.nop);
 
-            console.log(frame.id);
-
             editors[frame.id].keyframes = (function ( ) {
 
                 var keyframes = [];
@@ -611,8 +609,6 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
                     keyframe.editor   = frame.id;
                     keyframe.computed = patch.apply(keyframe.diff, null).toString();
                     keyframes.push(keyframe);
-
-                    console.dir(keyframe);
 
                     video.awecode(keyframe);
                 });
