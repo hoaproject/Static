@@ -779,6 +779,11 @@ video {
         border-radius: 0 5px 5px 0;
     }
 
+    [data-tabs] > ul[role="tablist"] > li:first-of-type:last-of-type > a[role="tab"] {
+        border-width: 1px;
+        border-radius: 5px;
+    }
+
     [data-tabs] > ul[role="tablist"] > li > a[role="tab"]:active,
     [data-tabs] > ul[role="tablist"] > li > a[role="tab"]:hover {
         box-shadow: inset 0 0 2px #af9873;
