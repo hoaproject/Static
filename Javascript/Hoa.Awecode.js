@@ -27,9 +27,12 @@ Hoa.Patch = Hoa.Patch || function ( original, oninsert, ondelete, onend ) {
                     handle = /^@@ -(\d+),(\d+)/.exec(element);
 
                     if(null === mtchs)
-                        mtchs = {1: "1", 2: "0"};
+                        mtchs = {1: 1, 2: 0};
 
-                    for(var i   = parseInt(mtchs[1]) + parseInt(mtchs[2]) - 1,
+                    handle[1] = parseInt(handle[1]);
+                    handle[2] = parseInt(handle[2]);
+
+                    for(var i = mtchs[1] + mtchs[2] - 1,
                             max = handle[1] - 1;
                         i < max;
                         ++i)
@@ -40,7 +43,9 @@ Hoa.Patch = Hoa.Patch || function ( original, oninsert, ondelete, onend ) {
 
                 case '+':
                     var el = element.substring(1);
-                    oninsert(out.push(el) - 1, el, editor);
+                    var i  = out.push(el) - 1;
+                    text.splice(i, 0, el);
+                    oninsert(i, el, editor);
                   break;
 
                 case ' ':
@@ -48,12 +53,12 @@ Hoa.Patch = Hoa.Patch || function ( original, oninsert, ondelete, onend ) {
                   break;
 
                 case '-':
+                    text.splice(out.length, 1);
                     ondelete(out.length, element.substring(1), editor);
                   break;
             }
         });
 
-        text = out;
         onend(editor);
 
         return this;
