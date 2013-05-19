@@ -457,7 +457,6 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
         };
     };
 
-    document.body.classList.toggle('light');
     slider.setFormatter(function ( value ) {
 
         var min = Math.floor(value / 60);
@@ -487,18 +486,6 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
 
             if(!options.setup)
                 return;
-
-            /*
-            this.on('play', function ( ) {
-
-                console.log('play');
-            });
-
-            this.on('pause', function ( ) {
-
-                console.log('pause');
-            });
-            */
 
             this.on('durationchange', function ( ) {
 
