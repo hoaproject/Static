@@ -33,7 +33,6 @@ html {
 }
 
 @media print {
-
     html {
         font-size: 10pt;
     }
@@ -126,7 +125,6 @@ nav {
     }
 
 @media print {
-
     nav {
         display: none;
     }
@@ -158,7 +156,6 @@ nav {
     }
 
 @media print {
-
     .body {
         top: 0;
         left: 0;
@@ -182,7 +179,6 @@ div[aria-controls="menu"] {
 }
 
 @media all and (max-width: 800px) {
-
     div[aria-controls="menu"] {
         display: inline;
     }
@@ -216,7 +212,6 @@ div[aria-controls="menu"] {
 }
 
 @media all and (min-width: 1400px) {
-
     .body {
         left: 200px;
         right: 5px !important;
@@ -224,7 +219,6 @@ div[aria-controls="menu"] {
 }
 
 @media print {
-
     div[aria-controls="menu"] {
         display: none;
     }
@@ -258,7 +252,6 @@ header {
     }
 
 @media all and (max-width: 500px) {
-
     header > img {
         width: 180px;
     }
@@ -274,7 +267,6 @@ footer {
 }
 
 @media print {
-
     footer {
         position: static;
     }
@@ -312,7 +304,6 @@ a {
     }
 
 @media print {
-
     a[href*="://"]::after {
         content: ' [' attr(href) ']';
     }
@@ -375,7 +366,6 @@ h4 {
 }
 
 @media all and (max-width: 500px) {
-
     h1, h2, h3, h4, h5, h6 {
         transition: none;
     }
@@ -406,7 +396,6 @@ strong {
 }
 
 @media print {
-
     strong {
         font-weight: normal; /* remove a bug */
     }
@@ -503,7 +492,6 @@ ol {
     }
 
 @media all and (max-width: 500px) {
-
     li {
         margin-left: -1.3em;
     }
@@ -565,7 +553,6 @@ dt, dd {
     }
 
 @media all and (max-width: 800px) {
-
     dl.dialog p:first-of-type {
         margin-top: 110px !important;
     }
@@ -616,7 +603,6 @@ blockquote {
     }
 
 @media all and (max-width: 800px) {
-
     blockquote {
         margin-left: 0;
         margin-right: 0;
@@ -1018,7 +1004,6 @@ pre {
     }
 
 @media print {
-
     pre {
         box-shadow: none;
         background: #fff;
@@ -1109,7 +1094,6 @@ svg {
     }
 
 @media all and (max-width: 800px) {
-
     .download-box {
         display: none;
     }
@@ -1162,7 +1146,6 @@ ul.prev_next > li + li {
     }
 
 @media all and (max-width: 800px) {
-
     .columns[data-columns] {
         columns: 1;
         -moz-columns: 1;
@@ -1274,7 +1257,6 @@ p.warning {
     }
 
 @media all and (max-width: 800px) {
-
     .column.fleft,
     .column.fright {
         width: 100%;
@@ -1365,26 +1347,35 @@ p.warning {
     background: #fff !important;
 }
 
-body.light header {
-    display: none;
-}
-
-#awecode .player .video {
-    width: 800px;
-    height: 450px;
+#awecode .player {
+    max-width: 800px;
     margin: 0 auto;
-    border-radius: 10px;
-    border: 8px #fff solid;
-    box-shadow: 0 0 5px #d4c6b0;
+    padding: 0 20px 0 0;
 }
 
-    #awecode .player .video > * {
+    #awecode .player .video {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        border-radius: 10px;
+        border: 8px #fff solid;
+        box-shadow: 0 0 5px #d4c6b0;
+    }
+
+    #awecode .player .video > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #awecode .player .video > iframe {
         border-radius: 8px;
     }
 
 #awecode .player [role="slider"] {
-    max-width: 640px;
-    margin-top: -2em;
+    margin-top: -3em;
     margin-bottom: 4em;
     opacity: 0;
 
