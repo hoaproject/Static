@@ -97,7 +97,7 @@ Hoa.ℙ(1) && Hoa.namespace([HTMLDivElement], {
 
         var out = {
 
-            setValue: function ( value, abs ) {
+            setValue: function ( value ) {
 
                 var min   = this.getMinValue();
                 var max   = this.getMaxValue();
