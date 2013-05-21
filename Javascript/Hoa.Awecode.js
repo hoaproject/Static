@@ -479,6 +479,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
         currentTime = c;
         video.currentTime(value);
     });
+    document.documentElement.classList.toggle('light');
 
     Popcorn.plugin('awecode', {
 

@@ -257,6 +257,10 @@ header {
     }
 }
 
+    html.light header {
+        display: none;
+    }
+
 footer {
     position: absolute;
     left: 1em;
