@@ -1526,7 +1526,7 @@ a.play {
     background: rgba(0, 0, 0, .5);
 }
 
-    a:hover,
-    a:focus {
+    a.play:hover,
+    a.play:focus {
         background: rgba(0, 0, 0, .7);
     }
