@@ -739,6 +739,10 @@ img {
     border-radius: inherit;
 }
 
+    img.center {
+        display: block;
+    }
+
     div.avatar {
         position: relative;
         width: 80px;
