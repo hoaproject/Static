@@ -825,7 +825,8 @@ video {
     div.video {
         position: relative;
         width: 100%;
-        max-width: 800px;
+        max-width: 500px;
+        margin: 0 auto;
         padding-bottom: 56.25%;
         border-radius: 10px;
         border: 8px #fff solid;
