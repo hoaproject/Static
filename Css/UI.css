@@ -825,7 +825,6 @@ video {
     div.video {
         position: relative;
         width: 100%;
-        max-width: 500px;
         margin: 0 auto;
         padding-bottom: 56.25%;
         border-radius: 10px;
@@ -1353,6 +1352,9 @@ ul.prev_next > li + li {
     .w80 { width: 100% }
 }
 
+.mw500 { max-width: 500 }
+.mw800 { max-width: 800 }
+
 .notification {
     position: absolute;
     right: -1.1em;
@@ -1502,8 +1504,6 @@ p.warning {
 }
 
 #awecode .player {
-    max-width: 800px;
-    margin: 0 auto;
     padding: 0 20px 0 0;
 }
 
