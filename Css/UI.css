@@ -1352,8 +1352,8 @@ ul.prev_next > li + li {
     .w80 { width: 100% }
 }
 
-.mw500 { max-width: 500 }
-.mw800 { max-width: 800 }
+.mw500 { max-width: 500px }
+.mw800 { max-width: 800px }
 
 .notification {
     position: absolute;
