@@ -815,6 +815,10 @@ video {
     box-shadow: 0 0 1em #333;
 }
 
+iframe {
+    border: 0;
+}
+
 [data-tabs] {
     min-height: 10em;
     margin: 2em 0 0 0;
