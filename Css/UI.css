@@ -741,6 +741,9 @@ img {
 
     img.center {
         display: block;
+        border-radius: 10px;
+        border: 8px #fff solid;
+        box-shadow: 0 0 5px #d4c6b0;
     }
 
     div.avatar {
