@@ -570,7 +570,16 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
         data.forEach(function ( frame ) {
 
             var tabPanel = tabs.add(frame.id, frame.name);
-            var code     = Hoa.DOM.code('', {'class': 'language-php'});
+            var language = 'language-';
+
+            if(/\.php$/.test(frame.name))
+                language += 'php';
+            else if(/\.html$/.test(frame.name))
+                language += 'markup';
+            else if(/\.css$/.test(frame.name))
+                language += 'css';
+
+            var code = Hoa.DOM.code('', {'class': language});
             tabPanel.appendChild(
                 Hoa.DOM.pre(
                     [code],
