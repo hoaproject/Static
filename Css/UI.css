@@ -632,6 +632,7 @@ dt, dd {
 
     dl.grid dt > img {
         display: block;
+        cursor: pointer;
     }
 
     dl.grid dd {
