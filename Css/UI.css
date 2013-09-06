@@ -366,7 +366,7 @@ h3 {
 
 h4 {
     font: 1.1em/1.5em Section;
-    margin: .3em 0; .3em 1em
+    margin: .3em 0 .3em 1em
 }
 
 @media all and (max-width: 500px) {
@@ -1189,7 +1189,12 @@ svg {
     background: #4f2c68;
 }
 
-    .download-box h1 {
+    .download-box-small {
+        width: 280px;
+    }
+
+    .download-box h1,
+    .download-box h2 {
         position: absolute;
         color: #de8300;
         font: 1.4em Text;
@@ -1204,8 +1209,14 @@ svg {
         transition: margin-left .6s cubic-bezier(.3, 1.4, .5, 1);
     }
 
+    .download-box-small h2 {
+        font-size: 1.1em;
+    }
+
     .download-box h1:target,
-    .download-box:hover h1 {
+    .download-box:hover h1,
+    .download-box h2:target,
+    .download-box:hover h2 {
         margin-left: 92%;
     }
 
@@ -1319,6 +1330,9 @@ ul.prev_next > li + li {
         margin-bottom: 1em;
         margin-left: 1em;
     }
+
+.mtm { margin-top: 3em }
+.mts { margin-top: 1em }
 
 .unselectable {
     cursor: default;
