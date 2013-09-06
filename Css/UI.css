@@ -1311,6 +1311,7 @@ ul.prev_next > li + li {
 .center   { margin-left: auto; margin-right: auto }
 .tcenter  { text-align: center                    }
 .vcenter  { vertical-align: middle                }
+.tright   { text-align: right                     }
 .fleft    { float: left                           }
 .fright   { float: right                          }
 
