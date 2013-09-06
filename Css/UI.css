@@ -483,6 +483,19 @@ ul { }
             content: "✖";
         }
 
+    ul.inline {
+        padding: 0;
+    }
+
+    ul.inline > li {
+        display: inline-block;
+        padding: 0;
+    }
+
+    ul.inline > li::before {
+        display: none;
+    }
+
 ol {
     counter-reset: ol 0;
 }
