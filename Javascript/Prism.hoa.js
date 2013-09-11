@@ -7,7 +7,7 @@ Prism.languages.php = {
     'keyword':     /\b(namespace|class|interface|trait|function|if|else|elseif|return|use|throw|try|catch)\b/g,
     'constant':    /\b(true|false|null)/ig,
     'number':      /[+-]?(0b[01]+|0[0-7]+|0[xX][0-9a-fA-F]+|(0|[1-9]\d*)(\.\d+)?([eE][\+\-]?\d+)?)/g,
-    'operator':    /\->|=>|===|!==|==|!=|&amp;|&&|\|\||\b(and|or)\b|(\+|\-|\*|\/|%|\||\^|<|>|&)=?|=|\.|::/g,
+    'operator':    /\->|=>|===|!==|==|!=|&amp;|&&|\|\||\b(and|or)\b|(\+|\-|\*|\/|%|\||\^|&lt;|<|&gt;|>|&)=?|=|\.|::/g,
     'punctuation': /[{}\(\)\[\],]/g
 };
 
