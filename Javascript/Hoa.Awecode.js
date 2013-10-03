@@ -393,7 +393,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
 
                      editor.markLines(number + '', '➜', 'line-insert');
                 })
-                .wait(200)
+                .wait(100)
                 .schedule(function ( ) {
 
                     this.wait();
@@ -402,7 +402,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
                     editor.insertLine(number, line.substr(0, i++));
 
                     Hoa.Concurrent.every(
-                        40,
+                        35,
                         function ( ) {
 
                             editor.setLine(number, line.substring(0, i))
@@ -416,7 +416,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
                         }
                     );
                 })
-                .wait(400)
+                .wait(100)
                 .schedule(function ( ) {
 
                     editor.unmarkAllLines();
