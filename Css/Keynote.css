@@ -73,10 +73,10 @@
 
 @font-face {
     font-family: Pre;
-    src: url("http://static.hoa.io/Font/DroidSansMono.eot")     format("eot"),
-         url("http://static.hoa.io/Font/DroidSansMono.woff")    format("woff"),
-         url("http://static.hoa.io/Font/DroidSansMono.ttf")     format("truetype"),
-         url("http://static.hoa.io/Font/DroidSansMono.svg#foo") format("svg");
+    src: url("../Font/DroidSansMono.eot")     format("eot"),
+         url("../Font/DroidSansMono.woff")    format("woff"),
+         url("../Font/DroidSansMono.ttf")     format("truetype"),
+         url("../Font/DroidSansMono.svg#foo") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -90,14 +90,14 @@ body {
     color: #341d44;
     font: 1.6em/1.8em Text;
     text-align: justify;
-    background: #fff url('http://static.hoa.io/Image/Background_paper.png');
+    background: #fff url("../Image/Background_paper.png");
 }
 
 section {
     left: -150%;
     padding: 1em;
 
-    background: url('http://static.hoa.io/Image/Hoa_small.png')
+    background: url("../Image/Hoa_small.png")
                 98%
                 1em
                 no-repeat;
@@ -110,6 +110,10 @@ section {
 
 section[aria-selected] { left: 0 }
 section[aria-selected] ~ section { left: 150% }
+
+details {
+    display: none;
+}
 
 h1 {
     font: 2.0em/1.5em Text;
@@ -144,7 +148,7 @@ pre {
     line-height: 1.25em;
     padding: 1em 60px;
     overflow-y: auto;
-    background: #f2ede3 url("http://static.hoa.io/Image/Background_pre.png");
+    background: #f2ede3 url("../Image/Background_pre.png");
 }
 
     pre > code {
