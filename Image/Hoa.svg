@@ -8,9 +8,11 @@
   <desc>Hoa logo</desc>
 
   <style>
+    /*
     svg {
         background: #fbf4f8;
     }
+    */
 
     g {
         fill: none;
