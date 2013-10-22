@@ -52,12 +52,14 @@ section {
     height: 100%;
 }
 
-.view section {
+.view section,
+.view section[aria-selected],
+.view section[aria-selected] ~ section {
     pointer-events: auto;
     position: static;
     width: 800px;
     height: 600px;
-    margin: -150px -200px;
+    margin: -150px -210px;
     float: left;
 
     transform: scale(.4);
@@ -135,24 +137,39 @@ body.loaded {
     padding: 0;
 }
 
+head > title {
+    color: #fff;
+    font: 2em/2.4em Text;
+    text-align: center;
+    text-shadow: 0 1px 1px #000;
+}
+
 body {
     color: #341d44;
     font: 1.6em/1.8em Text;
     text-align: justify;
-    background: #fff url("http://static.hoa.io/Image/Background_paper.png");
+    background: #fff url("../Image/Background_paper.png");
 
     perspective: 700px;
     transform-style: preserve-3d;
 }
 
+    .view body {
+        counter-reset: slideidx;
+        background: #eee url('../Image/Background.png');
+        background-attachment: fixed;
+    }
+
+    .view section {
+        border-radius: 15px;
+        background: url("../Image/Hoa.svg") 98% 1em / 80px no-repeat,
+                    #fff url("../Image/Background_paper.png");
+    }
+
 section {
     left: -150%;
     padding: 1em 1.5em;
-    background: url("http://static.hoa.io/Image/Hoa.svg")
-                98%
-                1em
-                no-repeat;
-    background-size: 80px;
+    background: url("../Image/Hoa.svg") 98% 1em / 80px no-repeat;
 
     transform: translateZ(-200px) rotateY(-30deg);
     transition-property: left, transform;
@@ -163,14 +180,61 @@ section[aria-selected] {
     left: 0;
     transform: none;
 }
+
 section[aria-selected] ~ section {
     left: 150%;
     transform: translateZ(-200px) rotateY(30deg);
 }
 
+    .view section {
+        box-shadow: 0 0 20px #000;
+    }
+
+    .view section:after {
+        counter-increment: slideidx;
+        content: counter(slideidx, decimal-leading-zero);
+        position: absolute;
+        bottom: -80px;
+        right: 100px;
+
+        color: #fff;
+        text-shadow: 0 1px 1px #8d8e90;
+        font-size: 180%;
+    }
+
+    /*
+    .view section[aria-selected] {
+        border: 5px #f9eb72 solid;
+        border-radius: 10px;
+    }
+    */
+
 details {
     display: none;
 }
+
+a {
+    color: #795290;
+    text-decoration: none;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background: #efe6f5;
+}
+
+    a:hover,
+    a:active,
+    a:focus {
+        color: #efe6f5;
+        text-shadow: 0 1px #341d44;
+        outline: none;
+        background: #795290;
+    }
+
+    a:hover code,
+    a:active code,
+    a:focus code {
+        color: inherit;
+    }
 
 h1 {
     font: 2.0em/1.5em Text;
@@ -263,7 +327,7 @@ pre {
     line-height: 1.25em;
     padding: 1em 60px;
     overflow-y: auto;
-    background: #f2ede3 url("http://static.hoa.io/Image/Background_pre.png");
+    background: #f2ede3 url("../Image/Background_pre.png");
 }
 
     pre > code {
@@ -427,6 +491,6 @@ img {
     position: absolute;
 }
 
-.tcenter {
-    text-align: center;
-}
+.tcenter { text-align: center }
+.fleft   { float: left        }
+.fright  { float: right       }
