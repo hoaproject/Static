@@ -256,6 +256,11 @@ em em {
     font-style: normal;
 }
 
+strong {
+    color: #de8300;
+    font-weight: normal;
+}
+
 small {
     font-size: .7em;
 }
@@ -315,13 +320,20 @@ ol {
     ol > li::before {
         content: counter(ol);
         color: #fff;
-        height: 1.7em;
+        height: 1.5em;
         left: -1.6em;
         border-radius: .4em;
         background: #341d44;
     }
 
-code, pre {
+button {
+    font-size: 1em;
+    color: #ab3e00;
+    border: none;
+    background: none;
+}
+
+code, kbd, pre {
     font-family: Pre;
     font-size: .85em;
     color: #07a;
@@ -331,18 +343,28 @@ code, pre {
         color: #6695c8;
     }
 
-pre {
-    clear: both;
-    margin-left: -2.5em;
-    margin-right: -2.5em;
+kbd {
+    display: inline-block;
+    color: #666;
+    font-size: .8em;
+    text-align: center;
+    padding: .2em .5em 0 .5em;
+    line-height: 1.4em;
+    min-width: 1.2em;
+    border: 1px #aaa solid;
+    border-radius: 5px;
+    box-shadow: 0 1px rgba(0, 0, 0, .2);
 }
-
 
 pre {
     position: relative;
+    clear: both;
     font-size: .95rem;
     line-height: 1.25em;
+    margin-left: -2.5em;
+    margin-right: -2.5em;
     padding: .8em 50px;
+    max-height: 380px;
     overflow-y: auto;
     background: #f2ede3 url("../Image/Background_pre.png");
 }
@@ -534,6 +556,41 @@ iframe {
     border: 0;
 }
 
+.flip-container {
+    perspective: 1000px;
+}
+
+    .flip-container, .flipper, .front, .back {
+        width: 100%;
+        height: 100%;
+    }
+
+    .flip-container.toggle .flipper {
+        transform: rotateY(180deg);
+    }
+
+    .flipper {
+        position: relative;
+        transform-style: preserve-3d;
+
+        transition: transform 850ms cubic-bezier(.67, .04, .52, 1) 0s;
+    }
+
+        .front, .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+        }
+
+        .front {
+            z-index: 2;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
 #progress-bar {
     height: 2px;
     background: #feac26;
@@ -546,5 +603,6 @@ iframe {
 }
 
 .tcenter { text-align: center }
+.tright  { text-align: right  }
 .fleft   { float: left        }
 .fright  { float: right       }
