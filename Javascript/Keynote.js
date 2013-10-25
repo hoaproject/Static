@@ -47,7 +47,8 @@ Dz.onkeydown = function ( aEvent ) {
         return;
 
     // Don't intercept whether an input has the focus.
-    if($(':focus') instanceof HTMLInputElement)
+    if(   $(':focus') instanceof HTMLInputElement
+       && aEvent.keyCode != 13)
         return;
 
     if(   aEvent.keyCode == 37    // left arrow
