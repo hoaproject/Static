@@ -156,7 +156,7 @@ head > title {
 
 body {
     color: #341d44;
-    font: 1.6em/1.8em Text;
+    font: 1.6em/1.6em Text;
     text-align: justify;
     background: #fff url("../Image/Background_paper.png");
 
@@ -260,10 +260,17 @@ small {
     font-size: .7em;
 }
 
+p { }
+
+    p.break {
+        margin-top: 1em;
+    }
+
 li {
     position: relative;
     list-style: none;
     margin-left: 1.5em;
+    text-align: left;
 }
 
     li::before {
@@ -316,7 +323,7 @@ ol {
 
 code, pre {
     font-family: Pre;
-    font-size: .9em;
+    font-size: .85em;
     color: #07a;
 }
 
@@ -335,14 +342,18 @@ pre {
     position: relative;
     font-size: .95rem;
     line-height: 1.25em;
-    padding: 1em 60px;
+    padding: .8em 50px;
     overflow-y: auto;
     background: #f2ede3 url("../Image/Background_pre.png");
 }
 
+    pre + pre {
+        margin-top: .4em;
+    }
+
     pre > code {
         color: inherit;
-        font-size: .95rem;
+        font-size: .98rem;
     }
 
     code[class*="language-"] {
@@ -488,6 +499,21 @@ img {
         left: 0;
         border-radius: 50%;
         box-shadow: inset 0 0 12px #000;
+    }
+
+div.overlay {
+    position: relative;
+}
+
+    div.overlay > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    div.overlay > div:first-child {
+        pointer-events: none;
+        opacity: .2;
     }
 
 .schema {
