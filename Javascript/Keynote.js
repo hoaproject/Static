@@ -39,11 +39,15 @@ Dz.setupParams = function ( ) {
 
 Dz.onkeydown = function ( aEvent ) {
 
-  // Don't intercept keyboard shortcuts
+    // Don't intercept keyboard shortcuts
     if(   aEvent.altKey
        || aEvent.ctrlKey
        || aEvent.metaKey
        || aEvent.shiftKey)
+        return;
+
+    // Don't intercept whether an input has the focus.
+    if($(':focus') instanceof HTMLInputElement)
         return;
 
     if(   aEvent.keyCode == 37    // left arrow
