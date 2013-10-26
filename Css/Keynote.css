@@ -176,6 +176,12 @@ body {
                     #fff url("../Image/Background_paper.png");
     }
 
+    .banner {
+        position: absolute;
+        top: 1em;
+        height: 80px;
+    }
+
 section {
     left: -150%;
     padding: 1em 1.5em;
@@ -268,7 +274,7 @@ small {
 p { }
 
     p.break {
-        margin-top: 1em;
+        padding-top: 1em;
     }
 
 li {
@@ -606,3 +612,4 @@ iframe {
 .tright  { text-align: right  }
 .fleft   { float: left        }
 .fright  { float: right       }
+.clear   { clear: both        }
