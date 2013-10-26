@@ -443,7 +443,7 @@ pre {
         position: absolute;
         left: 0;
         right: 0;
-        margin-top: .8em;
+        margin-top: .65em;
         padding: .15em 0;
         pointer-events: none;
         box-shadow: inset 0 -1px rgba(255, 255, 255, .8),
