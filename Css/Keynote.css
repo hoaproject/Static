@@ -277,6 +277,26 @@ p { }
         padding-top: 1em;
     }
 
+blockquote {
+    pointer-events: none;
+    position: relative;
+    margin-bottom: 1em;
+    padding: .5em 2em;
+    border-radius: 3px;
+    background: #f2ede3;
+}
+
+    blockquote::before {
+        content: "“";
+        position: absolute;
+        color: #e6e3e6;
+        font-family: Section;
+        top: 60px;
+        left: -40px;
+        font-size: 8em;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+    }
+
 li {
     position: relative;
     list-style: none;
