@@ -258,6 +258,16 @@ h1 {
     margin-bottom: .7em;
 }
 
+    section.chapter h1 {
+        font-size: 2.5em;
+        text-align: center;
+        margin-top: 130px;
+    }
+
+    section.chapter h1 > span {
+        display: block;
+    }
+
 em em {
     font-style: normal;
 }
@@ -345,11 +355,8 @@ ol {
 
     ol > li::before {
         content: counter(ol);
-        color: #fff;
         height: 1.5em;
         left: -1.6em;
-        border-radius: .4em;
-        background: #341d44;
     }
 
 button {
