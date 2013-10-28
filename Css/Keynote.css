@@ -116,28 +116,28 @@ body.loaded {
 
 @font-face {
     font-family: Text;
-    src: url("http://static.hoa.io/Font/FiraSans-Light.eot")  format("eot"),
-         url("http://static.hoa.io/Font/FiraSans-Light.woff") format("woff");
+    src: url("http://static.hoa-project.net/Font/FiraSans-Light.eot")  format("eot"),
+         url("http://static.hoa-project.net/Font/FiraSans-Light.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: Schema;
-    src: url("http://static.hoa.io/Font/Museo.eot")     format("eot"),
-         url("http://static.hoa.io/Font/Museo.woff")    format("woff"),
-         url("http://static.hoa.io/Font/Museo.ttf")     format("truetype"),
-         url("http://static.hoa.io/Font/Museo.svg#foo") format("svg");
+    src: url("http://static.hoa-project.net/Font/Museo.eot")     format("eot"),
+         url("http://static.hoa-project.net/Font/Museo.woff")    format("woff"),
+         url("http://static.hoa-project.net/Font/Museo.ttf")     format("truetype"),
+         url("http://static.hoa-project.net/Font/Museo.svg#foo") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: Pre;
-    src: url("http://static.hoa.io/Font/DroidSansMono.eot")     format("eot"),
-         url("http://static.hoa.io/Font/DroidSansMono.woff")    format("woff"),
-         url("http://static.hoa.io/Font/DroidSansMono.ttf")     format("truetype"),
-         url("http://static.hoa.io/Font/DroidSansMono.svg#foo") format("svg");
+    src: url("http://static.hoa-project.net/Font/DroidSansMono.eot")     format("eot"),
+         url("http://static.hoa-project.net/Font/DroidSansMono.woff")    format("woff"),
+         url("http://static.hoa-project.net/Font/DroidSansMono.ttf")     format("truetype"),
+         url("http://static.hoa-project.net/Font/DroidSansMono.svg#foo") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -572,7 +572,7 @@ div.overlay {
     }
 
 .schema {
-    margin: 0;
+    margin: 0 auto;
 }
 
 svg {
