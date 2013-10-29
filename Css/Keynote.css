@@ -204,6 +204,7 @@ section[aria-selected] ~ section {
 
     .view section {
         box-shadow: 0 0 20px #000;
+        transition: none;
     }
 
     .view section:after {
@@ -580,6 +581,7 @@ svg {
     font-size: .7em;
     font-family: Schema;
     max-width: 600px;
+    max-height: 600px;
     margin: 0 auto;
 }
 
