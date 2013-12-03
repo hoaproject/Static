@@ -858,6 +858,23 @@ video {
         border-radius: 8px;
     }
 
+    div.video > div /* subtitles */ {
+        position: absolute !important;
+        left: 20% !important;
+        right: 20% !important;
+        bottom: .3em !important;
+        color: #fff !important;
+        font-size: 1.1em !important;
+        letter-spacing: .08em !important;
+        text-shadow: -1px -1px 0 #000,
+                      1px -1px 0 #000,
+                     -1px  1px 0 #000,
+                      1px  1px 0 #000,
+                      2px  2px 0 #000 !important;
+        text-align: center !important;
+        font-weight: normal !important;
+    }
+
 iframe {
     border: 0;
 }

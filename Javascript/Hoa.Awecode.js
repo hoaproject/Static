@@ -618,5 +618,14 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
                 return keyframes;
             })();
         });
+
+        return;
     };
+
+    this.subtitle = function ( uri ) {
+
+        video.parseSRT(uri);
+
+        return;
+    }
 };
