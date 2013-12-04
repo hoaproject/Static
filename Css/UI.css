@@ -1041,10 +1041,11 @@ div[role="progressbar"] {
     top: -2em;
     left: 1em;
     color: #fff;
-    text-shadow: 0 0 12px #6e6742,
-                 0 0  5px #a49a63,
-                 0 0  3px #000,
-                 0 0  1px #fff;
+    text-shadow: 0   0   12px #6e6742,
+                 0   0    5px #a49a63,
+                 0   0    3px #000,
+                 0   0    1px #fff,
+                 1px 1px  0   #000;
 }
 
 .verbatim,
@@ -1552,18 +1553,49 @@ p.warning {
 }
 
 #awecode .player {
+    position: relative;
     padding: 0 20px 0 0;
 }
 
 #awecode .player [role="slider"] {
-    margin-top: -3em;
-    margin-bottom: 4em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2em;
     opacity: 0;
 
     transition: opacity .3s ease-out 1.5s;
 }
 
-    #awecode .player:hover [role="slider"] {
+#awecode .player [role="checkbox"].subtitle {
+    cursor: pointer;
+    position: absolute;
+    bottom: 1.7em;
+    right: 3%;
+    width: 2em;
+    height: 1.5em;
+    line-height: 1.5em;
+    text-align: center;
+    border-radius: .3em;
+    opacity: 0;
+
+    transition: opacity .3s ease-out 1.5s;
+}
+
+    #awecode .player [role="checkbox"].subtitle[aria-selected="false"],
+    #awecode .player [role="checkbox"].subtitle[aria-selected="true"]:hover {
+        color: #fff;
+        background: rgba(0, 0, 0, .6);
+    }
+
+    #awecode .player [role="checkbox"].subtitle[aria-selected="true"],
+    #awecode .player [role="checkbox"].subtitle[aria-selected="false"]:hover {
+        color: #000;
+        background: #d8d5b5;
+    }
+
+    #awecode .player:hover [role="slider"],
+    #awecode .player:hover [role="checkbox"].subtitle {
         opacity: 1;
 
         transition-delay: 0s;
