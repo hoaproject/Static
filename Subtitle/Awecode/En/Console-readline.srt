@@ -1,0 +1,367 @@
+1
+00:00:13,190 --> 00:00:15,033
+Today awecode's subject:
+
+2
+00:00:15,033 --> 00:00:17,462
+how to use <i>Hoa\Console\Readline</i>?
+
+3
+00:00:17,462 --> 00:00:19,535
+What are we talking about exactly?
+
+4
+00:00:19,535 --> 00:00:22,950
+A processus is able to read on its in-stream (called <i>stdin</i>)
+
+5
+00:00:22,950 --> 00:00:25,594
+thanks to the function <i>fgets</i>.
+
+6
+00:00:25,594 --> 00:00:27,895
+If the processus runs directly from the terminal
+
+7
+00:00:27,895 --> 00:00:30,356
+its in-stream is the keyboard of the user.
+
+8
+00:00:30,356 --> 00:00:33,890
+We will write a simple little program
+
+9
+00:00:33,890 --> 00:00:38,361
+that will read the in-stream, print the result and quit.
+
+10
+00:00:38,361 --> 00:00:41,191
+We execute this program.
+
+11
+00:00:41,191 --> 00:00:43,399
+The program is waiting.
+
+12
+00:00:43,399 --> 00:00:45,954
+I will input something.
+
+13
+00:00:45,954 --> 00:00:49,594
+I will press on <i>Enter</i>: the input will be sent to the program,
+
+14
+00:00:49,594 --> 00:00:52,250
+it will print it to me and quit.
+
+15
+00:00:52,250 --> 00:00:54,756
+That's what happened, great!
+
+16
+00:00:54,756 --> 00:00:58,191
+Now, we will restart, but we will edit the line.
+
+17
+00:00:58,191 --> 00:01:01,424
+On certain systems, we are able to erase characters
+
+18
+00:01:01,424 --> 00:01:04,191
+with <i>Backspace</i>, but not on all of them.
+
+19
+00:01:04,191 --> 00:01:08,958
+Here, it works, but we are very rarely able to move the cursor.
+
+20
+00:01:08,958 --> 00:01:11,866
+I would like to move to the character at the left.
+
+21
+00:01:11,866 --> 00:01:15,292
+And when I press the left arrow, it prints a strange character.
+
+22
+00:01:15,292 --> 00:01:19,360
+Damn it! Same with the right arrow, down, up, <i>Ctrl-A</i>, <i>Ctrl-E</i>…
+
+23
+00:01:19,360 --> 00:01:23,063
+There is a lot of characters that print themselves instead of doing what we would like.
+
+24
+00:01:23,063 --> 00:01:28,327
+The idea is to use <i>Hoa\Console\Readline</i>.
+
+25
+00:01:28,327 --> 00:01:30,584
+So, we will edit our program.
+
+26
+00:01:30,584 --> 00:01:32,684
+We will rewrite it.
+
+27
+00:01:32,684 --> 00:01:37,457
+We will use a loop that asks an input from the user and stops when we enter <i>quit</i>.
+
+28
+00:01:37,457 --> 00:01:40,590
+Each time, the result will be printed.
+
+29
+00:01:40,590 --> 00:01:44,397
+We reexecute the file.
+
+30
+00:01:44,397 --> 00:01:46,629
+We see that the prompt is printed.
+
+31
+00:01:46,629 --> 00:01:49,796
+A prompt is a prefix to the line that can not be erased.
+
+32
+00:01:49,796 --> 00:01:52,096
+I enter something again, everything is ok.
+
+33
+00:01:52,096 --> 00:01:54,617
+I enter longer things.
+
+34
+00:01:54,617 --> 00:01:56,970
+I can erase like before.
+
+35
+00:01:56,970 --> 00:02:00,293
+I can move the cursor (this time).
+
+36
+00:02:00,293 --> 00:02:03,871
+I can erase inside of a word.
+
+37
+00:02:03,871 --> 00:02:06,811
+I can move to the right, to the left.
+
+38
+00:02:06,811 --> 00:02:10,744
+I can move to the beginning of the line with <i>Ctrl-A</i>…
+
+39
+00:02:10,744 --> 00:02:13,696
+… at the end of the line with <i>Ctrl-E</i>.
+
+40
+00:02:13,696 --> 00:02:18,597
+If I write somethings longer, I will be able to jump between words:
+
+41
+00:02:18,597 --> 00:02:28,919
+<i>Ctrl-B</i> to go backward, and <i>Ctrl-F</i> to go forward.
+
+43
+00:02:29,241 --> 00:02:34,564
+I can also use <i>Ctrl-W </i> to erase a word.
+
+44
+00:02:34,564 --> 00:02:40,398
+I erase, I rewrite and the result is as expected.
+
+45
+00:02:40,398 --> 00:02:45,964
+After, we can write inputs several times.
+
+46
+00:02:45,964 --> 00:02:50,896
+And when I press the up arrow, I go back in the history!
+
+47
+00:02:50,896 --> 00:02:55,264
+And when I press the down arrow, I go forth in the history.
+
+48
+00:02:55,264 --> 00:02:58,063
+<i>Et voilà</i>, it's great.
+
+49
+00:02:58,063 --> 00:03:01,296
+In order to be very cool, something is missing:
+
+50
+00:03:01,296 --> 00:03:03,831
+the auto-completion.
+
+51
+00:03:03,831 --> 00:03:11,896
+We will write a word, and when we press <i>Tab</i>, a list of potential words will be proposed.
+
+52
+00:03:11,896 --> 00:03:14,697
+This is often useful when writing complex or long things.
+
+53
+00:03:14,697 --> 00:03:18,597
+In our case, we will use <i>Hoa\Console\Readline\Autocompleter\Word</i>
+
+54
+00:03:18,597 --> 00:03:22,231
+and set a list of fruits.
+
+55
+00:03:22,231 --> 00:03:26,131
+We run the program again.
+
+56
+00:03:26,131 --> 00:03:28,432
+Nothing changes.
+
+57
+00:03:28,432 --> 00:03:32,264
+I will input <i>a</i> and see what it is proposed by pressing <i>Tab</i>.
+
+58
+00:03:32,264 --> 00:03:36,964
+One possible choice: the entire word is printed.
+
+59
+00:03:36,964 --> 00:03:42,464
+Now, I restart with another fruit. I input <i>b</i>.
+
+60
+00:03:42,464 --> 00:03:46,164
+Three choices is proposed. So I have a menu.
+
+61
+00:03:46,164 --> 00:03:49,431
+I enter in this menu and I choose.
+
+62
+00:03:49,431 --> 00:03:53,731
+What happens if I input <i>bl</i> instead of <i>b</i>?
+
+63
+00:03:53,731 --> 00:03:56,431
+There is no reason to propose me three choices, but only two.
+
+64
+00:03:56,431 --> 00:04:01,996
+This is what happens. Very logical, no magic here.
+
+65
+00:04:01,996 --> 00:04:03,397
+We will study this menu with a longer list.
+
+66
+00:04:03,397 --> 00:04:10,531
+How to obtain a longer one? By replacing fruits by the name of PHP functions.
+
+67
+00:04:10,531 --> 00:04:16,430
+Here we go. I re-run the program.
+
+68
+00:04:16,430 --> 00:04:21,331
+This time, let see… the array functions are numerous.
+
+69
+00:04:21,331 --> 00:04:25,964
+I will auto-complete and the menu is effectively much bigger.
+
+70
+00:04:25,964 --> 00:04:30,631
+One time <i>Tab</i> to show the choices, and a second time to enter in this menu.
+
+71
+00:04:30,631 --> 00:04:34,831
+If I continue to press on it, I move in the menu.
+
+72
+00:04:34,831 --> 00:04:36,929
+I can also use arrows:
+
+73
+00:04:36,929 --> 00:04:42,331
+right arrow, left arrow, up arrow, down arrow etc.
+
+74
+00:04:42,331 --> 00:04:44,864
+Finally, I press on <i>Enter</i> to select my choice.
+
+75
+00:04:44,864 --> 00:04:47,530
+It also works when we are in the middle of a word.
+
+76
+00:04:47,530 --> 00:04:50,464
+For example, I start writing something…
+
+77
+00:04:50,464 --> 00:04:55,030
+I go back to the middle, I auto-complete, and other choices are proposed.
+
+78
+00:04:55,030 --> 00:05:03,664
+Obviously, I can press <i>Esc</i> to cancel this menu.
+
+79
+00:05:03,664 --> 00:05:09,696
+<i>Voilà</i>! Very nice and functionnal.
+
+80
+00:05:09,696 --> 00:05:11,831
+How does it work?
+
+81
+00:05:11,831 --> 00:05:14,895
+It is based on <i>Hoa\Console\Cursor</i> to manipulate the cursor
+
+82
+00:05:14,895 --> 00:05:18,731
+(locate, move, show, hide etc.)
+
+83
+00:05:18,731 --> 00:05:24,097
+It is also based on <i>Hoa\Console\Window</i> to scroll the text inside the window,
+
+84
+00:05:24,097 --> 00:05:27,931
+or to know its dimensions (very useful when making columns)…
+
+85
+00:05:27,931 --> 00:05:29,698
+In short, this kind of stuffs.
+
+86
+00:05:29,698 --> 00:05:32,731
+We are also able to define our own mappings for the keyword.
+
+87
+00:05:32,731 --> 00:05:38,830
+Here, we have <i>Ctrl-A</i>, <i>Ctrl-R</i>, <i>Ctrl-W</i> etc. We can add <i>Ctrl-Z</i>, <i>Ctrl-U</i>, and so on.
+
+88
+00:05:38,830 --> 00:05:40,797
+What we want!
+
+89
+00:05:40,797 --> 00:05:43,297
+We can map other things than <i>Ctrl-</i>.
+
+90
+00:05:43,297 --> 00:05:45,664
+And in all cases, we recommend you to read the documentation:
+
+91
+00:05:45,664 --> 00:05:49,731
+it is very complete and has a lot of examples.
+
+92
+00:05:49,731 --> 00:05:52,000
+You will find many answers.
+
+93
+00:05:52,000 --> 00:05:55,000
+Have fun and see you next time!

@@ -1,0 +1,367 @@
+1
+00:00:13,190 --> 00:00:15,033
+Au sommaire de cet awecode aujourd'hui :
+
+2
+00:00:15,033 --> 00:00:17,462
+comment utiliser <i>Hoa\Console\Readline</i> ?
+
+3
+00:00:17,462 --> 00:00:19,535
+De quoi parle-t-on exactement ?
+
+4
+00:00:19,535 --> 00:00:22,950
+Un processus est capable de lire sur son flux d'entré (appelé <i>stdin</i>)
+
+5
+00:00:22,950 --> 00:00:25,594
+grâce à la fonction <i>fgets</i>.
+
+6
+00:00:25,594 --> 00:00:27,895
+Si le processus est directement lancé depuis le terminal
+
+7
+00:00:27,895 --> 00:00:30,356
+le flux d'entré est le clavier de l'utilisateur
+
+8
+00:00:30,356 --> 00:00:33,890
+On va écrire un petit programme tout simple.
+
+9
+00:00:33,890 --> 00:00:38,361
+qui va lire le flux d'entré, afficher le résultat, puis quitter.
+
+10
+00:00:38,361 --> 00:00:41,191
+On exécute ce programme.
+
+11
+00:00:41,191 --> 00:00:43,399
+Le programme se met en attente.
+
+12
+00:00:43,399 --> 00:00:45,954
+Je vais entrer quelque chose.
+
+13
+00:00:45,954 --> 00:00:49,594
+Je vais appuyer sur <i>Enter</i> : la saisie va être envoyée au programme,
+
+14
+00:00:49,594 --> 00:00:52,250
+il va me l'afficher, puis quitter.
+
+15
+00:00:52,250 --> 00:00:54,756
+C'est ce qu'il se passe, super !
+
+16
+00:00:54,756 --> 00:00:58,191
+Maintenant, on va recommencer, mais on va éditer la ligne.
+
+17
+00:00:58,191 --> 00:01:01,424
+Sur certains systèmes, on est capable d'effacer des caractères
+
+18
+00:01:01,424 --> 00:01:04,191
+avec <i>Backspace</i> (retour arrière), mais pas sur tous.
+
+19
+00:01:04,191 --> 00:01:08,958
+Ici, ça fonctionne, mais c'est en tout cas très rare de pouvoir se déplacer.
+
+20
+00:01:08,958 --> 00:01:11,866
+Là j'aimerais me déplacer d'un caractère à gauche.
+
+21
+00:01:11,866 --> 00:01:15,292
+Et quand j'appuye sur la flèche de gauche, il m'affiche un caractère bizarre.
+
+22
+00:01:15,292 --> 00:01:19,360
+Mince ! Pareil avec la flèche droite, bas, haut, <i>Ctrl-A</i>, <i>Ctrl-E</i>…
+
+23
+00:01:19,360 --> 00:01:23,063
+Il y a beaucoup de caractères qui s'impriment au lieu de faire ce qu'on aimerait.
+
+24
+00:01:23,063 --> 00:01:28,327
+L'idée, c'est d'utiliser <i>Hoa\Console\Readline</i>.
+
+25
+00:01:28,327 --> 00:01:30,584
+Pour ça, on va modifier notre programme.
+
+26
+00:01:30,584 --> 00:01:32,684
+On va le réécrire.
+
+27
+00:01:32,684 --> 00:01:37,457
+On va utiliser une boucle qui demande une saisie à l'utilisateur et qui s'arrête quand on entre <i>quit</i>.
+
+28
+00:01:37,457 --> 00:01:40,590
+À chaque fois, le résultat sera affiché.
+
+29
+00:01:40,590 --> 00:01:44,397
+On réexécute le fichier.
+
+30
+00:01:44,397 --> 00:01:46,629
+On a bien notre prompt qui s'imprime.
+
+31
+00:01:46,629 --> 00:01:49,796
+Le prompt est un préfixe à la ligne qu'on ne peut pas effacer.
+
+32
+00:01:49,796 --> 00:01:52,096
+Je réécris, ça se passe très bien.
+
+33
+00:01:52,096 --> 00:01:54,617
+Je réécris des choses plus longues.
+
+34
+00:01:54,617 --> 00:01:56,970
+Je peux effacer comme avant.
+
+35
+00:01:56,970 --> 00:02:00,293
+Je peux me déplacer (cette fois-ci).
+
+36
+00:02:00,293 --> 00:02:03,871
+Je peux effacer à l'intérieur.
+
+37
+00:02:03,871 --> 00:02:06,811
+Je peux me déplacer à droite, à gauche.
+
+38
+00:02:06,811 --> 00:02:10,744
+Je peux me déplacer en début de ligne avec <i>Ctrl-A</i>…
+
+39
+00:02:10,744 --> 00:02:13,696
+… en fin de ligne avec <i>Ctrl-E</i>.
+
+40
+00:02:13,696 --> 00:02:18,597
+Si j'écris des choses un peu longues, je vais pouvoir me déplacer de mot en mot :
+
+41
+00:02:18,597 --> 00:02:28,919
+<i>Ctrl-B</i> pour <i>backward</i> (en arrière), et <i>Ctrl-F</i> pour <i>forward</i> (en avant).
+
+43
+00:02:29,241 --> 00:02:34,564
+Je peux aussi utiliser <i>Ctrl-W</i> pour effacer un mot.
+
+44
+00:02:34,564 --> 00:02:40,398
+J'efface, je réécris et le résultat est bien celui attendu.
+
+45
+00:02:40,398 --> 00:02:45,964
+Après, on peut écrire plusieurs entrées.
+
+46
+00:02:45,964 --> 00:02:50,896
+Et quand j'appuye sur la flèche du haut, je peux remonter dans l'historique !
+
+47
+00:02:50,896 --> 00:02:55,264
+Et quand j'appuye sur la flèche du bas, je peux descendre dans l'historique.
+
+48
+00:02:55,264 --> 00:02:58,063
+Voilà, c'est super.
+
+49
+00:02:58,063 --> 00:03:01,296
+Il manque une petite chose pour que ce soit vraiment sympa :
+
+50
+00:03:01,296 --> 00:03:03,831
+c'est l'auto-complétion.
+
+51
+00:03:03,831 --> 00:03:11,896
+On va écrire un mot, et quand on appuye sur <i>Tab</i>, une suite possible sera proposée.
+
+52
+00:03:11,896 --> 00:03:14,697
+C'est souvent utile pour écrire des choses compliquées ou longues.
+
+53
+00:03:14,697 --> 00:03:18,597
+Dans notre cas, on va utiliser <i>Hoa\Console\Readline\Autocompleter\Word</i>,
+
+54
+00:03:18,597 --> 00:03:22,231
+et lui donner une liste de fruits.
+
+55
+00:03:22,231 --> 00:03:26,131
+On relance le programme.
+
+56
+00:03:26,131 --> 00:03:28,432
+Rien ne change.
+
+57
+00:03:28,432 --> 00:03:32,264
+Je vais juste juste écrire <i>a</i> et voir ce qu'il me propose en appuyant sur <i>Tab</i>.
+
+58
+00:03:32,264 --> 00:03:36,964
+Un seul choix possible : il m'écrit le mot en entier.
+
+59
+00:03:36,964 --> 00:03:42,464
+Maintenant je recommence avec un autre fruit. J'appuye sur <i>b</i>.
+
+60
+00:03:42,464 --> 00:03:46,164
+Il me propose trois choix possibles. Donc là, j'ai un menu.
+
+61
+00:03:46,164 --> 00:03:49,431
+Je vais dans ce menu, et je choisis.
+
+62
+00:03:49,431 --> 00:03:53,731
+Qu'est-ce qu'il se passe avec <i>bl</i> au lieu de <i>b</i> ?
+
+63
+00:03:53,731 --> 00:03:56,431
+Il n'y a pas lieu de me proposer trois choix, mais seulement deux.
+
+64
+00:03:56,431 --> 00:04:01,996
+C'est bien ce qu'il se passe. C'est très logique, rien de magique là-dedans.
+
+65
+00:04:01,996 --> 00:04:03,397
+On va voir ce menu avec une liste plus grande.
+
+66
+00:04:03,397 --> 00:04:10,531
+Comment obtenir une liste plus grande ? En remplaçant les fruits par le nom des fonctions PHP.
+
+67
+00:04:10,531 --> 00:04:16,430
+C'est parti. Je relance mon programme.
+
+68
+00:04:16,430 --> 00:04:21,331
+Cette fois-ci, voyons… les fonctions sur les tableaux sont nombreuses.
+
+69
+00:04:21,331 --> 00:04:25,964
+Je vais auto-compléter et le menu est effectivement beaucoup plus grand.
+
+70
+00:04:25,964 --> 00:04:30,631
+Une fois <i>Tab</i> pour afficher le choix, et une deuxième fois pour rentrer dans le menu.
+
+71
+00:04:30,631 --> 00:04:34,831
+Si je continue à appuyer dessus, je me déplace dans le menu.
+
+72
+00:04:34,831 --> 00:04:36,929
+Je peux aussi me servir des flèches :
+
+73
+00:04:36,929 --> 00:04:42,331
+flèche droite, flèche gauche, flèche du haut, flèche du bas etc.
+
+74
+00:04:42,331 --> 00:04:44,864
+Finalement, j'appuye sur <i>Enter</i> pour sélectionner mon choix.
+
+75
+00:04:44,864 --> 00:04:47,530
+Ça marche aussi quand on est au milieu d'un mot.
+
+76
+00:04:47,530 --> 00:04:50,464
+Par exemple, je commence à écrire quelque chose…
+
+77
+00:04:50,464 --> 00:04:55,030
+Je reviens au milieu, j'auto-complète, et il me propose d'autres choix.
+
+78
+00:04:55,030 --> 00:05:03,664
+Bien sûr, je peux appuyer sur <i>Esc</i> pour annuler ce menu.
+
+79
+00:05:03,664 --> 00:05:09,696
+Voilà ! C'est très sympa et fonctionnel.
+
+80
+00:05:09,696 --> 00:05:11,831
+Comment est-ce que ça marche ?
+
+81
+00:05:11,831 --> 00:05:14,895
+Ça se base sur <i>Hoa\Console\Cursor</i> pour manipuler le curseur
+
+82
+00:05:14,895 --> 00:05:18,731
+(savoir où il est, à quel endroit, le déplacer, l'afficher, le cacher etc.).
+
+83
+00:05:18,731 --> 00:05:24,097
+Ça se base aussi sur <i>Hoa\Console\Window</i> pour faire défiler le texte dans la fenêtre,
+
+84
+00:05:24,097 --> 00:05:27,931
+ou alors connaître ses dimensions (très pratique pour faire des colonnes)…
+
+85
+00:05:27,931 --> 00:05:29,698
+Bref, ce genre de choses.
+
+86
+00:05:29,698 --> 00:05:32,731
+On est également capable de définir nos propres mappings pour le clavier.
+
+87
+00:05:32,731 --> 00:05:38,830
+Ici on a <i>Ctrl-A</i>, <i>Ctrl-R</i>, <i>Ctrl-W</i> etc. On peut ajouter les notres : <i>Ctrl-Z</i>, <i>Ctrl-U</i>, bref.
+
+88
+00:05:38,830 --> 00:05:40,797
+Ce qu'on veut !
+
+89
+00:05:40,797 --> 00:05:43,297
+On peut ajouter autre chose que des <i>Ctrl-</i>.
+
+90
+00:05:43,297 --> 00:05:45,664
+Et dans tous les cas, on vous conseille de lire la documentation :
+
+91
+00:05:45,664 --> 00:05:50,731
+elle est très complète et comporte beaucoup d'exemples.
+
+92
+00:05:49,731 --> 00:05:52,000
+Vous y trouverez beaucoup de réponses.
+
+93
+00:05:52,000 --> 00:05:55,000
+Amusez-vous bien et à la prochaine fois !
