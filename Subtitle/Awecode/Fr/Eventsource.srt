@@ -311,9 +311,5 @@ Pour plus d'informations, vous pouvez aller lire la documentation
 qui est assez détaillée sur ce sujet, sur le site de Hoa.
 
 79
-00:05:29,503 --> 99:59:59,999
+00:05:29,503 --> 00:05:34,000
 Voilà, à tout bientôt et ciao !
-
-80
-99:59:59,999 --> 99:59:59,999
-
