@@ -377,6 +377,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
     var editors     = {};
     var tabs        = Hoa.Tabs.get(awecodeSelector + ' [data-tabs="true"]');
     var slider      = Hoa.$(awecodeSelector + ' [role="slider"]').hoa;
+    var subtitler   = Hoa.$(awecodeSelector + ' [role="checkbox"].subtitle');
     var currentTime = -1;
     var seeked      = false;
     var patchEffect = new function ( ) {
@@ -479,6 +480,21 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
         currentTime = c;
         video.currentTime(value);
     });
+
+    subtitler.addEventListener('click', function ( ) {
+
+        if('true' === this.getAttribute('aria-selected')) {
+
+            video.disable('subtitle');
+            this.setAttribute('aria-selected', 'false');
+        }
+        else {
+
+            video.enable('subtitle');
+            this.setAttribute('aria-selected', 'true');
+        }
+    });
+
     document.documentElement.classList.toggle('light');
 
     Popcorn.plugin('awecode', {
