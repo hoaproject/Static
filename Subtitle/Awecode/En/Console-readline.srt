@@ -16,7 +16,7 @@ A processus is able to read on its in-stream (called <i>stdin</i>)
 
 5
 00:00:22,950 --> 00:00:25,594
-thanks to the function <i>fgets</i>.
+thanks to the <i>fgets</i> function.
 
 6
 00:00:25,594 --> 00:00:27,895
