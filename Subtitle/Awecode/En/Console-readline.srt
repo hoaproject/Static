@@ -28,7 +28,7 @@ its in-stream is the keyboard of the user.
 
 8
 00:00:30,356 --> 00:00:33,890
-We will write a simple little program
+Let's write a simple little program
 
 9
 00:00:33,890 --> 00:00:38,361
