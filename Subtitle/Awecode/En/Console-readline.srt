@@ -76,7 +76,7 @@ Here, it works, but we are very rarely able to move the cursor.
 
 20
 00:01:08,958 --> 00:01:11,866
-I would like to move to the character at the left.
+I would like to move to the character to the left.
 
 21
 00:01:11,866 --> 00:01:15,292
