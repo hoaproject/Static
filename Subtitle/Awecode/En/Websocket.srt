@@ -1,0 +1,327 @@
+1
+00:00:12,622 --> 00:00:15,381
+Today awecode's subject: <i>Hoa\Websocket</i>.
+
+2
+00:00:15,381 --> 00:00:17,013
+What is WebSocket?
+
+3
+00:00:17,013 --> 00:00:19,696
+It's a standard network protocol that allows a client and a server
+
+4
+00:00:19,696 --> 00:00:23,811
+to communicate each other in a bidirectional and full-duplex way.
+
+5
+00:00:23,811 --> 00:00:26,684
+It means that a client can talk with a server,
+
+6
+00:00:26,684 --> 00:00:28,875
+and a server can talk with a client.
+
+7
+00:00:28,875 --> 00:00:31,889
+It's very different from the current HTTP model.
+
+8
+00:00:31,889 --> 00:00:36,003
+It will allow us to have more interactivity in our applications.
+
+9
+00:00:36,003 --> 00:00:39,282
+To illustrate that, we'll start by creating a server in PHP.
+
+10
+00:00:39,282 --> 00:00:42,199
+We are going to use the <i>Hoa\Websocket\Server</i> class,
+
+11
+00:00:42,199 --> 00:00:47,461
+which needs a TCP socket server to exchange the messages.
+
+12
+00:00:47,461 --> 00:00:49,925
+Once we have this server, we are able to attach listeners
+
+13
+00:00:49,925 --> 00:00:52,548
+to interact with the received data.
+
+14
+00:00:52,548 --> 00:00:55,685
+Here we say that when we receive a data that is a message,
+
+15
+00:00:55,685 --> 00:01:00,080
+we are going to print it in the terminal and then resend it to the sender.
+
+16
+00:01:00,080 --> 00:01:02,043
+We are going to create an echo.
+
+17
+00:01:02,043 --> 00:01:05,815
+Then we are going to create an HTML client.
+
+18
+00:01:05,815 --> 00:01:11,459
+For this we need an <i>input</i> and an <i>output</i>.
+
+19
+00:01:11,459 --> 00:01:14,299
+The remaining part will be done in Javascript.
+
+20
+00:01:14,299 --> 00:01:19,366
+We declare some variables like the host, the socket, the <i>input</i> and the <i>output</i>.
+
+21
+00:01:19,366 --> 00:01:27,506
+We will also declare a print function to display the result in the <i>output</i>.
+
+22
+00:01:27,506 --> 00:01:30,935
+Then we add a listener on the <i>input</i>,
+
+23
+00:01:30,935 --> 00:01:34,466
+to say that when we press the <i>Enter</i> key,
+
+24
+00:01:34,466 --> 00:01:39,028
+we send the content of the input to the WebSocket server.
+
+25
+00:01:39,028 --> 00:01:44,126
+Finally, we are going to create our WebSocket object,
+
+26
+00:01:44,126 --> 00:01:47,953
+and we will attach some listeners (once again):
+
+27
+00:01:47,953 --> 00:01:51,137
+when the connection is opened, we will print it,
+
+28
+00:01:51,137 --> 00:01:54,410
+when a message is received, we will print it,
+
+29
+00:01:54,410 --> 00:02:00,363
+and when the connection is closed, we will print it too.
+
+30
+00:02:00,363 --> 00:02:07,143
+We are going to try this.
+
+31
+00:02:07,143 --> 00:02:13,313
+We start only a single client and the server.
+
+32
+00:02:13,313 --> 00:02:15,930
+Here I send a message from my client,
+
+33
+00:02:15,930 --> 00:02:17,831
+it will be received by the server,
+
+34
+00:02:17,831 --> 00:02:19,948
+and then the client will receive it again.
+
+35
+00:02:19,948 --> 00:02:24,011
+So, I am sending, the message has been sent because the server received it,
+
+36
+00:02:24,011 --> 00:02:26,157
+and it sends it back to me.
+
+37
+00:02:26,157 --> 00:02:28,544
+I do have an echo.
+
+38
+00:02:28,544 --> 00:02:31,905
+Now, I want something more realistic.
+
+39
+00:02:31,905 --> 00:02:36,520
+I have multiple clients connected to my server,
+
+40
+00:02:36,520 --> 00:02:40,814
+and when a client sends a message, it is distributed to the other connected clients.
+
+41
+00:02:40,814 --> 00:02:45,650
+To do this, we will stop using the method <i>send</i> in our listener,
+
+42
+00:02:45,650 --> 00:02:48,821
+but we will use the method <i>broadcast</i> instead.
+
+43
+00:02:48,821 --> 00:02:51,651
+Let's try.
+
+44
+00:02:51,651 --> 00:02:59,479
+We will have 4 windows and our server.
+
+45
+00:03:05,925 --> 00:03:09,007
+All the clients are connected to my server,
+
+46
+00:03:09,007 --> 00:03:10,530
+and then, when I will send a message,
+
+47
+00:03:10,530 --> 00:03:13,248
+it will be received by the server and sent to the other clients,
+
+48
+00:03:13,248 --> 00:03:15,786
+except the one who has sent the message.
+
+49
+00:03:15,786 --> 00:03:17,998
+I am trying. I say hello everybody.
+
+50
+00:03:17,998 --> 00:03:23,115
+I have not received the message, the server has received it, and he returned it to the others.
+
+51
+00:03:23,115 --> 00:03:29,770
+That's <i>broadcast</i>.
+
+52
+00:03:29,770 --> 00:03:33,104
+Now, we are going a little further.
+
+53
+00:03:33,104 --> 00:03:35,122
+Rather than doing an HTML client,
+
+54
+00:03:35,122 --> 00:03:37,951
+we are also doing a PHP client.
+
+55
+00:03:37,951 --> 00:03:39,713
+What is the goal?
+
+56
+00:03:39,713 --> 00:03:42,812
+In your application, you can have a WebSocket server running,
+
+57
+00:03:42,812 --> 00:03:45,988
+and in another part of your application, you would like to send messages to it,
+
+58
+00:03:45,988 --> 00:03:49,492
+in order to broadcast them to the connected clients.
+
+59
+00:03:49,492 --> 00:03:52,836
+In this case, we need a PHP client.
+
+60
+00:03:52,836 --> 00:03:55,655
+We will play a little bit.
+
+61
+00:03:55,655 --> 00:03:59,070
+In a previous awecode, we had used <i>Hoa\Console\Readline</i>,
+
+62
+00:03:59,070 --> 00:04:02,471
+to facilitate the input in the terminal.
+
+63
+00:04:02,471 --> 00:04:06,257
+We will also use it in our PHP client.
+
+64
+00:04:06,257 --> 00:04:10,173
+We will use <i>Hoa\Console\Readline</i>,
+
+65
+00:04:10,173 --> 00:04:16,007
+and we start our Websocket client.
+
+66
+00:04:16,007 --> 00:04:20,354
+Every time we will write a message, it will be sent to our server.
+
+67
+00:04:20,354 --> 00:04:24,111
+Let's see what happens.
+
+68
+00:04:24,111 --> 00:04:29,551
+We will restart our PHP server.
+
+69
+00:04:29,551 --> 00:04:35,523
+However we will silence the output.
+
+70
+00:04:35,523 --> 00:04:38,331
+And we will restart our PHP client.
+
+71
+00:04:38,331 --> 00:04:42,874
+I am refreshing all my other clients for the demonstration.
+
+72
+00:04:42,874 --> 00:04:44,771
+Here the <i>broadcast</i> is working.
+
+73
+00:04:44,771 --> 00:04:53,518
+And in my client, I will send a small message to the other HTML clients.
+
+74
+00:04:53,518 --> 00:04:55,960
+That's it.
+
+75
+00:04:55,960 --> 00:04:58,979
+The interesting part is because it iss a command line client,
+
+76
+00:04:58,979 --> 00:05:04,661
+as a bonus, we can send messages to the PHP client,
+
+77
+00:05:04,661 --> 00:05:09,872
+that will pass them to our other clients through the server etc.
+
+78
+00:05:09,872 --> 00:05:14,797
+Voilà ! It was a small demonstration
+
+79
+00:05:14,797 --> 00:05:16,853
+of what could be done with <i>Hoa\Websocket</i>,
+
+80
+00:05:16,853 --> 00:05:18,912
+with the server as well as the client.
+
+81
+00:05:18,912 --> 00:05:20,633
+I hope it will give you some ideas.
+
+82
+00:05:20,633 --> 00:05:22,000
+Have fun and see you next time!
