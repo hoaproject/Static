@@ -95,7 +95,7 @@ body.loaded {
     visibility: visible;
 }
 
-#progress-bar{
+#progress-bar {
     bottom: 0;
     position: absolute;
     -moz-transition: width 400ms linear 0s;
