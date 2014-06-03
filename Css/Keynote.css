@@ -142,6 +142,13 @@ body.loaded {
     font-style: normal;
 }
 
+@font-face {
+    font-family: Math;
+    src: url("http://static.hoa-project.net/Font/NeoEuler.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -576,6 +583,10 @@ div.overlay {
 
 .schema {
     margin: 0 auto;
+}
+
+mi, mtext, mn {
+    font-family: Math;
 }
 
 svg {
