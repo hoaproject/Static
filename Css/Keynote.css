@@ -585,6 +585,14 @@ div.overlay {
     margin: 0 auto;
 }
 
+.👍 {
+    color: green;
+}
+
+.👎 {
+    color: red;
+}
+
 mi, mtext, mn {
     font-family: Math;
 }
