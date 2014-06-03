@@ -297,6 +297,10 @@ p { }
         padding-top: 1em;
     }
 
+div.break {
+    margin-top: 1em;
+}
+
 blockquote {
     pointer-events: none;
     position: relative;
