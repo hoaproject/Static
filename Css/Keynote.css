@@ -95,6 +95,25 @@ body.loaded {
     visibility: visible;
 }
 
+.incremental > *,
+.incremental > *[aria-selected] {
+   opacity: 1;
+}
+
+.incremental > *[aria-selected] ~ * {
+   opacity: .1;
+}
+
+  .incremental-overlay > *,
+  .incremental-overlay > *[aria-selected] ~ * {
+      display: none;
+  }
+
+  .incremental-overlay > *[aria-selected] {
+      display: inline;
+  }
+
+
 #progress-bar {
     bottom: 0;
     position: absolute;
