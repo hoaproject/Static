@@ -361,7 +361,7 @@ Dz.setSlide = function ( aIdx ) {
 Dz.setIncremental = function ( aStep ) {
 
     this.step = aStep;
-    var old = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
+    var old   = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
 
     if(old)
         old.removeAttribute('aria-selected');
@@ -384,8 +384,15 @@ Dz.setIncremental = function ( aStep ) {
 
         next.setAttribute('aria-selected', true);
         next.parentNode.setAttribute('active', true);
+
+        if(next.hasAttribute('onincrement')) {
+
+            next.onincrement = new Function(next.getAttribute('onincrement'));
+            next.onincrement();
+        }
+
         var found = false;
-        $$.forEach(incrementals, function(aNode) {
+        $$.forEach(incrementals, function ( aNode ) {
 
             if(aNode != next.parentNode)
                 if(found)
