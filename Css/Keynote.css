@@ -91,27 +91,35 @@ body.loaded {
     visibility: hidden;
 }
 
-.incremental[active] {
+.incremental[data-active],
+.incremental[data-active] .incremental {
     visibility: visible;
 }
 
-.incremental > *,
-.incremental > *[aria-selected] {
-   opacity: 1;
+.incremental > * {
+    opacity: 1;
 }
 
-.incremental > *[aria-selected] ~ * {
-   opacity: .1;
+.incremental[data-active] > .incremental[aria-selected],
+.incremental[data-active] > *[aria-selected] ~ *,
+.incremental[data-active] > *[aria-selected] .incremental,
+.incremental[data-active] > *[data-active] ~ * {
+    opacity: .1;
 }
 
-  .incremental-overlay > *,
-  .incremental-overlay > *[aria-selected] ~ * {
-      display: none;
-  }
+    .incremental-overlay > * {
+        display: none;
+    }
 
-  .incremental-overlay > *[aria-selected] {
-      display: inline;
-  }
+    .incremental-overlay > *[aria-selected],
+    .incremental-overlay > *[data-active] {
+        display: inline;
+    }
+
+
+    .view .incremental {
+        visibility: visible !important;
+    }
 
 
 #progress-bar {

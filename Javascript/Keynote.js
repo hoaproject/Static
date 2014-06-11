@@ -363,8 +363,18 @@ Dz.setIncremental = function ( aStep ) {
     this.step = aStep;
     var old   = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
 
-    if(old)
+    if(old) {
+
         old.removeAttribute('aria-selected');
+        old.parentNode.removeAttribute('data-active');
+        var p = old;
+
+        while('SECTION' !== p.tagName) {
+
+            p.removeAttribute('data-active');
+            p = p.parentNode;
+        }
+    }
 
     var incrementals = $$('.incremental');
 
@@ -372,7 +382,7 @@ Dz.setIncremental = function ( aStep ) {
 
         $$.forEach(incrementals, function ( aNode ) {
 
-            aNode.removeAttribute('active');
+            aNode.removeAttribute('data-active');
         });
 
         return;
@@ -383,25 +393,32 @@ Dz.setIncremental = function ( aStep ) {
     if(next) {
 
         next.setAttribute('aria-selected', true);
-        next.parentNode.setAttribute('active', true);
+
+        var p                         = next.parentNode;
+        var greatestIncrementalParent = null;
+
+        while('SECTION' !== p.tagName) {
+
+            if(p.classList.contains('incremental'))
+                greatestIncrementalParent = p;
+
+            p = p.parentNode;
+        }
+
+        p = next.parentNode;
+
+        if(null !== greatestIncrementalParent)
+            while('SECTION' !== p.tagName) {
+
+                p.setAttribute('data-active', true);
+                p = p.parentNode;
+            }
 
         if(next.hasAttribute('onincrement')) {
 
             next.onincrement = new Function(next.getAttribute('onincrement'));
             next.onincrement();
         }
-
-        var found = false;
-        $$.forEach(incrementals, function ( aNode ) {
-
-            if(aNode != next.parentNode)
-                if(found)
-                    aNode.removeAttribute('active');
-                else
-                    aNode.setAttribute('active', true);
-            else
-                found = true;
-        });
     }
     else
         setCursor(this.idx, 0);
