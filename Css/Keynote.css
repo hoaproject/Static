@@ -378,6 +378,10 @@ ul { }
             content: "✖";
         }
 
+    ul.break {
+        margin-top: 1em;
+    }
+
 ol {
     counter-reset: ol 0;
 }
@@ -390,6 +394,10 @@ ol {
         content: counter(ol);
         height: 1.5em;
         left: -1.6em;
+    }
+
+    ol.break {
+        margin-top: 1em;
     }
 
 button {
@@ -558,6 +566,22 @@ mo {
     padding: 0 1em;
 }
 
+    math.tex mi,
+    math.tex mo,
+    math.tex mtext,
+    math.tex mn {
+        font-family: Math;
+    }
+
+    math.tex mtext {
+        letter-spacing: -.1em;
+    }
+
+    math.tex mo {
+        margin: 0;
+        padding: 0;
+    }
+
 img {
     max-width: 100%;
     vertical-align: middle;
@@ -614,14 +638,6 @@ div.overlay {
 
 .👎 {
     color: red;
-}
-
-mi, mtext, mn {
-    font-family: Math;
-}
-
-mtext {
-    letter-spacing: -.1em;
 }
 
 svg {
