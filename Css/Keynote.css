@@ -115,14 +115,14 @@ body.loaded {
 
     .incremental-overlay > *[aria-selected],
     .incremental-overlay > *[data-active] {
-        display: inline;
+        display: block;
     }
 
     .view .incremental {
         visibility: visible !important;
     }
 
-    .view .incremental-overlay > *:first-child {
+    .view .incremental-overlay > *::first-child {
         display: inline;
     }
 
