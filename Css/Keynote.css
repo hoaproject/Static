@@ -454,6 +454,7 @@ pre {
     max-height: 380px;
     overflow-y: auto;
     background: #f2ede3 url("../Image/Background_pre.png");
+    transition: max-height .2s ease;
 }
 
     pre + pre {
