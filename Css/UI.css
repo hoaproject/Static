@@ -848,7 +848,8 @@ video {
         box-shadow: 0 0 5px #d4c6b0;
     }
 
-    div.video > iframe {
+    div.video > iframe,
+    div.video > object {
         position: absolute;
         top: 0;
         left: 0;
@@ -856,7 +857,8 @@ video {
         height: 100%;
     }
 
-    div.video > iframe {
+    div.video > iframe,
+    div.video > object {
         border-radius: 8px;
     }
 
@@ -877,7 +879,7 @@ video {
         font-weight: normal !important;
     }
 
-iframe {
+iframe, object {
     border: 0;
 }
 
