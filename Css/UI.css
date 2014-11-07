@@ -502,6 +502,10 @@ ul { }
         padding: 0;
     }
 
+        ul.inline > li > * {
+            vertical-align: middle;
+        }
+
     ul.inline > li::before {
         display: none;
     }
