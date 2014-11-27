@@ -1,0 +1,29 @@
+.schema {
+    margin: 0;
+}
+
+svg {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    max-height: 800px;
+    margin: 0 auto;
+}
+
+.axis {
+    fill: #aa9c8d;
+    font-size: .6em;
+    text-shadow: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #c1b7ac;
+    shape-rendering: crispEdges;
+}
+
+.area {
+    fill: #f5e7d3;
+    stroke: #de8300;
+}

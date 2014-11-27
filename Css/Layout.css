@@ -1,0 +1,116 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: 100%;
+}
+
+    @media print {
+        html {
+            font-size: 10pt;
+        }
+    }
+
+    html.menu #body,
+    html.search #body {
+        overflow: hidden;
+    }
+
+        html.menu #menu {
+            transform: translateX(0);
+        }
+
+        html.menu #body,
+        html.menu [aria-controls="menu"] {
+            transform: translateX(10em) translateY(3em);
+        }
+
+        html.menu form[role="search"],
+        html.search form[role="search"] {
+            transform: translateY(0);
+        }
+
+        html.search #menu {
+            transform: translateX(-25em);
+        }
+
+        html.search #body {
+            transform: translateY(50%) translateZ(-500px) rotateX(30deg);
+        }
+
+        html.search [aria-controls="menu"] {
+            transform: translateX(-10em);
+        }
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+#menu, #body, [aria-controls="menu"], form[role="search"] {
+    transition: transform .3s ease-out;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20em;
+    padding-top: 3em;
+
+    border: 2px red solid;
+
+    transform: translateX(-15em);
+}
+
+    #menu > ul {
+        display: table;
+        height: 100%;
+    }
+
+    #menu > ul > li {
+        display: table-row;
+    }
+
+#body {
+    position: relative;
+    height: 100%;
+    overflow: scroll;
+
+    border: 2px blue solid;
+    background: rgba(0, 0, 255, .5);
+}
+
+form[role="search"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    line-height: 3em;
+    text-align: center;
+    border: 1px orange solid;
+
+    transform: translateY(-1.5em);
+}
+
+[aria-controls="menu"] {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border: 3px green solid;
+}
+
+#content {
+    margin: 2em;
+}
