@@ -78,7 +78,7 @@ body {
         content: ' ';
         top: 50%;
         left: .5em;
-        margin-top: -1.15em;
+        margin-top: -1.16em;
         width: 2em;
         height: 2em;
         border-radius: 50%;
@@ -86,7 +86,7 @@ body {
         background-size: auto 100%;
         background-repeat: no-repeat;
         background-position: 50%;
-        border: .15em #fff solid;
+        border: .16em #fff solid;
     }
 
     #menu a.source::before     { background-image: url('../Image/Icon/Source.png'); }
@@ -106,9 +106,30 @@ form[role='search'] {
     text-align: center;
 }
 
+    form[role='search'] input[type='search'] {
+        color: #fff;
+        font: inherit;
+        font-size: .9em;
+        line-height: 2em;
+        padding: 0 2em;
+        width: 40%;
+        min-width: 14em;
+        outline: none;
+        border: .16em rgba(255, 255, 255, .4) solid;
+        border-radius: 3em;
+        background: rgba(0, 0, 0, .15);
+
+        transition: border-color .3s ease;
+    }
+
+    form[role='search'] input[type='search']:focus {
+        border-color: #fff;
+    }
+
 [aria-controls='menu'] {
     top: .5em;
     left: .5em;
+    cursor: pointer;
 }
 
 #content {
