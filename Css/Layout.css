@@ -29,7 +29,7 @@ html {
 
         html.menu #body,
         html.menu [aria-controls="menu"] {
-            transform: translateX(10em) translateY(3em);
+            transform: translateX(12em) translateY(3em);
         }
 
         html.menu form[role="search"],
@@ -66,12 +66,9 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 20em;
     padding-top: 3em;
 
-    border: 2px red solid;
-
-    transform: translateX(-15em);
+    transform: translateX(-5em);
 }
 
     #menu > ul {
@@ -87,9 +84,6 @@ body {
     position: relative;
     height: 100%;
     overflow: scroll;
-
-    border: 2px blue solid;
-    background: rgba(0, 0, 255, .5);
 }
 
 form[role="search"] {
@@ -98,19 +92,12 @@ form[role="search"] {
     left: 0;
     right: 0;
     line-height: 3em;
-    text-align: center;
-    border: 1px orange solid;
 
     transform: translateY(-1.5em);
 }
 
 [aria-controls="menu"] {
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 0;
-    border: 3px green solid;
-}
-
-#content {
-    margin: 2em;
 }
