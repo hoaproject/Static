@@ -48,7 +48,7 @@ body {
     color: #341d44;
     font: 1.1em/1.4em Text;
     background: #fff;
-    background: url('../Image/Background.jpg');
+    background: url('../Image/Background.jpg') no-repeat;
     background-size: cover;
 }
 
