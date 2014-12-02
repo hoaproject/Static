@@ -247,6 +247,15 @@ h1, h2, h3, h4, h5, h6 {
         animation: plop 1s 5;
     }
 
+    h1 em,
+    h2 em
+    h3 em
+    h4 em
+    h5 em
+    h6 em {
+        font-style: normal;
+    }
+
 title {
     font: 2.10em/2em Section;
     text-align: center;

@@ -1,6 +1,6 @@
 .map {
-    margin-left: -8rem;
-    margin-right: -8rem;
+    margin: 1em -8rem;
+    clear: both;
 }
 
 .leaflet-container {
@@ -25,8 +25,16 @@
     background: #795290;
 }
 
-.leaflet-control-zoom a:active,
-.leaflet-control-zoom a:focus {
-    color: inherit;
+.leaflet-control-zoom {
+    border: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+    border-radius: 2px;
+}
+
+.leaflet-control-zoom a {
+    color: #777;
+    line-height: 1em !important;
+    width: auto !important;
+    height: auto !important;
     background: #fff;
 }
