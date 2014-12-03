@@ -38,6 +38,11 @@ html {
 
     html.search #body {
         box-shadow: 0 4em 1em 1em rgba(0, 0, 0, .3);
+        opacity: .2;
+    }
+
+    html.search #search_output {
+        display: block;
     }
 
     html.light header {
@@ -107,6 +112,7 @@ body {
 }
 
 form[role='search'] {
+    position: relative;
     text-align: center;
 }
 
@@ -128,6 +134,18 @@ form[role='search'] {
 
     form[role='search'] input[type='search']:focus {
         border-color: #fff;
+    }
+
+    #search_output {
+        position: fixed;
+        z-index: 2;
+        top: 5em;
+        bottom: 2em;
+        left: 1em;
+        right: 1em;
+        text-align: left;
+        color: #fff;
+        display: none;
     }
 
 [aria-controls='menu'] {
