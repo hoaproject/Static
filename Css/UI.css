@@ -727,52 +727,6 @@ img {
         box-shadow: inset 0 0 12px #000;
     }
 
-    span.image {
-        display: inline-block;
-        position: relative;
-        margin: .8em;
-        padding: 0;
-        border-radius: 8px;
-        border: 1px transparent solid;
-    }
-
-    span.image:hover {
-        border-color: #dcb69a;
-    }
-
-    span.image:hover::before {
-        content: '';
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        z-index: -1;
-
-        border: 1px #d29962 solid;
-        border-radius: 12px;
-        background: #f9c4a1 linear-gradient(180deg, #f9c4a1 10%, #d7b180);
-    }
-
-    span.image > :first-child {
-        display: inline-block;
-        border: 1px transparent solid;
-        border-radius: 8px;
-    }
-
-    span.image:hover > :first-child {
-        border-color: #d29962;
-        box-shadow: 0 1px 2px #a77e59;
-    }
-
-    span.image > :not(:first-child) {
-        opacity: 0;
-    }
-
-    span.image:hover > :not(:first-child) {
-        opacity: 1;
-    }
-
 iframe, object {
     border: 0;
 }
@@ -1133,7 +1087,6 @@ p.warning {
 
     .column h2 {
         text-align: center;
-        margin: 0;
     }
 
 @media all and (max-width: 800px) {
