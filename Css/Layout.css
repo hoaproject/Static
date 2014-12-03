@@ -59,7 +59,8 @@ body {
 }
 
 #menu, #body, [aria-controls="menu"], form[role="search"] {
-    transition: transform .25s ease-out;
+    transition: transform .25s ease-out,
+                opacity   .25s ease-out;
 }
 
 #menu {

@@ -140,12 +140,50 @@ form[role='search'] {
         position: fixed;
         z-index: 2;
         top: 5em;
-        bottom: 2em;
-        left: 1em;
-        right: 1em;
+        bottom: 1em;
+        left: 10%;
+        right: 10%;
+        overflow-y: scroll;
         text-align: left;
         color: #fff;
         display: none;
+    }
+
+    #search_output dl {
+        margin: 0;
+    }
+
+    #search_output dl dt,
+    #search_output dl dd {
+        padding-left: 2.8em;
+    }
+
+    #search_output dl dt {
+        line-height: 1.8em;
+        background-size: auto 1.8em;
+        background-repeat: no-repeat;
+    }
+
+    #search_output dl dd {
+        margin-bottom: 1em;
+    }
+
+    #search_output dl[data-type="library"] dt { background-image: url('../Image/Icon/Source.png'); }
+    #search_output dl[data-type="event"] dt   { background-image: url('../Image/Icon/Event.png'); }
+    #search_output dl[data-type="learn"] dt   { background-image: url('../Image/Icon/Literature.png'); }
+    #search_output dl[data-type="base"] dt    { background-image: url('../Image/Icon/Website.png'); }
+
+    #search_output a {
+        color: #fff;
+        background: none;
+        margin-left: -5px;
+    }
+
+    #search_output a:hover,
+    #search_output a:active,
+    #search_output a:focus {
+        color: #341d44;
+        background: rgba(255, 255, 255, .9);
     }
 
 [aria-controls='menu'] {
@@ -332,7 +370,6 @@ em em {
 }
 
 strong {
-    color: #de8300;
     color: #e0995e;
 }
 
