@@ -168,10 +168,10 @@ form[role='search'] {
         margin-bottom: 1em;
     }
 
-    #search_output dl[data-type="library"] dt { background-image: url('../Image/Icon/Source.png'); }
-    #search_output dl[data-type="event"] dt   { background-image: url('../Image/Icon/Event.png'); }
-    #search_output dl[data-type="learn"] dt   { background-image: url('../Image/Icon/Literature.png'); }
-    #search_output dl[data-type="base"] dt    { background-image: url('../Image/Icon/Website.png'); }
+    #search_output dl dt[data-type="library"] { background-image: url('../Image/Icon/Source.png'); }
+    #search_output dl dt[data-type="event"]   { background-image: url('../Image/Icon/Event.png'); }
+    #search_output dl dt[data-type="learn"]   { background-image: url('../Image/Icon/Literature.png'); }
+    #search_output dl dt[data-type="base"]    { background-image: url('../Image/Icon/Website.png'); }
 
     #search_output a {
         color: #fff;
