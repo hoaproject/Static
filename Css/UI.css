@@ -52,10 +52,21 @@ html {
 body {
     color: #341d44;
     font: 1.1em/1.4em Text;
-    background: #fff;
-    background: url('../Image/Background.jpg') no-repeat;
-    background-size: cover;
 }
+
+    body::before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url('../Image/Background.jpg') no-repeat;
+        background-size: cover;
+        filter: blur(10px);
+        transform: scale(1.1);
+    }
 
 #menu ul {
     list-style: none;

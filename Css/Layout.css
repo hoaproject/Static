@@ -5,11 +5,10 @@
 }
 
 html, body {
+    margin: 0;
+    padding: 0;
     height: 100%;
-}
-
-html {
-    font-size: 100%;
+    overflow: hidden;
 }
 
     @media print {
@@ -57,10 +56,7 @@ html {
         }
 
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
+    position: relative;
     perspective: 1000px;
     -webkit-perspective: 1000px;
 }
@@ -98,6 +94,7 @@ body {
     bottom: 0;
     left: 0;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 form[role="search"] {
