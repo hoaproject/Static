@@ -14,6 +14,19 @@ pre {
     background: #f2ede3 url("../Image/Background_pre.png");
 }
 
+    @media all and (max-width: 800px) {
+        .verbatim,
+        pre {
+            margin-left: -3rem;
+            margin-right: -3rem;
+        }
+
+        pre {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    }
+
     pre > code {
         color: inherit;
         font-size: .95rem;
