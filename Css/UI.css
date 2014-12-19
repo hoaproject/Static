@@ -214,7 +214,7 @@ form[role='search'] {
     cursor: pointer;
 }
 
-#content {
+main {
     text-align: justify;
     hyphens: auto;
     -moz-hyphens: auto;
@@ -223,7 +223,7 @@ form[role='search'] {
 }
 
     @media all and (max-width: 800px) {
-        #content {
+        main {
             padding-left: 3rem;
             padding-right: 3rem;
         }
