@@ -5,6 +5,13 @@
     clear: both;
 }
 
+    @media all and (max-width: 800px) {
+        .map {
+            margin-left: -3rem;
+            margin-right: -3rem;
+        }
+    }
+
 .leaflet-container {
     font: inherit;
     color: inherit;
