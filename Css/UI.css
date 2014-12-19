@@ -503,6 +503,38 @@ ul, ol {
         display: none;
     }
 
+    ul.tabular {
+        table-layout: auto;
+        display: table;
+    }
+
+    ul.tabular > li {
+        display: table-row;
+    }
+
+    ul.tabular > li > * {
+        display: table-cell;
+    }
+
+        @media all and (max-width: 800px) {
+            ul.tabular {
+                display: block;
+            }
+
+            ul.tabular > li {
+                display: block;
+            }
+
+            ul.tabular > li > * {
+                display: block;
+            }
+
+            ul.tabular > li > aside {
+                text-align: center;
+                margin-bottom: 1em;
+            }
+        }
+
 ol {
     counter-reset: ol 0;
 }
