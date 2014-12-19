@@ -323,13 +323,11 @@ h1, h2, h3, h4, h5, h6 {
     h6:target::before {
         content: ' ';
         position: absolute;
-        top: 1.2em;
-        left: -1.4em;
+        top: 1.3em;
+        left: -1.8em;
         width: 4em;
         height: 1em;
         background: url('../Image/Right_arrow.svg') 0 50% no-repeat;
-
-        animation: plop 1s 5;
     }
 
     h1 em,
@@ -1177,19 +1175,3 @@ p.warning {
 
 ::-moz-selection { background: #e4cbf4 }
 ::selection      { background: #e4cbf4 }
-
-@keyframes plop {
-    from {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.4);
-        left: -1.5em;
-    }
-
-    to {
-        transform: scale(1);
-    }
-}
-*/
