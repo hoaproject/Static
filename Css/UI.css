@@ -113,8 +113,8 @@ body {
     }
 
     #menu a:hover::before {
-        transform: scale(.8);
-        -webkit-transform: scale(.8);
+        transform: translateX(-.5em);
+        -webkit-transform: translateX(-.5em);
     }
 
     #menu a.source::before     { background-image: url('../Image/Icon/Source.png'); }
