@@ -166,7 +166,7 @@ form[role='search'] {
         left: 10%;
         right: 10%;
         overflow-y: scroll;
-        text-align: left;
+        text-align: start;
         color: #fff;
         display: none;
     }
@@ -435,6 +435,7 @@ li {
     list-style: none;
     margin: .2em 0 0 1.5em;
     padding: 0;
+    text-align: start;
 }
 
     .raw li {
@@ -678,7 +679,7 @@ dt, dd {
     }
 
     dl.grid dd {
-        text-align: left;
+        text-align: start;
         height: 0;
         max-height: 13em;
 
@@ -941,7 +942,7 @@ div[role='progressbar'] {
         font-size: .8em;
         font-weight: bold;
         line-height: 25px;
-        text-align: right;
+        text-align: end;
         text-shadow: 0 1px #fff;
 
         padding: 0 1em 0 0;
@@ -1075,7 +1076,7 @@ ul.prev_next > li + li {
 .center   { margin-left: auto; margin-right: auto }
 .tcenter  { text-align: center                    }
 .vcenter  { vertical-align: middle                }
-.tright   { text-align: right                     }
+.tright   { text-align: end                       }
 .fleft    { float: left                           }
 .fright   { float: right                          }
 
