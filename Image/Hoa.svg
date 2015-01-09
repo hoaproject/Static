@@ -8,23 +8,17 @@
   <desc>Hoa logo</desc>
 
   <style>
-    /*
-    svg {
-        background: #fbf4f8;
-    }
-    */
-
     g {
         fill: none;
     }
 
     .flower {
-        stroke: #f7b5d9;
+        stroke: #f4c3de;
         stroke-width: 28;
     }
 
     .hoa {
-        stroke: #933;
+        stroke: #b24646;
         stroke-width: 18;
         stroke-linecap: round;
     }
