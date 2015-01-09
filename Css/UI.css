@@ -500,9 +500,9 @@ ul, ol {
             vertical-align: middle;
         }
 
-    ul[role="toolbar"] > li::before {
-        display: none;
-    }
+        ul[role="toolbar"] > li::before {
+            display: none;
+        }
 
     ul.tabular {
         table-layout: auto;
