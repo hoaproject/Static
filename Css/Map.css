@@ -24,6 +24,10 @@
     -webkit-border-radius: 8px;
 }
 
+.leaflet-control-attribution {
+    background: transparent !important;
+}
+
 .leaflet-control-attribution a:hover,
 .leaflet-control-attribution a:active,
 .leaflet-control-attribution a:focus,
@@ -35,6 +39,7 @@
 }
 
 .leaflet-control-zoom {
+    margin-right: 1em !important;
     border: none;
     box-shadow: 0 0 4px rgba(0, 0, 0, .2);
     border-radius: 2px;
