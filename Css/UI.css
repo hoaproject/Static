@@ -918,7 +918,7 @@ iframe, object {
 
 [data-tabs].plain > div[role='tabpanel'] > * {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1em;
     padding-top: 2.2em;
 }
 
@@ -1060,6 +1060,10 @@ ul.prev_next > li + li {
         columns: 1;
         -moz-columns: 1;
         -webkit-columns: 1;
+    }
+
+    ul.columns[data-columns] li {
+        text-align: center;
     }
 }
 
