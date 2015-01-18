@@ -127,7 +127,7 @@ body {
 
 #body {
     box-shadow: -.5em 0 1em rgba(0, 0, 0, .3);
-    background: #fff url('../Image/Background_paper.png') scroll;
+    background: #fff url('../Image/Background_paper.png');
 }
 
 form[role='search'] {
@@ -155,7 +155,7 @@ form[role='search'] {
     }
 
     form[role='search'] input[type='search']:focus {
-        border-color: #fff;
+        border-color: rgba(255, 255, 255, 1);
     }
 
     #search_output {
@@ -392,6 +392,10 @@ p {
 
     p + p {
         margin-top: .7em;
+    }
+
+    ul + p {
+        margin-top: .2em;
     }
 
 em em {
@@ -1209,6 +1213,63 @@ p.warning {
         width: 100%;
     }
 }
+
+div.timeline {
+    position: relative;
+    margin-top: 1em;
+    margin-left: 5rem;
+    border: 1px transparent solid;
+}
+
+    div.timeline::before {
+        content: ' ';
+        position: absolute;
+        left: .8rem;
+        height: 100%;
+        border-left: 2px #e0995e solid;
+    }
+
+    div.timeline ul {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    div.timeline li {
+        height: 2em;
+        margin-left: 2.5em;
+    }
+
+        div.timeline li::before {
+            content: ' ';
+            top: .35em;
+            left: -2.13em;
+            width: .6em;
+            height: .6em;
+            border-radius: 50%;
+            border: 2px #e0995e solid;
+            background: #fff url('../Image/Background_paper.png');
+        }
+
+    div.timeline time {
+        position: absolute;
+        left: -7.9rem;
+        font-size: small;
+        text-align: right;
+        width: 6em;
+    }
+
+    div.timeline span.br {
+        position: absolute;
+        display: block;
+        height: 2em;
+        left: .8rem;
+        border: #f9f8f7 dashed;
+        border-width: 0 0 0 2px;
+    }
+
+        div.timeline span + * {
+            margin-top: 3em;
+        }
 
 ::-moz-selection { background: #e4cbf4 }
 ::selection      { background: #e4cbf4 }
