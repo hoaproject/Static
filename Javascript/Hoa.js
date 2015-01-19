@@ -6,7 +6,7 @@
  *
  * New BSD License
  *
- * Copyright © 2007-2013, Ivan Enderlin. All rights reserved.
+ * Copyright © 2007-2015, Ivan Enderlin. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -301,7 +301,7 @@ Hoa.ℙ(1) && (Hoa.DOM = Hoa.DOM || new function ( ) {
         var node = null;
 
         if(undefined !== ns)
-            node = document.createElementNS(name);
+            node = document.createElementNS(ns, name);
         else
             node = document.createElement(name);
 
@@ -1384,12 +1384,7 @@ Hoa.ℙ(1) && (Hoa.Tabs = Hoa.Tabs || new function ( ) {
 
     this.get = function ( id ) {
 
-        var tab = id;
-
-        if('string' === typeof id)
-            tab = Hoa.$(id);
-
-        id = tab.getAttribute('id');
+        var tab = Hoa.$('#' + id);
 
         if(undefined !== tabs[id])
             return tabs[id];
@@ -1403,7 +1398,7 @@ Hoa.ℙ(1) && (Hoa.Tabs = Hoa.Tabs || new function ( ) {
         while(   null !== (p = p.parentElement)
               && false === p.hasAttribute('data-tabs'));
 
-        return that.get(p);
+        return that.get(p.getAttribute('id'));
     };
     Hoa.Event.on('click', selector, function ( evt ) {
 
