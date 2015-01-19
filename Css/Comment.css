@@ -1,0 +1,118 @@
+#isso-thread {
+}
+
+#isso-thread h4 {
+    font: 1.6em/1.7em Section;
+    margin-top: 1em;
+    margin-bottom: .7em;
+    margin-left: 0;
+}
+
+#isso-thread input,
+#isso-thread [contenteditable] {
+    text-align: left;
+    padding: .3em .6em;
+    border: .16em rgba(224, 153, 94, .4) solid;
+    outline: none;
+    border-radius: 3px;
+    background: #fff;
+
+    transition: border-color .3s ease;
+    -webkit-transition: border-color .3s ease;
+}
+
+#isso-thread input:focus,
+#isso-thread [contenteditable]:focus {
+    border-color: rgba(224, 153, 94, 1);
+}
+
+#isso-thread input[type="submit"] {
+    color: #ffffbe;
+    border: 0;
+    background: #81b531;
+}
+
+#isso-thread [contenteditable] {
+    min-height: 5em;
+    padding: 1em .6em;
+}
+
+#isso-thread .auth-section {
+    display: table;
+    width: 100%;
+    margin-top: 1em;
+}
+
+#isso-thread .auth-section > * {
+    display: table-cell;
+    width: 25%;
+}
+
+#isso-thread input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+#isso-thread .post-action {
+    text-align: right;
+}
+
+#isso-thread .isso-comment {
+    position: relative;
+    margin-top: 2em;
+}
+
+#isso-thread .avatar {
+    position: absolute;
+}
+
+#isso-thread .text-wrapper {
+    margin-left: 70px;
+}
+
+#isso-thread .author {
+    color: #e0995e;
+    font-weight: bold;
+}
+
+#isso-thread .spacer {
+    color: #aaa;
+    margin-left: .6em;
+    margin-right: .6em;
+}
+
+    #isso-thread .isso-comment-footer .spacer {
+        margin-left: .1em;
+        margin-right: .1em;
+    }
+
+#isso-thread .text {
+    margin-top: .4em;
+    margin-bottom: .5em;
+}
+
+#isso-thread .permalink,
+#isso-thread .note,
+#isso-thread .isso-comment-footer {
+    font-size: small;
+}
+
+#isso-thread .isso-comment-footer {
+    margin-top: .5em;
+    margin-left: -70px;
+}
+
+#isso-thread .isso-comment-footer > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#isso-thread .reply {
+    margin-left: 2em;
+}
+
+#isso-thread .upvote,
+#isso-thread .downvote {
+    background: none;
+}

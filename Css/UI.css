@@ -826,7 +826,7 @@ img {
         background: #eee;
     }
 
-    div.avatar > img {
+    div.avatar > * {
         border-radius: 24px;
     }
 
