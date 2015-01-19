@@ -42,7 +42,6 @@ video {
 
 #awecode .player {
     position: relative;
-    padding: 0 20px 0 0;
 }
 
 #awecode .player [role="slider"] {
@@ -96,22 +95,3 @@ video {
 #awecode .line-marker.line-remove {
     color: red;
 }
-
-a.play {
-    color: #fff;
-    font-size: 300%;
-    display: inline-block;
-    text-shadow: none;
-    padding: .6em 0;
-    min-width: 120px;
-    max-width: 250px;
-    width: 80%;
-    border: 0;
-    border-radius: 8px;
-    background: rgba(0, 0, 0, .5);
-}
-
-    a.play:hover,
-    a.play:focus {
-        background: rgba(0, 0, 0, .7);
-    }
