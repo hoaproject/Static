@@ -1441,4 +1441,15 @@ Hoa.ℙ(1) && (Hoa.Tabs = Hoa.Tabs || new function ( ) {
 
         evt.preventDefault();
     });
+
+    Hoa.Document.onReady(function ( ) {
+
+        var tabs = Hoa.$$('[data-tabs]');
+
+        for(var i = 0, max = tabs.length; i < max; ++i) {
+
+            if(null === tabs[i].getAttribute('id'))
+                tabs[i].setAttribute('id', 'tabs_' + Hoa.uuid());
+        }
+    });
 });
