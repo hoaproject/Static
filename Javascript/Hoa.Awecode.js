@@ -375,7 +375,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeId, vimeoId ) {
     var that        = this;
     var video       = null;
     var editors     = {};
-    var tabs        = Hoa.Tabs.get(awecodeId);
+    var tabs        = Hoa.Tabs.get(Hoa.$('#' + awecodeId + ' [data-tabs]'));
     var slider      = Hoa.$('#' + awecodeId + ' [role="slider"]').hoa;
     var subtitler   = Hoa.$('#' + awecodeId + ' [role="checkbox"].subtitle');
     var currentTime = -1;
