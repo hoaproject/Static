@@ -1241,7 +1241,7 @@ div.timeline {
         div.timeline li::before {
             content: ' ';
             top: .35em;
-        left: -1.64em;
+            left: -1.64em;
             width: .6em;
             height: .6em;
             border-radius: 50%;
