@@ -4,9 +4,9 @@
 [submodule "External/Leaflet"]
 	path = External/Leaflet
 	url = https://github.com/Leaflet/Leaflet
-[submodule "External/Hammer"]
-	path = External/Hammer
-	url = https://github.com/EightMedia/hammer.js.git
 [submodule "External/Popcorn.js"]
 	path = External/Popcorn.js
 	url = https://github.com/mozilla/popcorn-js
+[submodule "External/D3"]
+	path = External/D3
+	url = https://github.com/mbostock/d3

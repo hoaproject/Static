@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<overlay xmlns="http://hoa-project.net/xyl/xylophone">
-  <yield id="yMain">
-    <ul>
-      <li bind="?list"><a href="@g:gallery=(?item)" bind="?item" /></li>
-    </ul>
-  </yield>
-</overlay>
