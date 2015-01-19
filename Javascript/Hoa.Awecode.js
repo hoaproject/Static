@@ -370,14 +370,14 @@ Hoa.ℙ(1) && Hoa.namespace([HTMLElement], {
     }
 });
 
-Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
+Hoa.Awecode = Hoa.Awecode || function ( awecodeId, vimeoId ) {
 
     var that        = this;
     var video       = null;
     var editors     = {};
-    var tabs        = Hoa.Tabs.get(awecodeSelector + ' [data-tabs="true"]');
-    var slider      = Hoa.$(awecodeSelector + ' [role="slider"]').hoa;
-    var subtitler   = Hoa.$(awecodeSelector + ' [role="checkbox"].subtitle');
+    var tabs        = Hoa.Tabs.get(awecodeId);
+    var slider      = Hoa.$('#' + awecodeId + ' [role="slider"]').hoa;
+    var subtitler   = Hoa.$('#' + awecodeId + ' [role="checkbox"].subtitle');
     var currentTime = -1;
     var seeked      = false;
     var patchEffect = new function ( ) {
@@ -572,7 +572,7 @@ Hoa.Awecode = Hoa.Awecode || function ( awecodeSelector, vimeoId ) {
         }
     });
 
-    var handle = Popcorn.HTMLVimeoVideoElement(awecodeSelector + ' .video');
+    var handle = Popcorn.HTMLVimeoVideoElement('#' + awecodeId + ' .video');
     handle.src = 'http://player.vimeo.com/video/' + vimeoId;
     video      = Popcorn(handle);
     video.awecode({setup: true});
