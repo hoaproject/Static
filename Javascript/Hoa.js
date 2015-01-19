@@ -1384,7 +1384,17 @@ Hoa.ℙ(1) && (Hoa.Tabs = Hoa.Tabs || new function ( ) {
 
     this.get = function ( id ) {
 
-        var tab = Hoa.$('#' + id);
+        var tab = null;
+
+        if(id instanceof HTMLElement) {
+
+            tab = id;
+
+            if(null === (id = tab.getAttribute('id')))
+                tab.setAttribute('id', 'tabs_' + Hoa.uuid());
+        }
+        else
+            tab = Hoa.$('#' + id);
 
         if(undefined !== tabs[id])
             return tabs[id];
