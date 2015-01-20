@@ -1271,5 +1271,9 @@ div.timeline {
             margin-top: 3.5em;
         }
 
+[aria-hidden="true"] {
+    display: none !important;
+}
+
 ::-moz-selection { background: #e4cbf4 }
 ::selection      { background: #e4cbf4 }
