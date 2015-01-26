@@ -52,6 +52,7 @@ html {
 body {
     color: #341d44;
     font: 1.1em/1.4em Text;
+    -webkit-font-smoothing: antialiased;
 }
 
     body::before {
