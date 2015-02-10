@@ -2,6 +2,7 @@
     margin: 1em -8rem;
     height: 500px;
     height: 75vh;
+    max-height: 700px;
     clear: both;
 }
 
