@@ -1072,6 +1072,41 @@ ul.prev_next > li + li {
     }
 }
 
+table {
+    margin: 1em auto;
+    max-width: 80%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    table thead {
+        color: #e0995e;
+    }
+
+    table thead tr:not(:first-child),
+    table tbody tr {
+        border-top: 1px #ccc solid;
+    }
+
+    table th {
+        vertical-align: bottom;
+    }
+
+    table th,
+    table td {
+        padding: 0 1em;
+        line-height: 2em;
+    }
+
+table caption {
+    color: #777;
+    font-size: .8em;
+    line-height: 1.2em;
+    margin: 1em auto 0 auto;
+    width: 80%;
+    caption-side: bottom;
+}
+
 .table      { display: table      }
 .table-cell { display: table-cell }
 
