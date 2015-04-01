@@ -103,6 +103,7 @@
 #isso-thread .author {
     color: #e0995e;
     font-weight: bold;
+    background: transparent;
 }
 
 #isso-thread .spacer {
@@ -119,6 +120,7 @@
 #isso-thread .text {
     margin-top: .4em;
     margin-bottom: .5em;
+    text-align: left;
 }
 
 #isso-thread .permalink,
