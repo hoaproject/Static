@@ -8,6 +8,20 @@
 }
 
 @font-face {
+    /**
+     * EmojiSymbols Font © blockworks, Kenichi Kaneko
+     * http://emojisymbols.com/
+     */
+    font-family: Text;
+    src: url('../Font/EmojiSymbols.woff') format('woff'),
+         url('../Font/EmojiSymbols.eot')  format('eot'),
+         url('../Font/EmojiSymbols.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF, U+2600-26FF;
+}
+
+@font-face {
     font-family: Pre;
     src: url('../Font/DroidSansMono.woff') format('woff'),
          url('../Font/DroidSansMono.eot')  format('eot'),
@@ -360,31 +374,31 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 title {
-    font: 2.10em/2em Section;
+    font: 2.10em/2em Section, Text;
     text-align: center;
     margin: 2em 0 2em 0;
 }
 
 h1 {
-    font: 1.8em/1.8em Section;
+    font: 1.8em/1.8em Section, Text;
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em;
 }
 
 h2 {
-    font: 1.6em/1.7em Section;
+    font: 1.6em/1.7em Section, Text;
     margin-top: 1em;
     margin-bottom: .7em;
 }
 
 h3 {
-    font: 1.40em/1.5em Section;
+    font: 1.40em/1.5em Section, Text;
     margin-top: .8em;
 }
 
 h4 {
-    font: 1.1em/1.5em Section;
+    font: 1.1em/1.5em Section, Text;
     margin: .3em 0 .3em 1em
 }
 
