@@ -148,3 +148,8 @@
     width: 2em;
     background: none;
 }
+
+#isso-thread pre {
+    margin: 1em 0;
+    padding: .5em 1em;
+}
