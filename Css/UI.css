@@ -12,7 +12,7 @@
      * EmojiSymbols Font © blockworks, Kenichi Kaneko
      * http://emojisymbols.com/
      */
-    font-family: Text;
+    font-family: Emoji;
     src: url('../Font/EmojiSymbols.woff') format('woff'),
          url('../Font/EmojiSymbols.eot')  format('eot'),
          url('../Font/EmojiSymbols.ttf')  format('truetype');
@@ -65,7 +65,7 @@ html {
 
 body {
     color: #341d44;
-    font: 1.1em/1.4em Text;
+    font: 1.1em/1.4em Text, Emoji;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -375,31 +375,31 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 title {
-    font: 2.10em/2em Section, Text;
+    font: 2.10em/2em Section, Text, Emoji;
     text-align: center;
     margin: 2em 0 2em 0;
 }
 
 h1 {
-    font: 1.8em/1.8em Section, Text;
+    font: 1.8em/1.8em Section, Text, Emoji;
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em;
 }
 
 h2 {
-    font: 1.6em/1.7em Section, Text;
+    font: 1.6em/1.7em Section, Text, Emoji;
     margin-top: 1em;
     margin-bottom: .7em;
 }
 
 h3 {
-    font: 1.40em/1.5em Section, Text;
+    font: 1.40em/1.5em Section, Text, Emoji;
     margin-top: .8em;
 }
 
 h4 {
-    font: 1.1em/1.5em Section, Text;
+    font: 1.1em/1.5em Section, Text, Emoji;
     margin: .3em 0 .3em 1em
 }
 
