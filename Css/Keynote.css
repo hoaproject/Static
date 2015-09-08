@@ -1,3 +1,6 @@
+@import 'UI.css';
+@import 'Code.css';
+
 /**
  * From DZSlides.
  */
@@ -23,6 +26,11 @@ body {
     overflow: hidden;
     display: inline-block;
 }
+
+    body::before {
+        display: none;
+        background: none;
+    }
 
 .view body {
     position: static;
@@ -195,7 +203,7 @@ head > title {
 
 body {
     color: #341d44;
-    font: 1.6em/1.6em Text;
+    font: 1.6em/1.2em Text;
     text-align: justify;
     background: #fff url("../Image/Background_paper.png");
 
@@ -269,31 +277,9 @@ details {
     display: none;
 }
 
-a {
-    color: #795290;
-    text-decoration: none;
-    padding: 2px 5px;
-    border-radius: 3px;
-    background: #efe6f5;
-}
-
-    a:hover,
-    a:active,
-    a:focus {
-        color: #efe6f5;
-        text-shadow: 0 1px #341d44;
-        outline: none;
-        background: #795290;
-    }
-
-    a:hover code,
-    a:active code,
-    a:focus code {
-        color: inherit;
-    }
-
 h1 {
-    font: 2.0em/1.5em Text;
+    color: #341d44;
+    font: 2em/1em Text;
     text-align: left;
     margin-right: 80px;
     margin-bottom: .7em;
@@ -310,12 +296,7 @@ h1 {
         display: block;
     }
 
-em em {
-    font-style: normal;
-}
-
 strong {
-    color: #de8300;
     font-weight: normal;
 }
 
@@ -329,29 +310,15 @@ p { }
         padding-top: 1em;
     }
 
+img.center {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
 div.break {
     margin-top: 1em;
 }
-
-blockquote {
-    pointer-events: none;
-    position: relative;
-    margin-bottom: 1em;
-    padding: .5em 2em;
-    border-radius: 3px;
-    background: #f2ede3;
-}
-
-    blockquote::before {
-        content: "“";
-        position: absolute;
-        color: #e6e3e6;
-        font-family: Section;
-        top: 60px;
-        left: -40px;
-        font-size: 8em;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
-    }
 
 li {
     position: relative;
@@ -371,43 +338,11 @@ li {
 
 ul { }
 
-    ul > li::before {
-        content: "•";
-    }
-
-    ul > li[data-item]::before {
-        content: attr(data-item);
-    }
-
-        ul > li[data-item="->"]::before {
-            content: "➜";
-        }
-
-        ul > li[data-item="++"]::before {
-            content: "✔";
-        }
-
-        ul > li[data-item="--"]::before {
-            content: "✖";
-        }
-
     ul.break {
         margin-top: 1em;
     }
 
-ol {
-    counter-reset: ol 0;
-}
-
-    ol > li {
-        counter-increment: ol;
-    }
-
-    ol > li::before {
-        content: counter(ol);
-        height: 1.5em;
-        left: -1.6em;
-    }
+ol { }
 
     ol.break {
         margin-top: 1em;
@@ -419,169 +354,6 @@ button {
     border: none;
     background: none;
 }
-
-code, kbd, pre {
-    font-family: Pre;
-    font-size: .85em;
-    color: #07a;
-}
-
-    code em {
-        color: #6695c8;
-    }
-
-kbd {
-    display: inline-block;
-    color: #666;
-    font-size: .8em;
-    text-align: center;
-    padding: .2em .5em 0 .5em;
-    line-height: 1.4em;
-    min-width: 1.2em;
-    border: 1px #aaa solid;
-    border-radius: 5px;
-    box-shadow: 0 1px rgba(0, 0, 0, .2);
-}
-
-pre {
-    position: relative;
-    clear: both;
-    font-size: .95rem;
-    line-height: 1.25em;
-    margin-left: -2.5em;
-    margin-right: -2.5em;
-    padding: .8em 50px;
-    max-height: 380px;
-    overflow-y: auto;
-    background: #f2ede3 url("../Image/Background_pre.png");
-    transition: max-height .2s ease;
-}
-
-    pre + pre {
-        margin-top: .4em;
-    }
-
-    pre > code {
-        color: inherit;
-        font-size: .98rem;
-    }
-
-    code[class*="language-"] {
-        color: #000;
-    }
-
-    .language-php {
-        color: #07a !important;
-    }
-
-    .language-pp {
-        color: #549848 !important;
-    }
-
-    .token.comment,
-    .token.icomment,
-    .token.prolog,
-    .token.doctype,
-    .token.cdata {
-        color: #939393;
-    }
-
-    .token.selector,
-    .token.attr-name,
-    .token.string {
-        color: #549848;
-    }
-
-    .token.atrule,
-    .token.attr-value,
-    .token.keyword {
-        color: #07a;
-    }
-
-    .token.property,
-    .token.tag,
-    .token.number,
-    .token.constant {
-        color: #994f78;
-    }
-
-    .token.php,
-    .token.operator {
-        color: #926fa7;
-    }
-
-    .token.url,
-    .token.special_variable,
-    .token.variable {
-        color: #c68f26;
-    }
-
-    .token.punctuation {
-        color: #999;
-    }
-
-    .token.input {
-        text-decoration: blink;
-    }
-
-    .line-highlight,
-    .line-marker {
-        position: absolute;
-        background: rgba(255, 0, 0, .5);
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin-top: .65em;
-        padding: .15em 0;
-        pointer-events: none;
-        box-shadow: inset 0 -1px rgba(255, 255, 255, .8),
-                    inset 0  1px rgba(0,   0,   0,   .1);
-        background: hsla(24, 20%, 50%, .15);
-    }
-
-    .line-highlight::before,
-    .line-highlight[data-end]::after,
-    .line-marker::before {
-        content: attr(data-start);
-        position: absolute;
-        left: .5em;
-        font-size: .8em;
-        text-align: center;
-        width: 2.7em;
-        color: #fff;
-        border-radius: 12px;
-        box-shadow: inset 0 -1px rgba(255, 255, 255, .8),
-                    inset 0  1px rgba(0,   0,   0,   .1);
-        background: hsla(24, 20%, 50%, .4);
-    }
-
-    .line-highlight[data-end]::after {
-        content: attr(data-end);
-        bottom: .3em;
-    }
-
-    .line-marker[data-marker]::after {
-        content: attr(data-marker);
-        position: absolute;
-        left: 3em;
-    }
-
-    code mark {
-        position: relative;
-        color: inherit;
-        background: transparent;
-    }
-
-    code mark::after {
-        content: "";
-        position: absolute;
-        top: -.4em;
-        bottom: -.25em;
-        left: -.4em;
-        right: -.4em;
-        border: .19em #e80c0c solid;
-        border-radius: 5px;
-    }
 
 math {
     font-family: Text;
@@ -611,37 +383,6 @@ mo {
     math.tex mo {
         margin: 0;
         padding: 0;
-    }
-
-img {
-    max-width: 100%;
-    vertical-align: middle;
-    border: 0;
-    border-radius: inherit;
-}
-
-    div.avatar {
-        position: relative;
-        width: 80px;
-        height: 80px;
-        box-shadow: 0 0 10px #000;
-        border-radius: 50%;
-        border: 2px #fff solid;
-    }
-
-    div.avatar > img {
-        border-radius: 40px; /* 50% does not work with Presto */
-    }
-
-    div.avatar::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border-radius: 50%;
-        box-shadow: inset 0 0 12px #000;
     }
 
 div.overlay {
