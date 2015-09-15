@@ -14,7 +14,7 @@ pre {
     background: #f2ede3 url("../Image/Background_pre.png");
 }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 799px) {
         .verbatim,
         pre {
             margin-left: -3rem;

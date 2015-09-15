@@ -237,7 +237,7 @@ main {
     padding: 0 8rem;
 }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 799px) {
         main {
             padding-left: 3rem;
             padding-right: 3rem;
@@ -556,7 +556,7 @@ ul, ol {
         display: table-cell;
     }
 
-        @media all and (max-width: 800px) {
+        @media all and (max-width: 799px) {
             ul.tabular {
                 display: block;
             }
@@ -638,7 +638,7 @@ dt, dd {
         margin-bottom: 0;
     }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 799px) {
         dl.dialog p:first-of-type {
             margin-top: 110px !important;
         }
@@ -677,7 +677,7 @@ dt, dd {
         transition: transform .15s ease;
     }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 799px) {
         dl.grid dt {
             max-width: 190px;
         }
@@ -729,7 +729,7 @@ dt, dd {
         height: 13em;
     }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 799px) {
         dl.grill dt[aria-selected='true'] ~ dd {
             height: 26em;
         }
@@ -759,7 +759,7 @@ dt, dd {
         transition: opacity .2s ease .05s;
     }
 
-    @media all and (max-width: 800px) {
+    @media all and (max-width: 799px) {
         dl.grid dt[aria-selected='true'] ~ dd > div {
             max-height: 26em;
         }
@@ -796,7 +796,7 @@ blockquote {
         text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
     }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 799px) {
     blockquote {
         margin-left: 0;
         margin-right: 0;
@@ -816,7 +816,7 @@ figure {
         max-height: 75vh;
     }
 
-        @media all and (max-width: 800px) {
+        @media all and (max-width: 799px) {
             figure.landscape {
                 margin-left: -3rem;
                 margin-right: -3rem;
@@ -1094,7 +1094,7 @@ ul.prev_next > li + li {
         -webkit-columns: 5;
     }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 799px) {
     .columns[data-columns] {
         columns: 1;
         -moz-columns: 1;
@@ -1144,7 +1144,7 @@ table caption {
 .table      { display: table      }
 .table-cell { display: table-cell }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 799px) {
     .table-cell { display: block }
 }
 
@@ -1190,7 +1190,7 @@ table caption {
 .w75 { width: 75% }
 .w80 { width: 80% }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 799px) {
     .w20 { width: 100% }
     .w25 { width: 100% }
     .w30 { width: 100% }
@@ -1277,7 +1277,7 @@ p.warning {
         text-align: center;
     }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 799px) {
     .column.fleft,
     .column.fright {
         width: 100%;
