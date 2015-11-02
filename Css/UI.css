@@ -50,8 +50,11 @@ html {
         }
     }
 
+    html.menu #body {
+        opacity: .6;
+    }
+
     html.search #body {
-        box-shadow: 0 4em 1em 1em rgba(0, 0, 0, .3);
         opacity: .2;
     }
 
@@ -149,7 +152,6 @@ body {
     #menu a.about::before      { background-image: url('../Image/Icon/About.png'); }
 
 #body {
-    box-shadow: -.5em 0 1em rgba(0, 0, 0, .3);
     background: #fff url('../Image/Background_paper.png');
 }
 
