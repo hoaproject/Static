@@ -145,6 +145,7 @@ body {
     #menu a.blog::before       { background-image: url('../Image/Icon/Blog.png'); }
     #menu a.event::before      { background-image: url('../Image/Icon/Event.png'); }
     #menu a.community::before  { background-image: url('../Image/Icon/Community.png'); }
+    #menu a.shop::before       { background-image: url('../Image/Icon/Shop.png'); }
     #menu a.about::before      { background-image: url('../Image/Icon/About.png'); }
 
 #body {
