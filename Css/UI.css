@@ -127,6 +127,13 @@ body {
         -webkit-transition: -webkit-transform .15s ease-out;
     }
 
+    @media all and (max-height: 370px) {
+        #menu a::before {
+             width: 1.5em;
+             height: 1.5em;
+        }
+    }
+
     #menu a:hover::before {
         transform: translateX(-.5em);
         -webkit-transform: translateX(-.5em);
