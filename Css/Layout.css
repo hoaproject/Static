@@ -23,10 +23,20 @@ html, body {
         pointer-events: none;
     }
 
-        html.menu #menu {
+        html.menu #menu > ul > li > a {
+            opacity: 1;
             transform: translateX(0);
             -webkit-transform: translateX(0);
         }
+
+            html.menu #menu > ul > li > a.source     { transition-delay:   0s }
+            html.menu #menu > ul > li > a.literature { transition-delay: .01s }
+            html.menu #menu > ul > li > a.video      { transition-delay: .02s }
+            html.menu #menu > ul > li > a.blog       { transition-delay: .03s }
+            html.menu #menu > ul > li > a.event      { transition-delay: .05s }
+            html.menu #menu > ul > li > a.community  { transition-delay: .08s }
+            html.menu #menu > ul > li > a.shop       { transition-delay: .13s }
+            html.menu #menu > ul > li > a.about      { transition-delay: .21s }
 
         html.menu #body,
         html.menu [aria-controls="menu"] {
@@ -36,12 +46,14 @@ html, body {
 
         html.menu form[role="search"],
         html.search form[role="search"] {
+            opacity: 1;
             transform: translateY(0);
             -webkit-transform: translateY(0);
         }
 
-        html.search #menu {
+        html.search #menu > ul > li > a {
             transform: translateX(-25em);
+            transition-delay: 0;
             -webkit-transform: translateX(-25em);
         }
 
@@ -61,10 +73,11 @@ body {
     -webkit-perspective: 1000px;
 }
 
-#menu, #body, [aria-controls="menu"], form[role="search"] {
-    transition: transform .25s ease-out,
-                opacity   .25s ease-out;
-    -webkit-transition: -webkit-transform .25s ease-out;
+#menu > ul > li > a, #body, [aria-controls="menu"], form[role="search"] {
+    transition:
+        transform .35s cubic-bezier(.54, .09, .11, 1.33),
+        -webkit-transform .35s cubic-bezier(.54, .09, .11, 1.33),
+        opacity .25s ease-out;
 }
 
 #menu {
@@ -73,9 +86,6 @@ body {
     left: 0;
     height: 100%;
     padding-top: 3em;
-
-    transform: translateX(-5em);
-    -webkit-transform: translateX(-5em);
 }
 
     #menu > ul {
@@ -86,6 +96,13 @@ body {
 
     #menu > ul > li {
         display: table-row;
+    }
+
+    #menu > ul > li > a {
+        opacity: 0;
+        transform: translateX(-5em);
+        transition-delay: 0;
+        -webkit-transform: translateX(-5em);
     }
 
 #body {
@@ -104,6 +121,7 @@ form[role="search"] {
     left: 0;
     right: 0;
     line-height: 3em;
+    opacity: 0;
 
     transform: translateY(-1.5em);
     -webkit-transform: translateY(-1.5em);
