@@ -1279,6 +1279,10 @@ p.warning {
     background: linear-gradient(180deg, #feac26, #fe8c27);
 }
 
+    p.warning code {
+        color: inherit;
+    }
+
 .column.fleft,
 .column.fright {
     box-sizing: border-box;
