@@ -45,10 +45,11 @@ html, body {
         }
 
         html.menu form[role="search"],
-        html.search form[role="search"] {
+        html.search form[role="search"],
+        html.search #search_close {
             opacity: 1;
-            transform: translateY(0);
-            -webkit-transform: translateY(0);
+            transform: translateX(0) translateY(0);
+            -webkit-transform: translateX(0) translateY(0);
         }
 
         html.search #menu > ul > li > a {
@@ -73,7 +74,11 @@ body {
     -webkit-perspective: 1000px;
 }
 
-#menu > ul > li > a, #body, [aria-controls="menu"], form[role="search"] {
+#menu > ul > li > a,
+#body,
+[aria-controls="menu"],
+form[role="search"],
+#search_close {
     transition:
         transform .35s cubic-bezier(.54, .09, .11, 1.33),
         -webkit-transform .35s cubic-bezier(.54, .09, .11, 1.33),
@@ -125,6 +130,16 @@ form[role="search"] {
 
     transform: translateY(-1.5em);
     -webkit-transform: translateY(-1.5em);
+}
+
+#search_close {
+    position: absolute;
+    top: .85em;
+    left: 1em;
+    opacity: 0;
+
+    transform: translateX(-2.5em);
+    -webkit-transform: translateX(-2.5em);
 }
 
 [aria-controls="menu"] {

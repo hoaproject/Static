@@ -183,6 +183,10 @@ form[role='search'] {
         border-color: rgba(255, 255, 255, 1);
     }
 
+    #search_close {
+        width: 1.6em;
+    }
+
     #search_output {
         position: fixed;
         z-index: 2;
