@@ -340,7 +340,7 @@ Dz.setSlide = function (aIdx) {
         for (var i = 0; i < iframes.length; ++i) {
             var iframe = iframes.item(i);
             iframe.setAttribute('data-src', iframe.getAttribute('src'));
-            iframe.removeAttribute('src');
+            iframe.setAttribute('src', 'about:blank');
         }
     }
 
@@ -357,13 +357,17 @@ Dz.setSlide = function (aIdx) {
             video.play();
         }
 
-        var iframes = next.$$('iframe');
+        window.setTimeout(
+            function () {
+                var iframes = next.$$('iframe');
 
-        for (var i = 0; i < iframes.length; ++i) {
-            var iframe = iframes.item(i);
-            iframe.setAttribute('src', iframe.getAttribute('data-src'));
-            iframe.removeAttribute('data-src');
-        }
+                for (var i = 0; i < iframes.length; ++i) {
+                    var iframe = iframes.item(i);
+                    iframe.setAttribute('src', iframe.getAttribute('data-src'));
+                }
+            },
+            500
+        );
     } else {
         // That should not happen
         this.idx = -1;
