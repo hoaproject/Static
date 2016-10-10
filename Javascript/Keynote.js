@@ -6,12 +6,11 @@ var Dz = {
     slides       : null,
     progressBar  : null,
     params       : {
-        autoplay : '1'
+        autoplay: '1'
     }
 };
 
-Dz.init = function ( ) {
-
+Dz.init = function () {
     document.body.className = 'loaded';
     this.slides             = Array.prototype.slice.call($$('body > section'));
     this.progressBar        = $('#progress-bar');
@@ -23,76 +22,77 @@ Dz.init = function ( ) {
     this.setupView();
 }
 
-Dz.setupParams = function ( ) {
-
+Dz.setupParams = function () {
     var p = window.location.search.substr(1).split('&');
-    p.forEach(function(e, i, a) {
 
-        var keyVal           = e.split('=');
-        Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
-    });
+    p.forEach(
+        function(e, i, a) {
+            var keyVal           = e.split('=');
+            Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
+        }
+    );
 
     // Specific params handling
-    if(!+this.params.autoplay)
-        $$.forEach($$('video'), function ( v ) { v.controls = true });
+    if (!+this.params.autoplay) {
+        $$.forEach(
+            $$('video'),
+            function (v) {
+                v.controls = true;
+            }
+        );
+    }
 }
 
-Dz.onkeydown = function ( aEvent ) {
-
+Dz.onkeydown = function (aEvent) {
     // Don't intercept keyboard shortcuts
-    if(   aEvent.altKey
-       || aEvent.ctrlKey
-       || aEvent.metaKey
-       || aEvent.shiftKey)
+    if (aEvent.altKey ||
+        aEvent.ctrlKey ||
+        aEvent.metaKey ||
+        aEvent.shiftKey) {
         return;
+    }
 
     // Don't intercept whether an input has the focus.
-    if(   $(':focus') instanceof HTMLInputElement
-       && aEvent.keyCode != 13)
+    if ($(':focus') instanceof HTMLInputElement &&
+        aEvent.keyCode != 13) {
         return;
+    }
 
-    if(   aEvent.keyCode == 37    // left arrow
-       || aEvent.keyCode == 38    // up arrow
-       || aEvent.keyCode == 33) { // page up
-
+    if (aEvent.keyCode == 37 || // left arrow
+        aEvent.keyCode == 38 || // up arrow
+        aEvent.keyCode == 33) { // page up
         aEvent.preventDefault();
         this.back();
     }
 
-    if(   aEvent.keyCode == 39 // right arrow
-       || aEvent.keyCode == 40 // down arrow
-       || aEvent.keyCode == 34) { // page down
-
+    if (aEvent.keyCode == 39 || // right arrow
+        aEvent.keyCode == 40 || // down arrow
+        aEvent.keyCode == 34) { // page down
         aEvent.preventDefault();
         this.forward();
     }
 
-    if(aEvent.keyCode == 35) { // end
-
+    if (aEvent.keyCode == 35) { // end
         aEvent.preventDefault();
         this.goEnd();
     }
 
-    if(aEvent.keyCode == 36) { // home
-
+    if (aEvent.keyCode == 36) { // home
         aEvent.preventDefault();
         this.goStart();
     }
 
-    if(aEvent.keyCode == 32) { // space
-
+    if (aEvent.keyCode == 32) { // space
         aEvent.preventDefault();
         this.toggleContent();
     }
 
-    if(aEvent.keyCode == 70) { // f
-
+    if (aEvent.keyCode == 70) { // f
         aEvent.preventDefault();
         this.goFullscreen();
     }
 
-    if(aEvent.keyCode == 79) { // o
-
+    if (aEvent.keyCode == 79) { // o
         aEvent.preventDefault();
         this.toggleView();
     }
@@ -100,8 +100,7 @@ Dz.onkeydown = function ( aEvent ) {
 
 /* Touch Events */
 
-Dz.setupTouchEvents = function ( ) {
-
+Dz.setupTouchEvents = function () {
     var orgX, newX;
     var tracking = false;
 
@@ -109,47 +108,40 @@ Dz.setupTouchEvents = function ( ) {
     db.addEventListener('touchstart', start.bind(this), false);
     db.addEventListener('touchmove', move.bind(this), false);
 
-    function start ( aEvent ) {
-
+    function start(aEvent) {
         aEvent.preventDefault();
         tracking = true;
         orgX     = aEvent.changedTouches[0].pageX;
     }
 
     function move(aEvent) {
-
-        if(!tracking)
+        if (!tracking) {
             return;
+        }
 
         newX = aEvent.changedTouches[0].pageX;
 
-        if(orgX - newX > 100) {
-
+        if (orgX - newX > 100) {
             tracking = false;
             this.forward();
-        }
-        else {
-
-            if(orgX - newX < -100) {
-
-                tracking = false;
-                this.back();
-            }
+        } else if (orgX - newX < -100) {
+            tracking = false;
+            this.back();
         }
     }
 }
 
-Dz.setupView = function() {
-
+Dz.setupView = function () {
     document.body.addEventListener(
         'click',
-        function ( e ) {
-
-            if(!Dz.html.classList.contains('view'))
+        function (e) {
+            if (!Dz.html.classList.contains('view')) {
                 return;
+            }
 
-            if(!e.target || e.target.nodeName != 'SECTION')
+            if (!e.target || e.target.nodeName != 'SECTION') {
                 return;
+            }
 
             Dz.html.classList.remove('view');
             Dz.setCursor(Dz.slides.indexOf(e.target) + 1);
@@ -160,12 +152,11 @@ Dz.setupView = function() {
 
 /* Adapt the size of the slides to the window */
 
-Dz.onresize = function ( ) {
-
+Dz.onresize = function () {
     var db        = document.body;
     var sx        = db.clientWidth / window.innerWidth;
     var sy        = db.clientHeight / window.innerHeight;
-    var transform = 'scale(' + (1/Math.max(sx, sy)) + ')';
+    var transform = 'scale(' + (1 / Math.max(sx, sy)) + ')';
 
     db.style.MozTransform    = transform;
     db.style.WebkitTransform = transform;
@@ -174,25 +165,26 @@ Dz.onresize = function ( ) {
     db.style.transform       = transform;
 }
 
-
-Dz.getNotes = function ( aIdx ) {
-
+Dz.getNotes = function (aIdx) {
     var s = $('section:nth-of-type(' + aIdx + ')');
     var d = s.$('[role="note"]');
+
     return d ? d.innerHTML : '';
 }
 
-Dz.onmessage = function ( aEvent ) {
-
+Dz.onmessage = function (aEvent) {
     var argv = aEvent.data.split(' '),
         argc = argv.length;
 
-    argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
+    argv.forEach(
+        function (e, i, a) {
+            a[i] = decodeURIComponent(e)
+        }
+    );
 
     var win = aEvent.source;
 
-    if(argv[0] === 'REGISTER' && argc === 1) {
-
+    if (argv[0] === 'REGISTER' && argc === 1) {
         this.remoteWindows.push(win);
         this.postMsg(win, 'REGISTERED', document.title, this.slides.length);
         this.postMsg(win, 'CURSOR', this.idx + '.' + this.step);
@@ -200,70 +192,73 @@ Dz.onmessage = function ( aEvent ) {
         return;
     }
 
-    if(argv[0] === 'BACK' && argc === 1)
+    if (argv[0] === 'BACK' && argc === 1) {
         this.back();
+    }
 
-    if(argv[0] === 'FORWARD' && argc === 1)
+    if (argv[0] === 'FORWARD' && argc === 1) {
         this.forward();
+    }
 
-    if(argv[0] === 'START' && argc === 1)
+    if (argv[0] === 'START' && argc === 1) {
         this.goStart();
+    }
 
-    if(argv[0] === 'END' && argc === 1)
+    if (argv[0] === 'END' && argc === 1) {
         this.goEnd();
+    }
 
-    if(argv[0] === 'TOGGLE_CONTENT' && argc === 1)
+    if (argv[0] === 'TOGGLE_CONTENT' && argc === 1) {
         this.toggleContent();
+    }
 
-    if(argv[0] === 'SET_CURSOR' && argc === 2)
+    if (argv[0] === 'SET_CURSOR' && argc === 2) {
         window.location.hash = '#' + argv[1];
+    }
 
-    if(argv[0] === 'GET_CURSOR' && argc === 1)
+    if (argv[0] === 'GET_CURSOR' && argc === 1) {
         this.postMsg(win, 'CURSOR', this.idx + '.' + this.step);
+    }
 
-    if(argv[0] === 'GET_NOTES' && argc === 1)
+    if (argv[0] === 'GET_NOTES' && argc === 1) {
         this.postMsg(win, 'NOTES', this.getNotes(this.idx));
-}
-
-Dz.toggleContent = function ( ) {
-
-    // If a Video is present in this new slide, play it.
-    // If a Video is present in the previous slide, stop it.
-    var s = $('section[aria-selected]');
-
-    if(s) {
-
-        var video = s.$('video');
-
-        if(video)
-            if(video.ended || video.paused)
-                video.play();
-            else
-                video.pause();
     }
 }
 
-Dz.setCursor = function ( aIdx, aStep ) {
+Dz.toggleContent = function () {
+    // If a Video is present in this new slide, play it.
+    var s = $('section[aria-selected]');
 
+    if (s) {
+        var video = s.$('video');
+
+        if (video) {
+            if (video.ended || video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    }
+}
+
+Dz.setCursor = function (aIdx, aStep) {
     // If the user change the slide number in the URL bar, jump
     // to this slide.
     aStep = (aStep != 0 && typeof aStep !== 'undefined') ? '.' + aStep : '.0';
     window.location.hash = '#' + aIdx + aStep;
 }
 
-Dz.onhashchange = function ( ) {
-
+Dz.onhashchange = function () {
     var cursor  = window.location.hash.split('#'),
-      newidx  = 1,
-      newstep = 0;
+        newidx  = 1,
+        newstep = 0;
 
-    if(cursor.length == 2) {
-
-        newidx = ~~cursor[1].split('.')[0];
+    if (cursor.length == 2) {
+        newidx  = ~~cursor[1].split('.')[0];
         newstep = ~~cursor[1].split('.')[1];
 
-        if(newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
-
+        if (newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
             newstep = 0;
             newidx++;
         }
@@ -271,106 +266,120 @@ Dz.onhashchange = function ( ) {
 
     this.setProgress(newidx, newstep);
 
-    if(newidx != this.idx)
+    if (newidx != this.idx) {
         this.setSlide(newidx);
+    }
 
-    if(newstep != this.step)
+    if (newstep != this.step) {
         this.setIncremental(newstep);
+    }
 
-    for(var i = 0; i < this.remoteWindows.length; i++)
+    for (var i = 0; i < this.remoteWindows.length; i++) {
         this.postMsg(this.remoteWindows[i], 'CURSOR', this.idx + '.' + this.step);
+    }
 }
 
-Dz.back = function ( ) {
-
-    if(this.idx == 1 && this.step == 0)
+Dz.back = function () {
+    if (this.idx == 1 && this.step == 0) {
         return;
+    }
 
-    if(this.step == 0)
+    if (this.step == 0) {
         this.setCursor(this.idx - 1, this.slides[this.idx - 2].$$('.incremental > *').length);
-    else
+    } else {
         this.setCursor(this.idx, this.step - 1);
+    }
 }
 
-Dz.forward = function ( ) {
-
-    if(   this.idx >= this.slides.length
-       && this.step >= this.slides[this.idx - 1].$$('.incremental > *').length)
+Dz.forward = function () {
+    if (this.idx >= this.slides.length &&
+        this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
         return;
+    }
 
-    if(this.step >= this.slides[this.idx - 1].$$('.incremental > *').length)
+    if (this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
         this.setCursor(this.idx + 1, 0);
-    else
+    } else {
         this.setCursor(this.idx, this.step + 1);
+    }
 }
 
-Dz.goStart = function ( ) {
-
+Dz.goStart = function () {
     this.setCursor(1, 0);
 }
 
-Dz.goEnd = function ( ) {
-
+Dz.goEnd = function () {
     var lastIdx  = this.slides.length;
     var lastStep = this.slides[lastIdx - 1].$$('.incremental > *').length;
     this.setCursor(lastIdx, lastStep);
 }
 
-Dz.toggleView = function ( ) {
-
+Dz.toggleView = function () {
     this.html.classList.toggle('view');
 
-    if(this.html.classList.contains('view'))
+    if (this.html.classList.contains('view')) {
         $('section[aria-selected]').scrollIntoView(true);
+    }
 }
 
-Dz.setSlide = function ( aIdx ) {
-
+Dz.setSlide = function (aIdx) {
     this.idx = aIdx;
     var old  = $('section[aria-selected]');
     var next = $('section:nth-of-type('+ this.idx +')');
 
-    if(old) {
-
+    if (old) {
         old.removeAttribute('aria-selected');
         var video = old.$('video');
-        if(video)
+
+        if(video) {
             video.pause();
+        }
+
+        var iframes = old.$$('iframe');
+
+        for (var i = 0; i < iframes.length; ++i) {
+            var iframe = iframes.item(i);
+            iframe.setAttribute('data-src', iframe.getAttribute('src'));
+            iframe.removeAttribute('src');
+        }
     }
 
-    if(next) {
-
+    if (next) {
         next.setAttribute('aria-selected', 'true');
 
-        if(this.html.classList.contains('view'))
+        if (this.html.classList.contains('view')) {
             next.scrollIntoView();
+        }
 
         var video = next.$('video');
 
-        if(video && !!+this.params.autoplay)
+        if (video && !!+this.params.autoplay) {
             video.play();
-    }
-    else {
+        }
 
+        var iframes = next.$$('iframe');
+
+        for (var i = 0; i < iframes.length; ++i) {
+            var iframe = iframes.item(i);
+            iframe.setAttribute('src', iframe.getAttribute('data-src'));
+            iframe.removeAttribute('data-src');
+        }
+    } else {
         // That should not happen
         this.idx = -1;
-        // console.warn('Slide doesn't exist.');
     }
 }
 
-Dz.setIncremental = function ( aStep ) {
-
+Dz.setIncremental = function (aStep) {
     this.step = aStep;
     var old   = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
 
-    if(old) {
-
+    if (old) {
         old.removeAttribute('aria-selected');
         old.parentNode.removeAttribute('data-active');
         var p = old;
 
-        while('SECTION' !== p.tagName) {
-
+        while ('SECTION' !== p.tagName) {
             p.removeAttribute('data-active');
             p = p.parentNode;
         }
@@ -378,69 +387,68 @@ Dz.setIncremental = function ( aStep ) {
 
     var incrementals = $$('.incremental');
 
-    if(this.step <= 0) {
-
-        $$.forEach(incrementals, function ( aNode ) {
-
-            aNode.removeAttribute('data-active');
-        });
+    if (this.step <= 0) {
+        $$.forEach(
+            incrementals,
+            function ( aNode ) {
+                aNode.removeAttribute('data-active');
+            }
+        );
 
         return;
     }
 
     var next = this.slides[this.idx - 1].$$('.incremental > *')[this.step - 1];
 
-    if(next) {
-
+    if (next) {
         next.setAttribute('aria-selected', true);
 
         var p                         = next.parentNode;
         var greatestIncrementalParent = null;
 
-        while('SECTION' !== p.tagName) {
-
-            if(p.classList.contains('incremental'))
+        while ('SECTION' !== p.tagName) {
+            if (p.classList.contains('incremental')) {
                 greatestIncrementalParent = p;
+            }
 
             p = p.parentNode;
         }
 
         p = next.parentNode;
 
-        if(null !== greatestIncrementalParent)
-            while('SECTION' !== p.tagName) {
-
+        if (null !== greatestIncrementalParent) {
+            while ('SECTION' !== p.tagName) {
                 p.setAttribute('data-active', true);
                 p = p.parentNode;
             }
+        }
 
-        if(next.hasAttribute('onincrement')) {
-
+        if (next.hasAttribute('onincrement')) {
             next.onincrement = new Function(next.getAttribute('onincrement'));
             next.onincrement();
         }
-    }
-    else
+    } else {
         setCursor(this.idx, 0);
+    }
 
     return next;
 }
 
-Dz.goFullscreen = function ( ) {
-
+Dz.goFullscreen = function () {
     var html = $('html'),
         requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
 
-    if(requestFullscreen)
+    if (requestFullscreen) {
         requestFullscreen.apply(html);
+    }
 }
 
-Dz.setProgress = function ( aIdx, aStep ) {
-
+Dz.setProgress = function (aIdx, aStep) {
     var slide = $('section:nth-of-type('+ aIdx +')');
 
-    if(!slide)
+    if (!slide) {
         return;
+    }
 
     var steps                    = slide.$$('.incremental > *').length + 1,
     slideSize                    = 100 / (this.slides.length - 1),
@@ -448,17 +456,17 @@ Dz.setProgress = function ( aIdx, aStep ) {
     this.progressBar.style.width = ((aIdx - 1) * slideSize + aStep * stepSize) + '%';
 }
 
-Dz.postMsg = function ( aWin, aMsg ) { // [arg0, [arg1...]]
-
+Dz.postMsg = function (aWin, aMsg) { // [arg0, [arg1...]]
     aMsg = [aMsg];
 
-    for(var i = 2; i < arguments.length; i++)
+    for (var i = 2; i < arguments.length; i++) {
         aMsg.push(encodeURIComponent(arguments[i]));
+    }
 
     aWin.postMessage(aMsg.join(' '), '*');
 }
 
-function init ( ) {
+function init() {
 
     Dz.init();
     window.onkeydown    = Dz.onkeydown.bind(Dz);
@@ -470,58 +478,40 @@ function init ( ) {
 window.onload = init;
 
 if(!Function.prototype.bind) {
-
     Function.prototype.bind = function (oThis) {
-
         // closest thing possible to the ECMAScript 5 internal IsCallable
         // function 
-        if(typeof this !== 'function')
+        if (typeof this !== 'function') {
             throw new TypeError(
                 'Function.prototype.bind - what is trying to be fBound is not callable'
             );
-
+        }
+            
         var aArgs = Array.prototype.slice.call(arguments, 1),
         fToBind   = this,
-        fNOP      = function ( ) {},
-        fBound    = function ( ) {
-
+        fNOP      = function () {},
+        fBound    = function () {
             return fToBind.apply(
-                       this instanceof fNOP ? this : oThis || window,
-                       aArgs.concat(Array.prototype.slice.call(arguments))
-                   );
+                this instanceof fNOP ? this : oThis || window,
+                aArgs.concat(Array.prototype.slice.call(arguments))
+            );
         };
 
-        fNOP.prototype = this.prototype;
+        fNOP.prototype   = this.prototype;
         fBound.prototype = new fNOP();
 
         return fBound;
     };
 }
 
-var $ = (HTMLElement.prototype.$ = function ( aQuery ) {
-
+var $ = (HTMLElement.prototype.$ = function (aQuery) {
     return this.querySelector(aQuery);
 }).bind(document);
 
-var $$ = (HTMLElement.prototype.$$ = function ( aQuery ) {
-
+var $$ = (HTMLElement.prototype.$$ = function (aQuery) {
       return this.querySelectorAll(aQuery);
 }).bind(document);
 
-$$.forEach = function ( nodeList, fun ) {
-
+$$.forEach = function (nodeList, fun) {
     Array.prototype.forEach.call(nodeList, fun);
 }
-
-
-// Piwik.
-var _paq = _paq || [];
-_paq.push(['trackPageView']);
-_paq.push(['enableLinkTracking']);
-(function() {
-    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.hoa-project.net/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 4]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-})();
