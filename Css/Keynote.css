@@ -131,7 +131,7 @@ body.loaded {
         visibility: visible !important;
     }
 
-    .view .incremental-overlay > *::first-child {
+    .view .incremental-overlay > *:first-child {
         display: inline;
     }
 
@@ -253,26 +253,25 @@ section[aria-selected] ~ section {
     .view section {
         box-shadow: 0 0 20px #000;
         transition: none;
+        overflow: visible;
     }
 
-    .view section:after {
+    .view section::after {
         counter-increment: slideidx;
         content: counter(slideidx, decimal-leading-zero);
         position: absolute;
-        bottom: -80px;
-        right: 100px;
+        bottom: -60px;
+        right: 0;
 
         color: #fff;
         text-shadow: 0 1px 1px #8d8e90;
         font-size: 180%;
     }
 
-    /*
     .view section[aria-selected] {
         border: 5px #f9eb72 solid;
         border-radius: 10px;
     }
-    */
 
 details {
     display: none;
@@ -385,6 +384,13 @@ mo {
         margin: 0;
         padding: 0;
     }
+
+section pre {
+    margin-left: -2.4rem;
+    margin-right: -2.4rem;
+    padding-left: 3em;
+    padding-right: 3em;
+}
 
 div.overlay {
     position: relative;
