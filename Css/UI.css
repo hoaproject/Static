@@ -1108,6 +1108,24 @@ ul.prev_next > li + li {
         -webkit-columns: 5;
     }
 
+    .columns[data-columns='6'] {
+        columns: 6;
+        -moz-columns: 6;
+        -webkit-columns: 6;
+    }
+
+    .columns[data-columns='7'] {
+        columns: 7;
+        -moz-columns: 7;
+        -webkit-columns: 7;
+    }
+
+    .columns[data-columns='8'] {
+        columns: 8;
+        -moz-columns: 8;
+        -webkit-columns: 8;
+    }
+
 @media all and (max-width: 799px) {
     .columns[data-columns] {
         columns: 1;
