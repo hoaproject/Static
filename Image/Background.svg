@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="680" version="1">
+  <filter id="blur">
+    <feGaussianBlur stdDeviation="12" />
+  </filter>
+  <g filter="url(#blur)">
+    <path fill="#765d5a" d="M0 0h1024v680H0z"/>
+    <g fill-opacity="0.501961">
+      <path fill="#f6d6c7" d="M-22 14l1036 440 72-516z"/>
+      <path d="M-62 674l900-372 248 376z"/>
+      <path fill="#0f0005" d="M58 386l1028 240L66 742z"/>
+      <path fill="#fffceb" d="M642-62l396 432-8-348z"/>
+      <path fill="#8c6766" d="M1026 278L214-62l164 664z"/>
+      <path d="M1078 426L394 570l620 172z"/>
+      <path fill="#ab9483" d="M-42 430l880-308L78-62z"/>
+      <path fill="#cfbaa5" d="M1086 434l-348-92 92 100z"/>
+      <path fill="#371725" d="M494 426L210 314l8 244z"/>
+      <path fill="#0c0002" d="M650 342l84 400 352-204z"/>
+      <path fill="#1e0018" d="M134 410l92 332-288-284z"/>
+      <path fill="#7f5c58" d="M966 302L834 470 698 174z"/>
+      <path fill="#f8e0d3" d="M858-62L378-6l708 144z"/>
+      <path fill="#c893b1" d="M438 438l-32 104 80 4z"/>
+      <path fill="#9a9077" d="M230 530l-36-196-176-60z"/>
+      <path fill="#bcaf96" d="M518 434l152-84-168-28z"/>
+      <path fill="#ccc5a5" d="M206 146L42 130 246-62z"/>
+      <path fill="#4d4b35" d="M26 106l-60-80 156-48z"/>
+      <path fill="#fff" d="M1086 362l-112-76-8 52z"/>
+      <path fill="#715651" d="M322 138l-92 204 140 212z"/>
+      <path fill="#462730" d="M490 526l-52-160 232 244z"/>
+      <path fill="#280216" d="M438 638L222 358l-60 384z"/>
+      <path fill="#c89b9a" d="M998 302L530 6l304 72z"/>
+      <path fill="#6f544c" d="M598 270L234 502l288-340z"/>
+      <path fill="#d6c8b6" d="M874 426l-4-60 148 80z"/>
+      <path fill="#230715" d="M606 490l-68 188 548-240z"/>
+      <path fill="#725058" d="M510 518l72 40 104-264z"/>
+      <path fill="#beaa8f" d="M566 226L762-62l-80 332z"/>
+      <path fill="#fffff8" d="M942-62l12 184-108-24z"/>
+      <path fill="#8b756a" d="M662 278l400 88-232 72z"/>
+      <path fill="#3a2b23" d="M774 570l92-156 40 92z"/>
+      <path fill="#888860" d="M106-62L-62 366l128 88z"/>
+      <path d="M738 638l292 52 52-296z"/>
+      <path fill="#8e6971" d="M94 162L402 18 182 438z"/>
+      <path fill="#291a16" d="M386 546l-44-156 76 20z"/>
+      <path fill="#453631" d="M378 670l-60-44 240-140z"/>
+      <path fill="#0e0005" d="M618 662L470 446l24 124z"/>
+      <path fill="#9c6b7b" d="M870 182L722 390 662 94z"/>
+      <path fill="#67495e" d="M86 454L42 678l-104-64z"/>
+      <path fill="#cec4a4" d="M458-62L162 86 66-62z"/>
+      <path fill="#7d6065" d="M134 526l60-204 24 148z"/>
+      <path fill="#1f0014" d="M410 566L82 742 70 502z"/>
+      <path fill="#1d0016" d="M218 426l28-44 88 64z"/>
+      <path fill="#4d2138" d="M650 362l-60 60 172 108z"/>
+      <path fill="#0a0002" d="M666 642l88-264 100 96z"/>
+      <path fill="#b0ac98" d="M318 402l-72-24 92 64z"/>
+      <path fill="#9e8878" d="M342 386l84-12-60-288z"/>
+      <path fill="#815c60" d="M598 358l192-140 172 120z"/>
+      <path fill="#a27279" d="M646 94L546 18 422 270z"/>
+      <path d="M106 406l-44 44 100 24z"/>
+      <path fill="#a97393" d="M426 506l24-72 40 100z"/>
+      <path fill="#a4927f" d="M514 434l-28-88 244-172z"/>
+      <path fill="#2e081f" d="M634 678l-40-172 176-128z"/>
+      <path fill="#766056" d="M-46 158l204 148 32-72z"/>
+      <path fill="#664e45" d="M526 298L398 518l28-276z"/>
+      <path fill="#fff" d="M994 350l92-28-136-8z"/>
+      <path fill="#a58985" d="M66 94l276 60-304 36z"/>
+      <path fill="#f8f2cc" d="M934 250l92-140-40 144z"/>
+      <path fill="#b3a384" d="M946 318l136-200 4 116z"/>
+      <path fill="#5b2f40" d="M374 562l-72-132-48 32z"/>
+      <path fill="#473331" d="M870 482l-128 64 128-8z"/>
+      <path fill="#60453e" d="M218 330l116-40v136z"/>
+      <path fill="#3f272d" d="M-62 398l296 132-228 4z"/>
+      <path fill="#0c0000" d="M290 510l28 232-108-184z"/>
+      <path fill="#736d53" d="M390 610l-16 28-48-28z"/>
+      <path fill="#b78792" d="M218-62L522 66l-40 104z"/>
+      <path fill="#c49ca0" d="M906-2l76-60 96 132z"/>
+      <path fill="#b59c87" d="M562 462l-12 24-28-48z"/>
+      <path fill="#d2aca4" d="M850 190l180-136-128 192z"/>
+      <path fill="#d2c2b3" d="M1002 450l-152-44 152-8z"/>
+      <path fill="#dabeb0" d="M890-62L734 74l76 56z"/>
+      <path fill="#514c3d" d="M130 406l-72-4-8-64z"/>
+      <path fill="#8e776e" d="M866 394L682 286l160 168z"/>
+      <path fill="#1e060f" d="M774 658l-168 84-288-160z"/>
+      <path fill="#0d0300" d="M838 486l24-68 20 32z"/>
+      <path fill="#310a1d" d="M674 358l56 140 52-72z"/>
+      <path fill="#403d33" d="M666 630l-48 12 52-96z"/>
+      <path fill="#614d4c" d="M954 450l-64 8-20-28z"/>
+      <path fill="#b9b283" d="M-62 402l104 24-20-64z"/>
+      <path fill="#040009" d="M1038 394l-32 28 68-16z"/>
+      <path fill="#d3b2a8" d="M246-62L762-2 450 46z"/>
+      <path fill="#4c2130" d="M470 630l120-24-64 52z"/>
+      <path fill="#9d6a81" d="M586 494l40-28-48-28z"/>
+      <path fill="#220019" d="M258 398l-4 148-48-156z"/>
+      <path d="M682 526l296 104H670z"/>
+      <path fill="#baac95" d="M614 266l-28-128 132 72z"/>
+      <path fill="#8b6c67" d="M574 258L454 362l252-64z"/>
+      <path fill="#5e3d47" d="M686 482l-108-64 116-16z"/>
+      <path fill="#b98399" d="M706 150l148-28 52 128z"/>
+      <path fill="#b5a792" d="M606 398l-40-48-60 76z"/>
+      <path fill="#372b28" d="M634 390l-112 44 36 16z"/>
+      <path fill="#66674c" d="M586 566l-4-40-80-8z"/>
+      <path fill="#b4b48a" d="M378 594l36-8-8-8z"/>
+      <path fill="#614b4c" d="M1086 402l-28-48-80 4z"/>
+      <path fill="#2b2318" d="M402 610l-64-24 40-96z"/>
+      <path fill="#816559" d="M810 426l160-124-192-60z"/>
+      <path fill="#b09280" d="M550 6l164 276 24-144z"/>
+      <path fill="#53333f" d="M158 466l-16 96 104-48z"/>
+      <path fill="#1e0011" d="M466 598l28-128 28 32z"/>
+      <path fill="#0e0008" d="M546 674l80-12 12-196z"/>
+    </g>
+  </g>
+</svg>
